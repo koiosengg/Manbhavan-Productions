@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "/Navbar Logo.png";
 
 function Navbar() {
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        // scrolling down
+        setShowHeader(false);
+      } else {
+        // scrolling up
+        setShowHeader(true);
+      }
+
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <header>
+    <header className={showHeader ? "header show" : "header hide"}>
       <img src={Logo} alt="Manbhavan Productions Logo" />
       <nav>
         <a href="#">Home</a>

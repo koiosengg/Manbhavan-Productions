@@ -159,14 +159,29 @@ header {
   align-items: center;
   gap: 80px;
   border-radius: 8px;
-  border: 1px solid var(--color-grey-50, #f2f2f2);
-  background: var(--White, #fff);
-  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #f2f2f2;
+  background: #fff;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+
   position: fixed;
   z-index: 1000;
   top: 24px;
   left: 50%;
   transform: translateX(-50%);
+
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+/* 👇 visible */
+.header.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+/* 👇 hidden (slide up) */
+.header.hide {
+  transform: translate(-50%, -120%);
+  opacity: 0;
 }
 
 header img {
@@ -469,54 +484,51 @@ header nav a:hover {
 }
 
 .home-reality-wrapper {
-  min-height: 150svh;
+  min-height: 200svh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   position: relative;
 }
 
 .home-reality {
+  position: sticky;
+  top: 0;
+
   display: flex;
   padding: 80px 160px;
-  justify-content: center;
   flex-direction: column;
-  align-items: flex-start;
   gap: 64px;
-
-  position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
 
   opacity: 0;
 
   animation: realitySectionAnim linear forwards;
-  animation-timeline: view(10svh 10svh);
-  transition: all 0.3s;
+  animation-timeline: view();
+  animation-range: entry 20% exit 80%;
 }
 
 @keyframes realitySectionAnim {
   0% {
-    transform: translateY(50%) scale(0.8);
     opacity: 0;
+    scale: 0.8;
     filter: blur(20px);
   }
 
   20% {
-    transform: translateY(-50%) scale(1);
     opacity: 1;
+    scale: 1;
     filter: blur(0);
   }
 
-  85% {
-    transform: translateY(-50%) scale(1);
+  80% {
     opacity: 1;
+    scale: 1;
     filter: blur(0);
   }
 
   100% {
-    transform: translateY(-200px) scale(0.8);
     opacity: 0;
+    scale: 0.8;
     filter: blur(20px);
   }
 }
@@ -811,7 +823,7 @@ header nav a:hover {
 
 .home-parle-wrapper {
   width: 100%;
-  min-height: 100svh;
+  min-height: 200svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -828,37 +840,12 @@ header nav a:hover {
   padding: 80px 0px;
 
   position: sticky;
-
+  top: 0;
   opacity: 0;
 
-  animation: parleSectionAnim linear forwards;
-  animation-timeline: view(70svh 30svh);
-}
-
-@keyframes parleSectionAnim {
-  0% {
-    transform: translateY(50svh) scale(0.8);
-    opacity: 0;
-    filter: blur(20px);
-  }
-
-  50% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    filter: blur(0px);
-  }
-
-  80% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    filter: blur(0px);
-  }
-
-  100% {
-    transform: translateY(-50svh) scale(0.8);
-    opacity: 0;
-    filter: blur(20px);
-  }
+  animation: realitySectionAnim linear forwards;
+  animation-timeline: view();
+  animation-range: entry 20% exit 80%;
 }
 
 .home-parle .template-heading {
@@ -939,14 +926,13 @@ header nav a:hover {
   padding: 80px 160px;
 
   position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
 
   opacity: 0;
 
   animation: realitySectionAnim linear forwards;
-  animation-timeline: view(10svh 10svh);
-  transition: all 0.3s;
+  animation-timeline: view();
+  animation-range: entry 20% exit 80%;
 }
 
 .home-holi-img {
@@ -1026,8 +1012,18 @@ header nav a:hover {
   color: var(--color-grey-700, #575757);
 }
 
+.home-diwali .home-holi-img img {
+  max-height: 80svh;
+  height: 100%;
+  width: auto;
+}
+
 .home-diwali .home-holi-content h3 {
   line-height: 120%;
+}
+
+.home-diwali .home-holi-content h3 span {
+  display: inline-flex;
 }
 
 .home-diwali-numbers {
@@ -1069,7 +1065,7 @@ header nav a:hover {
 .home-impact-wrapper {
   min-height: 200svh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   position: relative;
 }
@@ -1084,14 +1080,13 @@ header nav a:hover {
   padding: 80px 160px;
 
   position: sticky;
-  top: 100%;
-  transform: translateY(-50%);
+  top: 0;
 
   opacity: 0;
 
   animation: realitySectionAnim linear forwards;
-  animation-timeline: view(10svh 10svh);
-  transition: all 0.3s;
+  animation-timeline: view();
+  animation-range: entry 20% exit 80%;
 }
 
 .home-impact .template-heading p {
@@ -1276,7 +1271,7 @@ header nav a:hover {
 .home-brands-wrapper {
   min-height: 150svh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   position: relative;
 }
@@ -1290,14 +1285,13 @@ header nav a:hover {
   padding: 80px 0px 80px 160px;
 
   position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
 
   opacity: 0;
 
   animation: realitySectionAnim linear forwards;
-  animation-timeline: view(10svh 10svh);
-  transition: all 0.3s;
+  animation-timeline: view();
+  animation-range: entry 20% exit 80%;
 }
 
 .home-brands .template-heading h3 span {
@@ -1479,7 +1473,7 @@ header nav a:hover {
 }
 
 .home-services-set {
-  height: 200svh;
+  height: 100svh;
   width: 100%;
 }
 
