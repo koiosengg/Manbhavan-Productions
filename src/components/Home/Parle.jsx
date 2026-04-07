@@ -52,23 +52,6 @@ function Parle() {
               Campaign
             </span>
           </h3>
-        </div>
-
-        <div className="home-parle-container" ref={containerRef}>
-          <div
-            className="home-parle-slide"
-            ref={slideRef}
-            style={{
-              transform: `translateX(${translateX}px)`,
-              transition: "transform 0.4s ease",
-              display: "flex",
-            }}
-          >
-            <Campaign1 />
-            <Campaign2 />
-            <Campaign3 />
-            <Campaign4 />
-          </div>
 
           <div className="home-brands-buttons">
             <button
@@ -152,6 +135,23 @@ function Parle() {
                 </g>
               </svg>
             </button>
+          </div>
+        </div>
+
+        <div className="home-parle-container" ref={containerRef}>
+          <div
+            className="home-parle-slide"
+            ref={slideRef}
+            style={{
+              transform: `translateX(${translateX}px)`,
+              transition: "transform 0.4s ease",
+              display: "flex",
+            }}
+          >
+            <Campaign1 />
+            <Campaign2 />
+            <Campaign3 />
+            <Campaign4 />
           </div>
         </div>
       </div>

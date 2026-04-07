@@ -458,7 +458,7 @@ header nav a:hover {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: marqueeScroll 30s linear infinite;
+  animation: marqueeScroll 30s linear infinite reverse;
 }
 
 .home-marquee-container img {
@@ -924,6 +924,13 @@ header nav a:hover {
   width: 100%;
   aspect-ratio: 257/174;
   object-fit: cover;
+}
+
+.home-parle .template-heading svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
 }
 
 .home-holi {
@@ -1583,15 +1590,34 @@ header nav a:hover {
   color: var(--color-black-300, #606060);
 }
 
+.home-art-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  position: sticky;
+  top: 0;
+
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+
+  animation: realitySectionAnim linear forwards;
+  animation-timeline: view();
+  animation-range: entry 20% exit 80%;
+}
+
 .home-art {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 120px 160px;
-  background: #550b0d;
   position: relative;
-  overflow: hidden;
   z-index: 2;
 }
 
@@ -1650,6 +1676,25 @@ header nav a:hover {
   flex-direction: column;
   gap: 64px;
   padding: 80px 0px;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  position: sticky;
+  top: 0;
+
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+
+  animation: realitySectionAnim linear forwards;
+  animation-timeline: view();
+  animation-range: entry 20% exit 80%;
 }
 
 .home-bts .template-heading {
@@ -1675,7 +1720,7 @@ header nav a:hover {
   content: "";
   position: absolute;
   width: 30%;
-  height: 100%;
+  height: 60%;
   left: 0px;
   top: 50%;
   transform: translate(-10%, -50%);
@@ -1688,7 +1733,7 @@ header nav a:hover {
   content: "";
   position: absolute;
   width: 30%;
-  height: 100%;
+  height: 60%;
   right: 0px;
   top: 50%;
   transform: translate(10%, -50%);
@@ -1756,6 +1801,24 @@ header nav a:hover {
   flex-direction: column;
   gap: 80px;
   padding: 80px 0px;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  position: sticky;
+  top: 0;
+
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+
+  animation: realitySectionAnim linear forwards;
+  animation-timeline: view();
 }
 
 .home-testimony .template-heading {

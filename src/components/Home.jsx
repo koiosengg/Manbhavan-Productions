@@ -12,7 +12,6 @@ import Diwali from "./Home/Diwali";
 import Impact from "./Home/Impact";
 import BTS from "./Home/BTS";
 import Art from "./Home/Art";
-import Mind from "./Home/Mind";
 
 function Home() {
   return (
@@ -27,7 +26,6 @@ function Home() {
       <Impact />
       <Services />
       <Art />
-      <Mind />
       <BTS />
       <Testimony />
       <Contact />
