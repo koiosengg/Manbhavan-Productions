@@ -3,6 +3,7 @@ import PostProduction from "../../assets/Home/Impact/Post Production.svg";
 import Development from "../../assets/Home/Impact/Development.svg";
 import PreProduction from "../../assets/Home/Impact/Pre Production.svg";
 import Timeline from "../../assets/Home/Impact/Timeline.png";
+import Line from "../../assets/Home/Impact/Timeline Line.png";
 
 function Impact() {
   const items = [
@@ -110,6 +111,8 @@ function Impact() {
             </div>
           </div>
           <div className="home-impact-container-right">
+            <img src={Line} className="home-impact-line" />
+
             <div className="home-impact-right">
               <div className="home-impact-right-marquee">
                 <img src={Timeline} alt="Timeline" />
