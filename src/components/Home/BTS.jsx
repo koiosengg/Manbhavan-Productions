@@ -16,8 +16,23 @@ function BTS() {
 
   const slideRef = useRef(null);
 
-  const baseClasses = [3, 2, 1, 0, 1, 2, 3];
+  const [baseClasses, setBaseClasses] = useState([3, 2, 1, 0, 1, 2, 3]);
   const STEP = 16;
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setBaseClasses([1, 0, 1]); // mobile
+      } else {
+        setBaseClasses([3, 2, 1, 0, 1, 2, 3]); // desktop
+      }
+    };
+
+    handleResize(); // run once
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const next = () => {
     setTranslateX((prev) => prev - STEP);
@@ -87,8 +102,10 @@ function BTS() {
             }}
           >
             {images.map((img, index) => {
-              const isActive = index >= activeStart && index < activeStart + 7;
+              const visibleCount = baseClasses.length;
 
+              const isActive =
+                index >= activeStart && index < activeStart + visibleCount;
               return (
                 <article
                   key={index}

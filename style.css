@@ -2628,6 +2628,156 @@ footer {
     letter-spacing: -0.32px;
   }
 
+  .home-art-wrapper {
+    min-height: auto;
+  }
+
+  .home-art {
+    padding: 64px 20px;
+  }
+
+  .home-art img {
+    width: 100%;
+  }
+
+  .home-art-container {
+    width: 80%;
+    padding: 0px 20px;
+    padding-top: 32px;
+  }
+
+  .home-art-container h2 {
+    color: var(--White, #fff);
+    text-align: left;
+    font-family: "Press Start 2P";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -1.12px;
+    text-transform: uppercase;
+  }
+
+  .home-bts {
+    padding: 64px 0px;
+    min-height: auto;
+  }
+
+  .home-bts .template-heading {
+    padding: 0px 20px;
+    gap: 20px;
+  }
+
+  .home-bts .template-heading h3 {
+    width: 100%;
+  }
+
+  .home-bts .template-heading p {
+    width: 100%;
+  }
+
+  .home-bts-container {
+    gap: 32px;
+  }
+
+  .home-bts-set-0 {
+    width: 40%;
+  }
+
+  .home-bts-set-1 {
+    width: calc(30% - 16px);
+  }
+
+  .home-bts-container::after {
+    height: 100%;
+  }
+
+  .home-bts-container::before {
+    height: 100%;
+  }
+
+  .home-testimony {
+    min-height: auto;
+    gap: 40px;
+  }
+
+  .home-testimony .template-heading {
+    padding: 0px 20px;
+    align-items: flex-start;
+  }
+
+  .home-testimony .template-heading h3 {
+    width: 100%;
+  }
+
+  .home-testimony .template-heading svg {
+    width: 40px;
+    height: 40px;
+    transform: translateY(5px);
+  }
+
+  .home-marquee-container img {
+    height: 32px;
+    margin-left: 0px;
+  }
+
+  .home-testimony-set {
+    gap: 16px;
+  }
+
+  .home-testimony-set-content .l-regular {
+    color: var(--color-black-400, #414141);
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.32px;
+  }
+
+  .home-contact {
+    padding: 64px 20px 200px 20px;
+  }
+
+  .home-contact-heading {
+    width: 100%;
+  }
+
+  .home-contact-heading h2 {
+    color: var(--White, #fff);
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.64px;
+  }
+
+  .home-contact-heading p {
+    color: var(--color-black-50, #e7e7e7);
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.32px;
+  }
+
+  .home-contact-form {
+    width: 100%;
+  }
+
+  .home-contact-form-inputs input,
+  .home-contact-form-inputs textarea {
+    font-size: 16px;
+  }
+
+  .home-contact-form-inputs-container {
+    flex-direction: column;
+  }
+
   /* Footer */
 
   footer {
