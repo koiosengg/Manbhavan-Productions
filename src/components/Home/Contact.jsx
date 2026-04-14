@@ -94,7 +94,11 @@ function Contact() {
           magic.
         </p>
       </div>
-      <form className="home-contact-form">
+      <form
+        className="home-contact-form"
+        action="https://formspree.io/f/xeevqyag"
+        method="POST"
+      >
         <div className="home-contact-form-inputs">
           <div className="home-contact-form-inputs-container">
             <input

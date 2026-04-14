@@ -1963,6 +1963,7 @@ body {
   align-items: center;
   gap: 12px;
   align-self: stretch;
+  cursor: pointer;
 }
 
 .home-contact-form-inputs {
