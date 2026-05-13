@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import CommercialsImage from "../../assets/Home/Services/Commercials/IMAGE.png";
 import CommercialsSVG from "../../assets/Home/Services/Commercials/SVG.svg";
 import NarrativesImage from "../../assets/Home/Services/Narratives/IMAGE.png";
@@ -10,9 +10,89 @@ import AISVG from "../../assets/Home/Services/AI/SVG.svg";
 import EventImage from "../../assets/Home/Services/Event/IMAGE.png";
 import EventSVG from "../../assets/Home/Services/Event/SVG.svg";
 
+const slides = [
+  {
+    image: CommercialsImage,
+    svg: CommercialsSVG,
+    title: "Brand & Commercials",
+    desc: "Brand Films | Digital Advertisement | TVC's | Corporate Films | Product Films",
+    imgAlt: "Brand & Commercials Image",
+    svgAlt: "Brand & Commercials SVG",
+  },
+  {
+    image: NarrativesImage,
+    svg: NarrativesSVG,
+    title: "Narratives",
+    desc: "Feature Films | Short Films | Web Series",
+    imgAlt: "Narratives Image",
+    svgAlt: "Narratives SVG",
+  },
+  {
+    image: VisualImage,
+    svg: VisualSVG,
+    title: "Visual & Cultural",
+    desc: "Music Videos | Fashion Films | Documentary | Talk Shows",
+    imgAlt: "Visual & Cultural Image",
+    svgAlt: "Visual & Cultural SVG",
+  },
+  {
+    image: AIImage,
+    svg: AISVG,
+    title: "AI Filmmaking",
+    desc: "AI Concept Visualization | Virtual Scene Creation | AI Generated Storyboarding | Hybrid AI + Live Action Production | AI Commercial & Digital Content Creation",
+    imgAlt: "AI Image",
+    svgAlt: "AI SVG",
+  },
+  {
+    image: EventImage,
+    svg: EventSVG,
+    title: "Event Management",
+    desc: "Corporate Events | Live Broadcasting | Experiential Installations | Stage Design & Technical Setup",
+    imgAlt: "Event Management Image",
+    svgAlt: "Event Management SVG",
+  },
+];
+
 function Services() {
+  const containerRef = useRef(null);
+  const slideRef = useRef(null);
+
+  const [translateX, setTranslateX] = useState(0);
+  const [maxTranslate, setMaxTranslate] = useState(0);
+
+  useEffect(() => {
+    const update = () => {
+      if (!containerRef.current || !slideRef.current) return;
+      const containerWidth = containerRef.current.offsetWidth;
+      const scrollWidth = slideRef.current.scrollWidth;
+      setMaxTranslate(containerWidth - scrollWidth);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const handleNext = () => {
+    const containerWidth = containerRef.current.offsetWidth;
+    setTranslateX((prev) => {
+      const next = prev - containerWidth;
+      return next < maxTranslate ? maxTranslate : next;
+    });
+  };
+
+  const handlePrev = () => {
+    const containerWidth = containerRef.current.offsetWidth;
+    setTranslateX((prev) => {
+      const next = prev + containerWidth;
+      return next > 0 ? 0 : next;
+    });
+  };
+
+  const isFirst = translateX === 0;
+  const isLast = translateX <= maxTranslate + 1;
+
   return (
-    <section className="home-services">
+    <section className="home-services" id="services">
       <div className="template-heading">
         <h3 className="h3-semibold">
           What We{" "}
@@ -42,105 +122,118 @@ function Services() {
           diam hac consectetur eget.{" "}
         </p>
       </div>
-      <div className="home-services-container">
-        <div className="home-services-container">
-          <article className="home-services-set">
-            <div className="home-services-sticky">
+
+      {/* Slider */}
+      <div className="home-services-slider" ref={containerRef}>
+        <div
+          className="home-services-track"
+          ref={slideRef}
+          style={{
+            transform: `translateX(${translateX}px)`,
+            transition: "transform 0.4s ease",
+            display: "flex",
+          }}
+        >
+          {slides.map((s, i) => (
+            <article className="home-services-set" key={i}>
               <div className="home-services-set-img">
-                <img src={CommercialsImage} alt="Brand & Commercials Image" />
+                <img src={s.image} alt={s.imgAlt} />
               </div>
-
               <div className="home-services-set-content">
-                <img src={CommercialsSVG} alt="Brand & Commercials SVG" />
-
+                <img src={s.svg} alt={s.svgAlt} />
                 <div className="home-services-set-text">
-                  <h5 className="h5-semibold">Brand & Commercials</h5>
-                  <p className="xxl-regular">
-                    Brand Films | Digital Advertisement | TVC’s | Corporate
-                    Films | Product Films
-                  </p>
+                  <h5 className="h5-semibold">{s.title}</h5>
+                  <p className="xxl-regular">{s.desc}</p>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
+          ))}
+        </div>
 
-          <article className="home-services-set">
-            <div className="home-services-sticky">
-              <div className="home-services-set-img">
-                <img src={NarrativesImage} alt="Narratives Image" />
-              </div>
+        {/* Arrows */}
+        <div className="home-brands-buttons">
+          <button
+            className="home-brands-button"
+            onClick={handlePrev}
+            style={{
+              opacity: isFirst ? 0.3 : 1,
+              cursor: isFirst ? "default" : "pointer",
+              pointerEvents: isFirst ? "none" : "auto",
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              style={{ transform: "rotate(180deg)" }}
+            >
+              <mask
+                id="svc-mask-prev"
+                style={{ maskType: "alpha" }}
+                maskUnits="userSpaceOnUse"
+                x="0"
+                y="0"
+                width="24"
+                height="24"
+              >
+                <rect
+                  width="24"
+                  height="24"
+                  transform="matrix(-1 0 0 1 24 0)"
+                  fill="#D9D9D9"
+                />
+              </mask>
+              <g mask="url(#svc-mask-prev)">
+                <path
+                  d="M16.175 13L10.575 18.6L12 20L20 12L12 4L10.575 5.4L16.175 11H4V13H16.175Z"
+                  fill="#1B1B1B"
+                />
+              </g>
+            </svg>
+          </button>
 
-              <div className="home-services-set-content">
-                <img src={NarrativesSVG} alt="Narratives SVG" />
-
-                <div className="home-services-set-text">
-                  <h5 className="h5-semibold">Narratives</h5>
-                  <p className="xxl-regular">
-                    Feature Films | Short Films | Web Series
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article className="home-services-set">
-            <div className="home-services-sticky">
-              <div className="home-services-set-img">
-                <img src={VisualImage} alt="Visual & Cultural Image" />
-              </div>
-
-              <div className="home-services-set-content">
-                <img src={VisualSVG} alt="Visual & Cultural SVG" />
-
-                <div className="home-services-set-text">
-                  <h5 className="h5-semibold">Visual & Cultural</h5>
-                  <p className="xxl-regular">
-                    Music Videos | Fashion Films | Documentary | Talk Shows
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article className="home-services-set">
-            <div className="home-services-sticky">
-              <div className="home-services-set-img">
-                <img src={AIImage} alt="AI Image" />
-              </div>
-
-              <div className="home-services-set-content">
-                <img src={AISVG} alt="AI SVG" />
-
-                <div className="home-services-set-text">
-                  <h5 className="h5-semibold">AI Filmmaking</h5>
-                  <p className="xxl-regular">
-                    AI Concept Visualization | Virtual Scene Creation | AI
-                    Generated Storyboarding | Hybrid AI + Live Action Production
-                    | AI Commercial & Digital Content Creation
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article className="home-services-set">
-            <div className="home-services-sticky">
-              <div className="home-services-set-img">
-                <img src={EventImage} alt="Event Management Image" />
-              </div>
-
-              <div className="home-services-set-content">
-                <img src={EventSVG} alt="Event Management SVG" />
-
-                <div className="home-services-set-text">
-                  <h5 className="h5-semibold">Event Management</h5>
-                  <p className="xxl-regular">
-                 Corporate Events  |  Live Broadcasting  | Experiential Installations  |  Stage Design & Technical Setup
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
+          <button
+            className="home-brands-button"
+            onClick={handleNext}
+            style={{
+              opacity: isLast ? 0.3 : 1,
+              cursor: isLast ? "default" : "pointer",
+              pointerEvents: isLast ? "none" : "auto",
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <mask
+                id="svc-mask-next"
+                style={{ maskType: "alpha" }}
+                maskUnits="userSpaceOnUse"
+                x="0"
+                y="0"
+                width="24"
+                height="24"
+              >
+                <rect
+                  width="24"
+                  height="24"
+                  transform="matrix(-1 0 0 1 24 0)"
+                  fill="#D9D9D9"
+                />
+              </mask>
+              <g mask="url(#svc-mask-next)">
+                <path
+                  d="M16.175 13L10.575 18.6L12 20L20 12L12 4L10.575 5.4L16.175 11H4V13H16.175Z"
+                  fill="#1B1B1B"
+                />
+              </g>
+            </svg>
+          </button>
         </div>
       </div>
     </section>

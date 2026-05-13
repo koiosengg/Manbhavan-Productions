@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
-import Brand1 from "../../assets/Home/Brands/Brand 1.png";
-import Brand2 from "../../assets/Home/Brands/Brand 2.png";
-import Brand3 from "../../assets/Home/Brands/Brand 3.png";
+import HusbandAndWife from "../../assets/Home/Parle/Campaign 1/Husband and Wife.mp4";
+import Grandparents from "../../assets/Home/Parle/Campaign 1/Grandparents.mp4";
+import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
+import Family from "../../assets/Home/Parle/Campaign 1/Family.mp4";
+import ParleHoli9x16 from "../../assets/Home/Parle/Campaign 1/Parle Holi 9x16.mp4";
 
 function Brands() {
   const slideRef = useRef(null);
@@ -68,7 +70,7 @@ function Brands() {
   }, []);
 
   return (
-    <section className="home-brands-wrapper">
+    <section className="home-brands-wrapper" id="brands">
       <div className="home-brands" ref={testimonyRef}>
         <div className="home-brands-left">
           <div className="template-heading">
@@ -176,35 +178,35 @@ function Brands() {
             }}
           >
             <article className="home-brands-set">
-              <img src={Brand1} alt="" />
+              <video src={HusbandAndWife} autoPlay loop muted playsInline />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <img src={Brand2} alt="" />
+              <video src={Grandparents} autoPlay loop muted playsInline />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <img src={Brand3} alt="" />
+              <video src={MotherAndDaughter} autoPlay loop muted playsInline />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <img src={Brand1} alt="" />
+              <video src={Family} autoPlay loop muted playsInline />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <img src={Brand2} alt="" />
+              <video src={ParleHoli9x16} autoPlay loop muted playsInline />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk

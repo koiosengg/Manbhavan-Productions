@@ -77,6 +77,15 @@ function BTS() {
     return () => clearTimeout(timeout);
   }, []);
 
+  // ✅ auto slide every 3.5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="home-brands-wrapper">
       <div className="home-bts">

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import DiwaliImage from "../../assets/Home/Diwali/Diwali Image.png";
+import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
 
 function Diwali() {
   const sectionRef = useRef(null);
@@ -58,7 +59,7 @@ function Diwali() {
     <section className="home-brands-wrapper" ref={sectionRef}>
       <div className="home-holi home-diwali">
         <div className="home-holi-img">
-          <img src={DiwaliImage} alt="Diwali Image" />
+          <video src={MotherAndDaughter} autoPlay loop muted playsInline />
         </div>
 
         <div className="home-holi-text">

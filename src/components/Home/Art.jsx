@@ -79,7 +79,7 @@ function Art() {
               THE MIND BEHIND <br /> THE PRODUCTIONS
             </h2>
             <Link to="/contact" className="primary-button">
-              <p className="m-bold">Let’s Explore</p>
+              <p className="m-bold">Founder</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

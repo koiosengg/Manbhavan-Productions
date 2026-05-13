@@ -44,23 +44,27 @@ function Navbar() {
       <header
         className={showHeader ? "header desktop show" : "header desktop hide"}
       >
-        <img src={Logo} alt="Manbhavan Productions Logo" />
+        <a href="#">
+          <img src={Logo} alt="Manbhavan Productions Logo" />
+        </a>
         <nav>
           <a href="#">Home</a>
-          <a href="#">About Us</a>
-          <a href="#">Work</a>
-          <a href="#">Service</a>
+          <a href="#reality">About Us</a>
+          <a href="#brands">Work</a>
+          <a href="#services">Service</a>
         </nav>
-        <a href="#" className="navbar-button">
-          <p>Let’s Talk</p>
+        <a href="#contact" className="navbar-button">
+          <p>Let's Talk</p>
         </a>
       </header>
       <header className="navbar mobile">
-        <img
-          src={Logo}
-          alt="Manbhavan Productions Logo"
-          className="navbar-logo"
-        />
+        <a href="#">
+          <img
+            src={Logo}
+            alt="Manbhavan Productions Logo"
+            className="navbar-logo"
+          />
+        </a>
         <div className="mobile-navbar-button mobile" onClick={toggleMobileNav}>
           <img
             src={Menu}
@@ -88,12 +92,22 @@ function Navbar() {
         >
           <nav className="nav-links">
             <a onClick={handleLinkClick}>Home</a>
-            <a onClick={handleLinkClick}>About</a>
-            <a onClick={handleLinkClick}>Work</a>
-            <a onClick={handleLinkClick}>Service</a>
+            <a href="#reality" onClick={handleLinkClick}>
+              About
+            </a>
+            <a href="#brands" onClick={handleLinkClick}>
+              Work
+            </a>
+            <a href="#services" onClick={handleLinkClick}>
+              Service
+            </a>
           </nav>
-          <a href="#" className="navbar-button">
-            <p>Let’s Talk</p>
+          <a
+            href="#contact"
+            className="navbar-button"
+            onClick={handleLinkClick}
+          >
+            <p>Let's Talk</p>
           </a>
         </div>
       </header>

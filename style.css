@@ -7,6 +7,11 @@
   box-sizing: border-box;
 }
 
+video {
+  object-fit: cover;
+  display: block;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -467,6 +472,13 @@ body {
   margin-left: 100px;
 }
 
+.famous-studios-logo {
+  filter: brightness(0) saturate(100%);
+  height: 80px;
+  width: auto;
+  max-width: none;
+}
+
 @keyframes marqueeScroll {
   from {
     transform: translateX(0);
@@ -892,17 +904,22 @@ body {
 
 .home-parle-set-video-1 {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 257/425;
   object-fit: cover;
-  background: #5d1215;
+  background: #000;
   grid-row: span 2;
+  overflow: hidden;
+  min-height: 0;
 }
 
 .home-parle-set-video-2 {
   width: 100%;
   aspect-ratio: 535/231;
   object-fit: cover;
+  background: #000;
   grid-column: span 2;
+  overflow: hidden;
+  min-height: 0;
 }
 
 .home-parle-set p {
@@ -915,15 +932,23 @@ body {
 }
 
 .home-parle-set-video-3 {
+  height: 100%;
   width: 100%;
   aspect-ratio: 257/174;
   object-fit: cover;
+  background: #000;
+  overflow: hidden;
+  min-height: 0;
 }
 
 .home-parle-set-video-4 {
+  height: 100%;
   width: 100%;
   aspect-ratio: 257/174;
   object-fit: cover;
+  background: #000;
+  overflow: hidden;
+  min-height: 0;
 }
 
 .home-parle .template-heading svg {
@@ -931,6 +956,54 @@ body {
   height: 24px;
   flex-shrink: 0;
   aspect-ratio: 1/1;
+}
+
+/* ── Holi/Diwali combined slider ── */
+.home-holi-slider-wrapper {
+  min-height: 200svh;
+}
+
+.home-holi-slider {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: realitySectionAnim linear forwards;
+  animation-timeline: view();
+  animation-range: entry 20% exit 80%;
+}
+
+.home-holi-slider-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-holi-slider-track {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Each campaign slide takes the full width of the viewport */
+.home-holi-slide-item {
+  flex-shrink: 0;
+  width: 100%;
+  padding-bottom: 0 !important;
+  /* Override inherited scroll-animation — the wrapper handles it */
+  position: relative !important;
+  top: auto !important;
+  min-height: auto !important;
+  opacity: 1 !important;
+  animation: none !important;
 }
 
 .home-holi {
@@ -964,10 +1037,12 @@ body {
   overflow: hidden;
 }
 
-.home-holi-img img {
+.home-holi-img img,
+.home-holi-img video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .home-holi-text {
@@ -1030,7 +1105,8 @@ body {
   color: var(--color-grey-700, #575757);
 }
 
-.home-diwali .home-holi-img img {
+.home-diwali .home-holi-img img,
+.home-diwali .home-holi-img video {
   max-height: 80svh;
   height: 100%;
   width: auto;
@@ -1434,7 +1510,8 @@ body {
   flex-shrink: 0;
 }
 
-.home-brands-set img {
+.home-brands-set img,
+.home-brands-set video {
   width: 100%;
   height: 100%;
   aspect-ratio: 328/424;
@@ -1496,69 +1573,40 @@ body {
 .home-services {
   display: flex;
   width: 100%;
-  padding: 108px 160px 133px 160px;
+  padding: 80px 160px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 50svh;
+  gap: 64px;
   position: relative;
 }
 
-.home-services-container {
+.home-services-slider {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
   flex-direction: column;
-  gap: 0px;
+  align-items: center;
+  gap: 40px;
+  overflow: hidden;
+}
+
+.home-services-track {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .home-services-set {
-  height: 100svh;
   width: 100%;
-}
-
-.home-services-sticky {
-  width: 100%;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 150px;
-
-  position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
-
-  opacity: 0;
-  will-change: transform, opacity;
-  transition: all 0.3s;
-
-  animation: homeServicesSet linear forwards;
-  animation-timeline: view(10svh 10svh);
-}
-
-@keyframes homeServicesSet {
-  0% {
-    transform: translateY(200px) scale(0.8);
-    opacity: 0;
-  }
-
-  30% {
-    transform: translateY(-50%) scale(1);
-    opacity: 1;
-  }
-
-  70% {
-    transform: translateY(-50%) scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(-200px) scale(0.8);
-    opacity: 0;
-  }
+  gap: 80px;
+  padding-right: 160px;
 }
 
 .home-services-set-img {
-  width: 40%;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1568,10 +1616,11 @@ body {
   width: 100%;
   aspect-ratio: 455/343;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .home-services-set-content {
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1586,7 +1635,7 @@ body {
 
 .home-services-set-text {
   display: flex;
-  width: 1005;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 9px;
@@ -2175,7 +2224,7 @@ footer {
     height: 24px;
     object-fit: cover;
   }
-  
+
   .mobileNavbar {
     width: 100%;
     height: 100svh;
@@ -2265,7 +2314,7 @@ footer {
   }
 
   .home-banner-heading {
-    padding: 0px 20px;
+    padding: 20px 20px 0px 20px;
   }
 
   .home-banner-heading-text {
@@ -2458,6 +2507,10 @@ footer {
     width: 80%;
   }
 
+  .home-holi-slider-controls {
+    padding: 0 20px;
+  }
+
   .home-holi {
     padding: 64px 20px;
     flex-direction: column;
@@ -2572,15 +2625,13 @@ footer {
 
   .home-services {
     display: flex;
-    padding: 64px 20px;
-  }
-
-  .template-heading {
-    flex-direction: column;
+    padding: 64px 0px 64px 20px;
+    gap: 40px;
   }
 
   .home-services .template-heading {
     gap: 8px;
+    padding-right: 20px;
   }
 
   .home-services .template-heading h3 {
@@ -2591,9 +2642,10 @@ footer {
     width: 100%;
   }
 
-  .home-services-sticky {
+  .home-services-set {
     flex-direction: column;
-    gap: 48px;
+    gap: 32px;
+    padding-right: 20px;
   }
 
   .home-services-set-img {

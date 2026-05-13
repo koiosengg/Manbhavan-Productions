@@ -1,18 +1,23 @@
 import React from "react";
-import Campaign11 from "../../../assets/Home/Parle/Campaign 1/Campaign 1 1.mp4";
+import HusbandAndWife from "../../../assets/Home/Parle/Campaign 1/Husband and Wife.mp4";
+import Grandparents from "../../../assets/Home/Parle/Campaign 1/Grandparents.mp4";
+import MotherAndDaughter from "../../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
+import Family from "../../../assets/Home/Parle/Campaign 1/Family.mp4";
 
 function Campaign1() {
   return (
     <article className="home-parle-set">
       <video
-        src={Campaign11}
+        key={HusbandAndWife}
+        src={HusbandAndWife}
         muted
         autoPlay
         loop
         className="home-parle-set-video-1"
       />
       <video
-        src={Campaign11}
+        key={Grandparents}
+        src={Grandparents}
         muted
         autoPlay
         loop
@@ -25,14 +30,16 @@ function Campaign1() {
         suspendisse.
       </p>
       <video
-        src={Campaign11}
+        key={MotherAndDaughter}
+        src={MotherAndDaughter}
         muted
         autoPlay
         loop
         className="home-parle-set-video-3"
       />
       <video
-        src={Campaign11}
+        key={Family}
+        src={Family}
         muted
         autoPlay
         loop

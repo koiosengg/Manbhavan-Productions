@@ -41,7 +41,7 @@ function Reality() {
   }, []);
 
   return (
-    <section className="home-reality-wrapper" ref={testimonyRef}>
+    <section className="home-reality-wrapper" ref={testimonyRef} id="reality">
       <div className="home-reality">
         <div className="template-heading">
           <h3 className="h3-semibold">

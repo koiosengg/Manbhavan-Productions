@@ -7,8 +7,7 @@ import Testimony from "./Home/Testimony";
 import Brands from "./Home/Brands";
 import Reality from "./Home/Reality";
 import Parle from "./Home/Parle";
-import Holi from "./Home/Holi";
-import Diwali from "./Home/Diwali";
+import HoliSlider from "./Home/HoliSlider";
 import Impact from "./Home/Impact";
 import BTS from "./Home/BTS";
 import Art from "./Home/Art";
@@ -16,19 +15,28 @@ import Art from "./Home/Art";
 function Home() {
   return (
     <>
-      <Banner />
+      <section id="home">
+        <Banner />
+      </section>
       <Marquee />
-      <Reality />
+      <section id="about">
+        <Reality />
+      </section>
       <Parle />
-      <Brands />
-      <Holi />
-      <Diwali />
+      <section id="work">
+        <Brands />
+      </section>
+      <HoliSlider />
       <Impact />
-      <Services />
+      <section id="services">
+        <Services />
+      </section>
       <Art />
       <BTS />
       <Testimony />
-      <Contact />
+      <section id="contact">
+        <Contact />
+      </section>
     </>
   );
 }
