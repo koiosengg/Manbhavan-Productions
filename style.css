@@ -2385,11 +2385,12 @@ footer {
 
   .home-reality-wrapper {
     min-height: auto;
+    padding: 64px 20px;
   }
 
   .home-reality {
     display: flex;
-    padding: 64px 20px;
+    padding: 0px;
     flex-direction: column;
     gap: 40px;
     min-height: auto;
@@ -2521,7 +2522,8 @@ footer {
     height: auto;
   }
 
-  .home-holi-text {
+  .home-holi-text,
+  .home-holi-slide-item .home-holi-text {
     width: 100%;
   }
 
@@ -2565,6 +2567,34 @@ footer {
     font-weight: 400;
     line-height: 120%;
     letter-spacing: -0.32px;
+  }
+
+  /* Slider-specific mobile fixes */
+  .home-holi-slider-track {
+    align-items: flex-start;
+  }
+
+  .home-holi-slide-item.home-holi {
+    min-height: auto !important;
+    height: auto !important;
+    align-self: flex-start;
+  }
+
+  .home-holi-slide-item.home-holi .home-holi-img {
+    height: auto;
+  }
+
+  .home-holi-slide-item.home-holi .home-holi-img img,
+  .home-holi-slide-item.home-holi .home-holi-img video {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .home-diwali .home-holi-img img,
+  .home-diwali .home-holi-img video {
+    width: 100%;
+    max-height: none;
   }
 
   .home-impact-wrapper {
