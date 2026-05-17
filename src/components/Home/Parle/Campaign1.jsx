@@ -3,18 +3,23 @@ import HusbandAndWife from "../../../assets/Home/Parle/Campaign 1/Husband and Wi
 import Grandparents from "../../../assets/Home/Parle/Campaign 1/Grandparents.mp4";
 import MotherAndDaughter from "../../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
 import Family from "../../../assets/Home/Parle/Campaign 1/Family.mp4";
-import VideoPlayer from "../../VideoPlayer";
 
 function Campaign1() {
   return (
     <article className="home-parle-set">
-      <VideoPlayer
+      <video
+        key={HusbandAndWife}
         src={HusbandAndWife}
+        muted
+        autoPlay
         loop
         className="home-parle-set-video-1"
       />
-      <VideoPlayer
+      <video
+        key={Grandparents}
         src={Grandparents}
+        muted
+        autoPlay
         loop
         className="home-parle-set-video-2"
       />
@@ -24,13 +29,19 @@ function Campaign1() {
         phasellus. Arcu quam et placerat tempus sollicitudin ac massa ac
         suspendisse.
       </p>
-      <VideoPlayer
+      <video
+        key={MotherAndDaughter}
         src={MotherAndDaughter}
+        muted
+        autoPlay
         loop
         className="home-parle-set-video-3"
       />
-      <VideoPlayer
+      <video
+        key={Family}
         src={Family}
+        muted
+        autoPlay
         loop
         className="home-parle-set-video-4"
       />

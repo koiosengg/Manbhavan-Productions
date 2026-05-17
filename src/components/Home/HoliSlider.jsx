@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import HoliImage from "../../assets/Home/Holi/Holi Image.png";
 import DiwaliImage from "../../assets/Home/Diwali/Diwali Image.png";
 import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
-import VideoPlayer from "../VideoPlayer";
 
 function HoliSlider() {
   const sectionRef = useRef(null);
@@ -171,7 +170,13 @@ function HoliSlider() {
             {/* ── Slide 1: Holi ── */}
             <div className="home-holi home-diwali home-holi-slide-item">
               <div className="home-holi-img">
-                <VideoPlayer src={MotherAndDaughter} loop />
+                <video
+                  src={MotherAndDaughter}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
               </div>
               <div className="home-holi-text">
                 <h2>PARLE HOLI CAMPAIGN</h2>
@@ -213,7 +218,13 @@ function HoliSlider() {
             {/* ── Slide 2: Diwali ── */}
             <div className="home-holi home-diwali home-holi-slide-item">
               <div className="home-holi-img">
-                <VideoPlayer src={MotherAndDaughter} loop />
+                <video
+                  src={MotherAndDaughter}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
               </div>
 
               <div className="home-holi-text">

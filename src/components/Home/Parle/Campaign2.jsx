@@ -1,17 +1,20 @@
 import React from "react";
 import Campaign11 from "../../../assets/Home/Parle/Campaign 1/Campaign 1 1.mp4";
-import VideoPlayer from "../../VideoPlayer";
 
 function Campaign2() {
   return (
     <article className="home-parle-set">
-      <VideoPlayer
+      <video
         src={Campaign11}
+        muted
+        autoPlay
         loop
         className="home-parle-set-video-1"
       />
-      <VideoPlayer
+      <video
         src={Campaign11}
+        muted
+        autoPlay
         loop
         className="home-parle-set-video-2"
       />
@@ -21,13 +24,17 @@ function Campaign2() {
         phasellus. Arcu quam et placerat tempus sollicitudin ac massa ac
         suspendisse.
       </p>
-      <VideoPlayer
+      <video
         src={Campaign11}
+        muted
+        autoPlay
         loop
         className="home-parle-set-video-3"
       />
-      <VideoPlayer
+      <video
         src={Campaign11}
+        muted
+        autoPlay
         loop
         className="home-parle-set-video-4"
       />
