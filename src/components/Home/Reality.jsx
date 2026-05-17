@@ -46,10 +46,19 @@ function Reality() {
         <div className="template-heading">
           <h3 className="h3-semibold">
             We Create Stories <br />
-            into {activeIndex === 0 && <Animation1 />}
-            {activeIndex === 1 && <Animation2 />}
-            {activeIndex === 2 && <Animation3 />}
-            {activeIndex === 3 && <Animation4 />}
+            into{" "}
+            <span className="home-reality-animations">
+              {activeIndex === 0 && <Animation1 />}
+              {activeIndex === 1 && <Animation2 />}
+              {activeIndex === 2 && <Animation3 />}
+              {activeIndex === 3 && <Animation4 />}
+            </span>
+            <span className="home-reality-text">
+              {activeIndex === 0 && "Reality."}
+              {activeIndex === 1 && "Visuals."}
+              {activeIndex === 2 && "Emotions."}
+              {activeIndex === 3 && "Cinema."}
+            </span>
           </h3>
         </div>
 

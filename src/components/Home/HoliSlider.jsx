@@ -2,11 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import HoliImage from "../../assets/Home/Holi/Holi Image.png";
 import DiwaliImage from "../../assets/Home/Diwali/Diwali Image.png";
 import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
+import VideoPlayer from "../VideoPlayer";
 
 function HoliSlider() {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
   const slideRef = useRef(null);
+
+  // — Drag refs —
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const currentXRef = useRef(0);
 
   // — Slider state —
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -81,6 +87,59 @@ function HoliSlider() {
     animateDiwaliValue("crew", 90);
   };
 
+  // — Touch / mouse drag to slide —
+  useEffect(() => {
+    const track = slideRef.current;
+    if (!track) return;
+
+    const onPointerDown = (e) => {
+      isDraggingRef.current = true;
+      startXRef.current = e.clientX;
+      currentXRef.current = e.clientX;
+      track.style.transition = "none";
+      track.style.cursor = "grabbing";
+      track.style.userSelect = "none";
+      track.setPointerCapture?.(e.pointerId);
+    };
+
+    const onPointerMove = (e) => {
+      if (!isDraggingRef.current) return;
+      currentXRef.current = e.clientX;
+      const diff = currentXRef.current - startXRef.current;
+      const percent = (diff / track.offsetWidth) * 100;
+      const baseTranslate = currentSlide * -100;
+      track.style.transform = `translateX(${baseTranslate + percent}%)`;
+    };
+
+    const onPointerUp = () => {
+      if (!isDraggingRef.current) return;
+      isDraggingRef.current = false;
+      track.style.cursor = "grab";
+      track.style.userSelect = "";
+      const diff = currentXRef.current - startXRef.current;
+      const threshold = 50; // px
+
+      if (diff < -threshold && currentSlide < totalSlides - 1) {
+        setCurrentSlide((prev) => prev + 1);
+      } else if (diff > threshold && currentSlide > 0) {
+        setCurrentSlide((prev) => prev - 1);
+      } else {
+        track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+        track.style.transform = `translateX(${currentSlide * -100}%)`;
+      }
+    };
+
+    track.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
+
+    return () => {
+      track.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+    };
+  }, [currentSlide]);
+
   // — Arrow navigation —
   const handleNext = () => {
     setCurrentSlide((prev) => Math.min(prev + 1, totalSlides - 1));
@@ -110,14 +169,12 @@ function HoliSlider() {
             }}
           >
             {/* ── Slide 1: Holi ── */}
-            <div className="home-holi home-holi-slide-item">
+            <div className="home-holi home-diwali home-holi-slide-item">
               <div className="home-holi-img">
-                <img src={HoliImage} alt="Holi Image" />
+                <VideoPlayer src={MotherAndDaughter} loop />
               </div>
-
               <div className="home-holi-text">
                 <h2>PARLE HOLI CAMPAIGN</h2>
-
                 <div className="home-holi-sub-text">
                   <div className="home-holi-content">
                     <h3>
@@ -153,17 +210,10 @@ function HoliSlider() {
                 </div>
               </div>
             </div>
-
             {/* ── Slide 2: Diwali ── */}
             <div className="home-holi home-diwali home-holi-slide-item">
               <div className="home-holi-img">
-                <video
-                  src={MotherAndDaughter}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
+                <VideoPlayer src={MotherAndDaughter} loop />
               </div>
 
               <div className="home-holi-text">

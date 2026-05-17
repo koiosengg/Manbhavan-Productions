@@ -4,6 +4,7 @@ import Grandparents from "../../assets/Home/Parle/Campaign 1/Grandparents.mp4";
 import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
 import Family from "../../assets/Home/Parle/Campaign 1/Family.mp4";
 import ParleHoli9x16 from "../../assets/Home/Parle/Campaign 1/Parle Holi 9x16.mp4";
+import VideoPlayer from "../VideoPlayer";
 
 function Brands() {
   const slideRef = useRef(null);
@@ -178,35 +179,35 @@ function Brands() {
             }}
           >
             <article className="home-brands-set">
-              <video src={HusbandAndWife} autoPlay loop muted playsInline />
+              <VideoPlayer src={HusbandAndWife} loop />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video src={Grandparents} autoPlay loop muted playsInline />
+              <VideoPlayer src={Grandparents} loop />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video src={MotherAndDaughter} autoPlay loop muted playsInline />
+              <VideoPlayer src={MotherAndDaughter} loop />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video src={Family} autoPlay loop muted playsInline />
+              <VideoPlayer src={Family} loop />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video src={ParleHoli9x16} autoPlay loop muted playsInline />
+              <VideoPlayer src={ParleHoli9x16} loop />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
