@@ -86,19 +86,27 @@ function HoliSlider() {
     animateDiwaliValue("crew", 90);
   };
 
+  // — Apply transform with transition when currentSlide changes (arrow nav / snap) —
+  useEffect(() => {
+    const track = slideRef.current;
+    if (!track) return;
+    track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+    track.style.transform = `translate3d(${currentSlide * -100}%, 0, 0)`;
+  }, [currentSlide]);
+
   // — Touch / mouse drag to slide —
   useEffect(() => {
     const track = slideRef.current;
     if (!track) return;
 
     const onPointerDown = (e) => {
+      if (e.button !== 0 && e.pointerType === "mouse") return;
       isDraggingRef.current = true;
       startXRef.current = e.clientX;
       currentXRef.current = e.clientX;
       track.style.transition = "none";
       track.style.cursor = "grabbing";
       track.style.userSelect = "none";
-      track.setPointerCapture?.(e.pointerId);
     };
 
     const onPointerMove = (e) => {
@@ -107,7 +115,7 @@ function HoliSlider() {
       const diff = currentXRef.current - startXRef.current;
       const percent = (diff / track.offsetWidth) * 100;
       const baseTranslate = currentSlide * -100;
-      track.style.transform = `translateX(${baseTranslate + percent}%)`;
+      track.style.transform = `translate3d(${baseTranslate + percent}%, 0, 0)`;
     };
 
     const onPointerUp = () => {
@@ -124,18 +132,29 @@ function HoliSlider() {
         setCurrentSlide((prev) => prev - 1);
       } else {
         track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
-        track.style.transform = `translateX(${currentSlide * -100}%)`;
+        track.style.transform = `translate3d(${currentSlide * -100}%, 0, 0)`;
       }
+    };
+
+    const onPointerCancel = () => {
+      if (!isDraggingRef.current) return;
+      isDraggingRef.current = false;
+      track.style.cursor = "grab";
+      track.style.userSelect = "";
+      track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+      track.style.transform = `translate3d(${currentSlide * -100}%, 0, 0)`;
     };
 
     track.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointercancel", onPointerCancel);
 
     return () => {
       track.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointercancel", onPointerCancel);
     };
   }, [currentSlide]);
 
@@ -163,8 +182,9 @@ function HoliSlider() {
             className="home-holi-slider-track"
             ref={slideRef}
             style={{
-              transform: `translateX(${currentSlide * -100}%)`,
-              transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+              touchAction: "pan-y",
+              cursor: "grab",
+              willChange: "transform",
             }}
           >
             {/* ── Slide 1: Holi ── */}
