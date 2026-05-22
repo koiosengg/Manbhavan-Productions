@@ -1239,7 +1239,7 @@ body {
 }
 
 .home-impact-left-set.home-impact-left-set-active p {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -1556,7 +1556,6 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   touch-action: pan-y;
-  cursor: grab;
   will-change: transform;
 }
 
@@ -2486,7 +2485,7 @@ footer {
     width: 100%;
     height: auto;
     overflow: visible;
-    touch-action: none;
+    touch-action: pan-y;
     user-select: none;
     -webkit-user-select: none;
   }

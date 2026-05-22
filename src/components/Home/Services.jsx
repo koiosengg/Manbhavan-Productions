@@ -57,21 +57,10 @@ function Services() {
   const containerRef = useRef(null);
   const slideRef = useRef(null);
 
-  // Drag refs
-  const isDraggingRef = useRef(false);
-  const startXRef = useRef(0);
-  const currentXRef = useRef(0);
-  const translateXRef = useRef(0);
-
   const [translateX, setTranslateX] = useState(0);
   const [maxTranslate, setMaxTranslate] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [scrollState, setScrollState] = useState({ isFirst: true, isLast: false });
-
-  // keep ref in sync
-  useEffect(() => {
-    translateXRef.current = translateX;
-  }, [translateX]);
 
   // detect mobile
   useEffect(() => {
@@ -146,65 +135,7 @@ function Services() {
     return () => container.removeEventListener("scroll", onScroll);
   }, [isMobile]);
 
-  // — Touch / mouse drag to slide (desktop only) —
-  useEffect(() => {
-    if (isMobile) return;
-    const track = slideRef.current;
-    if (!track) return;
 
-    const onPointerDown = (e) => {
-      isDraggingRef.current = true;
-      startXRef.current = e.clientX;
-      currentXRef.current = e.clientX;
-      track.style.transition = "none";
-      track.style.cursor = "grabbing";
-      track.style.userSelect = "none";
-      track.setPointerCapture?.(e.pointerId);
-    };
-
-    const onPointerMove = (e) => {
-      if (!isDraggingRef.current) return;
-      currentXRef.current = e.clientX;
-      const diff = currentXRef.current - startXRef.current;
-      const baseTranslate = translateXRef.current;
-      track.style.transform = `translateX(${baseTranslate + diff}px)`;
-    };
-
-    const onPointerUp = () => {
-      if (!isDraggingRef.current) return;
-      isDraggingRef.current = false;
-      track.style.cursor = "grab";
-      track.style.userSelect = "";
-      const diff = currentXRef.current - startXRef.current;
-      const threshold = 50; // px
-      const containerWidth = containerRef.current?.offsetWidth || 0;
-
-      if (diff < -threshold && translateXRef.current > maxTranslate) {
-        setTranslateX((prev) => {
-          const next = prev - containerWidth;
-          return next < maxTranslate ? maxTranslate : next;
-        });
-      } else if (diff > threshold && translateXRef.current < 0) {
-        setTranslateX((prev) => {
-          const next = prev + containerWidth;
-          return next > 0 ? 0 : next;
-        });
-      } else {
-        track.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
-        track.style.transform = `translateX(${translateXRef.current}px)`;
-      }
-    };
-
-    track.addEventListener("pointerdown", onPointerDown);
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerup", onPointerUp);
-
-    return () => {
-      track.removeEventListener("pointerdown", onPointerDown);
-      window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerup", onPointerUp);
-    };
-  }, [maxTranslate, isMobile]);
 
   return (
     <section className="home-services" id="services">
