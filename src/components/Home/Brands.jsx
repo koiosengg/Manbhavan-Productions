@@ -13,16 +13,46 @@ function Brands() {
   const [maxTranslate, setMaxTranslate] = useState(0);
 
   useEffect(() => {
-    const containerWidth = containerRef.current.offsetWidth;
-    const scrollWidth = slideRef.current.scrollWidth;
-    const extraSpace = 80;
+    if (!containerRef.current || !slideRef.current) return;
 
-    setMaxTranslate(containerWidth - scrollWidth - extraSpace);
+    const updateMaxTranslate = () => {
+      if (!containerRef.current || !slideRef.current) return;
+      const containerWidth = containerRef.current.offsetWidth;
+      const scrollWidth = slideRef.current.scrollWidth;
+      const isMobile = window.innerWidth <= 1200;
+      const extraSpace = isMobile ? 0 : 80;
+
+      setMaxTranslate(containerWidth - scrollWidth - extraSpace);
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateMaxTranslate();
+    });
+
+    resizeObserver.observe(containerRef.current);
+    resizeObserver.observe(slideRef.current);
+
+    updateMaxTranslate();
+
+    return () => {
+      resizeObserver.disconnect();
+    };
   }, []);
 
+  useEffect(() => {
+    setTranslateX((prev) => {
+      if (maxTranslate >= 0) return 0;
+      if (prev < maxTranslate) return maxTranslate;
+      return prev;
+    });
+  }, [maxTranslate]);
+
   const handleNext = () => {
+    if (!containerRef.current || !slideRef.current) return;
     const containerWidth = containerRef.current.offsetWidth;
-    const moveAmount = containerWidth * 0.4 + 20;
+    const cardElement = slideRef.current.querySelector(".home-brands-set");
+    const cardWidth = cardElement ? cardElement.offsetWidth : containerWidth * 0.4;
+    const moveAmount = cardWidth + 20;
 
     setTranslateX((prev) => {
       const next = prev - moveAmount;
@@ -31,18 +61,20 @@ function Brands() {
   };
 
   const handlePrev = () => {
+    if (!containerRef.current || !slideRef.current) return;
     const containerWidth = containerRef.current.offsetWidth;
-    const moveAmount = containerWidth * 0.4 + 20;
+    const cardElement = slideRef.current.querySelector(".home-brands-set");
+    const cardWidth = cardElement ? cardElement.offsetWidth : containerWidth * 0.4;
+    const moveAmount = cardWidth + 20;
 
     setTranslateX((prev) => {
       const next = prev + moveAmount;
-
       return next > 0 ? 0 : next;
     });
   };
 
   const isFirst = translateX === 0;
-  const isLast = translateX === maxTranslate;
+  const isLast = translateX <= maxTranslate || maxTranslate >= 0;
 
   const testimonyRef = useRef(null);
 
@@ -75,8 +107,8 @@ function Brands() {
         <div className="home-brands-left">
           <div className="template-heading">
             <h3 className="h3-semibold">
-              A Collection of Works Crafted for
-              <br />
+              A Collection of Works Crafted for{" "}
+              <br className="heading-br-desktop" />
               <span>Brands.</span>
             </h3>
             <p className="m-regular">

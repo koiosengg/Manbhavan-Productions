@@ -50,7 +50,7 @@ function Testimony() {
               />
             </svg>
             ,
-            <br />
+            <br className="heading-br-desktop" />
             Unfiltered
           </h3>
         </div>

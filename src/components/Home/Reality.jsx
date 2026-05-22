@@ -13,7 +13,7 @@ function Reality() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % 4); // loop 0 → 3
-    }, 6000); // 6 seconds each
+    }, 3000); // 3 seconds each
 
     return () => clearInterval(interval);
   }, []);
@@ -45,7 +45,7 @@ function Reality() {
       <div className="home-reality">
         <div className="template-heading">
           <h3 className="h3-semibold">
-            We Create Stories <br />
+            We Create Stories <br className="heading-br-desktop" />
             into{" "}
             <span className="home-reality-animations">
               {activeIndex === 0 && <Animation1 />}

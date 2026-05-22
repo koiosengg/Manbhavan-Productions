@@ -75,7 +75,7 @@ function Impact() {
       <div className="home-impact">
         <div className="template-heading">
           <h3 className="h3-semibold">
-            How Ideas become <br />
+            How Ideas become <br className="heading-br-desktop" />
             <span>Impact</span>
           </h3>
           <p className="m-regular">

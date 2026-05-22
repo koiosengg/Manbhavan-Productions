@@ -24,13 +24,13 @@ function Banner() {
             <span>Every Frame Carries a Meaning.</span>{" "}
           </h1>
           <p>
-            Manbhavan Productions has partnered with India’s leading brands,
+            We have partnered with India’s leading brands,
             crafting impactful films that travel across screens and audiences
             nationwide.
           </p>
         </div>
         <a href="#" className="navbar-button">
-          <p>Founder</p>
+          <p>Know the Founder</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

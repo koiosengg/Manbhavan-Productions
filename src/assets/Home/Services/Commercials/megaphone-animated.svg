@@ -1,0 +1,48 @@
+<svg width="65" height="65" viewBox="0 0 90 70" fill="none" style="overflow:visible" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes wave-pulse {
+      0%   { opacity: 0; }
+      30%  { opacity: 0.9; }
+      100% { opacity: 0; }
+    }
+    .wave {
+      stroke: #C3262B;
+      fill: none;
+      stroke-linecap: round;
+      stroke-width: 1.8;
+    }
+    .w1 { animation: wave-pulse 1.5s ease-out infinite 0s; }
+    .w2 { animation: wave-pulse 1.5s ease-out infinite 0.3s; }
+    .w3 { animation: wave-pulse 1.5s ease-out infinite 0.6s; }
+    @media (prefers-reduced-motion: reduce) {
+      .w1, .w2, .w3 { animation: none; opacity: 0.7; }
+    }
+  </style>
+
+  <!-- Megaphone icon -->
+  <g filter="url(#filter0_d_290_3899)">
+    <path d="M29.2693 57.2184C29.2693 58.1619 28.5041 58.9274 27.5603 58.9274H23.4297C22.4862 58.9274 21.7207 58.1619 21.7207 57.2184V41.8359H29.2693V57.2184Z" fill="#FDFDFD" stroke="#272626"/>
+    <path d="M61.0307 33.7965C61.0307 37.3364 58.161 40.2058 54.622 40.2058C51.0823 40.2058 48.2129 37.3364 48.2129 33.7965C48.2129 30.2571 51.0823 27.3877 54.622 27.3877C58.161 27.3877 61.0307 30.2571 61.0307 33.7965Z" fill="#FDFDFD" stroke="#272626"/>
+    <path d="M20.9122 23.3153C15.1608 23.3153 10.5 27.9777 10.5 33.7278C10.5 39.4792 15.7536 44.1409 20.9122 44.1409C35.6437 44.1409 53.36 55.1149 53.36 55.1149V12.4785C53.36 12.4785 35.3974 23.3153 20.9122 23.3153Z" fill="#FDFDFD" stroke="#272626" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M56.4715 54.9677C56.4715 56.1415 55.5195 57.0936 54.345 57.0936C53.1708 57.0936 52.2188 56.1415 52.2188 54.9677V12.6262C52.2188 11.4524 53.1708 10.5 54.345 10.5C55.5192 10.5 56.4715 11.4524 56.4715 12.6262V54.9677Z" fill="#C3262B" stroke="#272626" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M26.7062 22.8096C24.7472 23.1306 22.7998 23.3159 20.9122 23.3159C15.1608 23.3159 10.5 27.9783 10.5 33.7284C10.5 39.4798 15.7536 44.1416 20.9122 44.1416C22.8087 44.1416 24.7551 44.3247 26.7062 44.6415V22.8096Z" fill="#E6E6E6" stroke="#272626"/>
+  </g>
+
+  <!-- Sound waves: small → medium → large, emitting from bell -->
+  <path class="wave w1" d="M 61.6 21.7 A 15 15 0 0 1 61.6 46.3"/>
+  <path class="wave w2" d="M 67.3 13.5 A 25 25 0 0 1 67.3 54.5"/>
+  <path class="wave w3" d="M 73.1 5.3  A 35 35 0 0 1 73.1 62.7"/>
+
+  <defs>
+    <filter id="filter0_d_290_3899" x="0" y="0" width="71.5303" height="69.4272" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="5"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.1 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_290_3899"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_290_3899" result="shape"/>
+    </filter>
+  </defs>
+</svg>

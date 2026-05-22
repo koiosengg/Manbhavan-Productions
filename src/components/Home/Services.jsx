@@ -1,14 +1,14 @@
 import React, { useRef, useState, useEffect } from "react";
 import CommercialsImage from "../../assets/Home/Services/Commercials/IMAGE.png";
-import CommercialsSVG from "../../assets/Home/Services/Commercials/SVG.svg";
+import CommercialsSVG from "../../assets/Home/Services/Commercials/megaphone-animated.svg";
 import NarrativesImage from "../../assets/Home/Services/Narratives/IMAGE.png";
-import NarrativesSVG from "../../assets/Home/Services/Narratives/SVG.svg";
+import ClapperboardSVG from "../../assets/Home/Services/Narratives/clapperboard-animated.svg";
 import VisualImage from "../../assets/Home/Services/Visual/IMAGE.png";
-import VisualSVG from "../../assets/Home/Services/Visual/SVG.svg";
+import CameraSVG from "../../assets/Home/Services/Visual/camera-animated.svg";
 import AIImage from "../../assets/Home/Services/AI/IMAGE.png";
-import AISVG from "../../assets/Home/Services/AI/SVG.svg";
+import RobotSVG from "../../assets/Home/Services/AI/robot-animated.svg";
 import EventImage from "../../assets/Home/Services/Event/IMAGE.png";
-import EventSVG from "../../assets/Home/Services/Event/SVG.svg";
+import EventCameraSVG from "../../assets/Home/Services/Event/camera-animated.svg";
 
 const slides = [
   {
@@ -21,7 +21,7 @@ const slides = [
   },
   {
     image: NarrativesImage,
-    svg: NarrativesSVG,
+    svg: ClapperboardSVG,
     title: "Narratives",
     desc: "Feature Films | Short Films | Web Series",
     imgAlt: "Narratives Image",
@@ -29,7 +29,7 @@ const slides = [
   },
   {
     image: VisualImage,
-    svg: VisualSVG,
+    svg: CameraSVG,
     title: "Visual & Cultural",
     desc: "Music Videos | Fashion Films | Documentary | Talk Shows",
     imgAlt: "Visual & Cultural Image",
@@ -37,7 +37,7 @@ const slides = [
   },
   {
     image: AIImage,
-    svg: AISVG,
+    svg: RobotSVG,
     title: "AI Filmmaking",
     desc: "AI Concept Visualization | Virtual Scene Creation | AI Generated Storyboarding | Hybrid AI + Live Action Production | AI Commercial & Digital Content Creation",
     imgAlt: "AI Image",
@@ -45,7 +45,7 @@ const slides = [
   },
   {
     image: EventImage,
-    svg: EventSVG,
+    svg: EventCameraSVG,
     title: "Event Management",
     desc: "Corporate Events | Live Broadcasting | Experiential Installations | Stage Design & Technical Setup",
     imgAlt: "Event Management Image",
@@ -228,7 +228,7 @@ function Services() {
             />
           </svg>{" "}
           <span>
-            & <br />
+            & <br className="heading-br-desktop" />
             Go Big On
           </span>
         </h3>
@@ -239,30 +239,32 @@ function Services() {
       </div>
 
       {/* Slider */}
-      <div className="home-services-slider" ref={containerRef}>
-        <div
-          className="home-services-track"
-          ref={slideRef}
-          style={{
-            transform: isMobile ? undefined : `translateX(${translateX}px)`,
-            transition: isMobile ? undefined : "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)",
-            display: "flex",
-          }}
-        >
-          {slides.map((s, i) => (
-            <article className="home-services-set" key={i}>
-              <div className="home-services-set-img">
-                <img src={s.image} alt={s.imgAlt} />
-              </div>
-              <div className="home-services-set-content">
-                <img src={s.svg} alt={s.svgAlt} />
-                <div className="home-services-set-text">
-                  <h5 className="h5-semibold">{s.title}</h5>
-                  <p className="xxl-regular">{s.desc}</p>
+      <div className="home-services-slider-container">
+        <div className="home-services-slider" ref={containerRef}>
+          <div
+            className="home-services-track"
+            ref={slideRef}
+            style={{
+              transform: isMobile ? undefined : `translateX(${translateX}px)`,
+              transition: isMobile ? undefined : "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)",
+              display: "flex",
+            }}
+          >
+            {slides.map((s, i) => (
+              <article className="home-services-set" key={i}>
+                <div className="home-services-set-img">
+                  <img src={s.image} alt={s.imgAlt} />
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="home-services-set-content">
+                  <img src={s.svg} alt={s.svgAlt} />
+                  <div className="home-services-set-text">
+                    <h5 className="h5-semibold">{s.title}</h5>
+                    <p className="xxl-regular">{s.desc}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         {/* Arrows */}

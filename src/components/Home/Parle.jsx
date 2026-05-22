@@ -48,7 +48,7 @@ function Parle() {
           <h3 className="h3-semibold">
             Glimpses of{" "}
             <span>
-              Parle Diwali <br />
+              Parle Diwali <br className="heading-br-desktop" />
               Campaign
             </span>
           </h3>
