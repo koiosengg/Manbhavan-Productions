@@ -2102,7 +2102,8 @@ footer {
 }
 
 .footer-bottom p a:hover {
-  border-bottom: 1px solid #1b1b1b;
+  border-bottom: 2px solid #c3262b;
+  color: #c3262b;
 }
 
 .mobile {
@@ -2573,7 +2574,6 @@ footer {
   .home-holi-slider-track {
     align-items: flex-start;
     touch-action: pan-y;
-    cursor: grab;
   }
 
   .home-holi-slide-item.home-holi {
