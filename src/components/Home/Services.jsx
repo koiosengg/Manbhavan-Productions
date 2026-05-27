@@ -23,7 +23,7 @@ const slides = [
     image: NarrativesImage,
     svg: ClapperboardSVG,
     title: "Narratives",
-    desc: "Feature Films | Short Films | Web Series",
+    desc: "Feature Films | Short Films | Web Series | Documentaries",
     imgAlt: "Narratives Image",
     svgAlt: "Narratives SVG",
   },
@@ -31,7 +31,7 @@ const slides = [
     image: VisualImage,
     svg: CameraSVG,
     title: "Visual & Cultural",
-    desc: "Music Videos | Fashion Films | Documentary | Talk Shows",
+    desc: "Music Videos | Fashion Films | Podcasts | Talk Shows",
     imgAlt: "Visual & Cultural Image",
     svgAlt: "Visual & Cultural SVG",
   },
@@ -39,7 +39,7 @@ const slides = [
     image: AIImage,
     svg: RobotSVG,
     title: "AI Filmmaking",
-    desc: "AI Concept Visualization | Virtual Scene Creation | AI Generated Storyboarding | Hybrid AI + Live Action Production | AI Commercial & Digital Content Creation",
+    desc: "AI Concept Visualization | AI Generated Storyboarding | AI Commercial & Digital Content Creation",
     imgAlt: "AI Image",
     svgAlt: "AI SVG",
   },
@@ -47,7 +47,7 @@ const slides = [
     image: EventImage,
     svg: EventCameraSVG,
     title: "Event Management",
-    desc: "Corporate Events | Live Broadcasting | Experiential Installations | Stage Design & Technical Setup",
+    desc: "Corporate Events | Live Broadcasting | Stage Design & Technical Setup",
     imgAlt: "Event Management Image",
     svgAlt: "Event Management SVG",
   },
@@ -60,7 +60,10 @@ function Services() {
   const [translateX, setTranslateX] = useState(0);
   const [maxTranslate, setMaxTranslate] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [scrollState, setScrollState] = useState({ isFirst: true, isLast: false });
+  const [scrollState, setScrollState] = useState({
+    isFirst: true,
+    isLast: false,
+  });
 
   // detect mobile
   useEffect(() => {
@@ -126,7 +129,9 @@ function Services() {
 
     const onScroll = () => {
       const isAtStart = container.scrollLeft <= 1;
-      const isAtEnd = container.scrollLeft >= container.scrollWidth - container.clientWidth - 1;
+      const isAtEnd =
+        container.scrollLeft >=
+        container.scrollWidth - container.clientWidth - 1;
       setScrollState({ isFirst: isAtStart, isLast: isAtEnd });
     };
 
@@ -134,8 +139,6 @@ function Services() {
     onScroll();
     return () => container.removeEventListener("scroll", onScroll);
   }, [isMobile]);
-
-
 
   return (
     <section className="home-services" id="services">
@@ -164,8 +167,8 @@ function Services() {
           </span>
         </h3>
         <p className="m-regular">
-          Lorem ipsum dolor sit amet consectetur. Maecenas at quis vestibulum
-          diam hac consectetur eget.{" "}
+          Have an idea? Don’t worry we have got you covered Umbrella of services
+          under one house
         </p>
       </div>
 
@@ -177,7 +180,9 @@ function Services() {
             ref={slideRef}
             style={{
               transform: isMobile ? undefined : `translateX(${translateX}px)`,
-              transition: isMobile ? undefined : "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)",
+              transition: isMobile
+                ? undefined
+                : "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)",
               display: "flex",
             }}
           >

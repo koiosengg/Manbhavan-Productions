@@ -85,13 +85,12 @@ function Contact() {
     <section className="home-contact" id="contact">
       <div className="home-contact-heading">
         <h2 className="h2-bold">
-          Have a Project Idea? <br className="desktop" /> Let’s discuss it
-          Together.
+          Got a Brief?
+          <br className="desktop" /> Let's Talk.
         </h2>
         <p className="xl-regular">
-          Because powerful stories deserve cinematic beauty,{" "}
-          <br className="desktop" /> intentional detail, and a little bit of
-          magic.
+          Every project starts somewhere. <br className="desktop" /> Let yours
+          start at Manbhavan Productions.
         </p>
       </div>
       <form

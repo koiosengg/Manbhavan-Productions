@@ -8,8 +8,6 @@ function HoliSlider() {
   const containerRef = useRef(null);
   const slideRef = useRef(null);
 
-
-
   // — Slider state —
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 2;
@@ -91,8 +89,6 @@ function HoliSlider() {
     track.style.transform = `translate3d(${currentSlide * -100}%, 0, 0)`;
   }, [currentSlide]);
 
-
-
   // — Arrow navigation —
   const handleNext = () => {
     setCurrentSlide((prev) => Math.min(prev + 1, totalSlides - 1));
@@ -113,10 +109,7 @@ function HoliSlider() {
       <div className="home-holi-slider">
         {/* Slider viewport */}
         <div className="home-holi-slider-container" ref={containerRef}>
-          <div
-            className="home-holi-slider-track"
-            ref={slideRef}
-          >
+          <div className="home-holi-slider-track" ref={slideRef}>
             {/* ── Slide 1: Holi ── */}
             <div className="home-holi home-diwali home-holi-slide-item">
               <div className="home-holi-img">
@@ -157,11 +150,6 @@ function HoliSlider() {
                       />
                     </svg>
                   </div>
-
-                  <p className="l-regular">
-                    Every view earned through thoughtful storytelling, precise
-                    execution, and emotionally resonant visuals.
-                  </p>
                 </div>
               </div>
             </div>
@@ -187,11 +175,6 @@ function HoliSlider() {
                       <span>{diwaliCounts.films * 54} Hours.</span>
                     </h3>
                   </div>
-
-                  <p className="l-regular">
-                    Every view earned through thoughtful storytelling, precise
-                    execution, and emotionally resonant visuals.
-                  </p>
                 </div>
 
                 <div className="home-diwali-numbers">

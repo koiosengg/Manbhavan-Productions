@@ -79,8 +79,8 @@ function Impact() {
             <span>Impact</span>
           </h3>
           <p className="m-regular">
-            Lorem ipsum dolor sit amet consectetur. Maecenas at quis vestibulum
-            diam hac consectetur eget.
+            We handle every stage of a film, from the first brief to the final
+            delivery
           </p>
         </div>
 

@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ArtImage from "../../assets/Home/Art/Art Image.png";
 import MindImage from "../../assets/Home/Art/Mind Image.png";
 
 function Art() {
@@ -38,7 +37,7 @@ function Art() {
               THE MIND BEHIND <br /> THE PRODUCTIONS
             </h2>
             <Link to="/contact" className="primary-button">
-              <p className="m-bold">Founder</p>
+              <p className="m-bold">Meet the Founder</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

@@ -65,10 +65,22 @@ function Reality() {
         <div className="home-reality-container">
           <img src={RealityImage} />
           <p className="xl-regular">
-            Manbhavan Productions is a creative production house working across
-            advertising, films, music videos, and branded content, focused on
-            crafting visuals that feel human, emotionally resonant, and
-            thoughtfully produced.
+            Manbhavan Productions was born from a simple belief that most
+            powerful stories are the ones that feel deeply human. <br />
+            <br />
+            We are a creative production house crafting films, advertisements,
+            music videos, and branded content that don’t just look beautiful,
+            but leave a feeling behind. <br />
+            <br />
+            Every frame we create is rooted in emotion, honesty, and thoughtful
+            storytelling. Whether it’s a brand trying to connect with people, an
+            artist expressing a vision, or a story waiting to be told, we
+            approach every project with heart, intention, and cinematic care.
+            <br />
+            <br />
+            At Manbhavan Productions, we create experiences that resonate,
+            stories that stay, and moments that feel real long after the screen
+            fades to black
           </p>
         </div>
       </div>

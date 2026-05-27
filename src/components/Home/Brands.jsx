@@ -51,7 +51,9 @@ function Brands() {
     if (!containerRef.current || !slideRef.current) return;
     const containerWidth = containerRef.current.offsetWidth;
     const cardElement = slideRef.current.querySelector(".home-brands-set");
-    const cardWidth = cardElement ? cardElement.offsetWidth : containerWidth * 0.4;
+    const cardWidth = cardElement
+      ? cardElement.offsetWidth
+      : containerWidth * 0.4;
     const moveAmount = cardWidth + 20;
 
     setTranslateX((prev) => {
@@ -64,7 +66,9 @@ function Brands() {
     if (!containerRef.current || !slideRef.current) return;
     const containerWidth = containerRef.current.offsetWidth;
     const cardElement = slideRef.current.querySelector(".home-brands-set");
-    const cardWidth = cardElement ? cardElement.offsetWidth : containerWidth * 0.4;
+    const cardWidth = cardElement
+      ? cardElement.offsetWidth
+      : containerWidth * 0.4;
     const moveAmount = cardWidth + 20;
 
     setTranslateX((prev) => {
@@ -112,8 +116,8 @@ function Brands() {
               <span>Brands.</span>
             </h3>
             <p className="m-regular">
-              Lorem ipsum dolor sit amet consectetur. Maecenas at quis
-              vestibulum diam hac consectetur eget.{" "}
+              Brand films, campaigns, and everything in between. Across
+              categories, formats, and the occasional impossible deadline.
             </p>
           </div>
           <div className="home-brands-buttons">
