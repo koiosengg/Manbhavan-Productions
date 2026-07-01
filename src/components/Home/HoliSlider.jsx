@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import HoliImage from "../../assets/Home/Holi/Holi Image.png";
 import DiwaliImage from "../../assets/Home/Diwali/Diwali Image.png";
-import MotherAndDaughter from "../../assets/Home/Parle/video.mp4";
+import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Parle Holi 16x9.mp4";
 
 function HoliSlider() {
   const sectionRef = useRef(null);
@@ -24,6 +24,41 @@ function HoliSlider() {
   });
   const [diwaliAnimated, setDiwaliAnimated] = useState(false);
 
+  // Holi counter
+  const startHoliCount = useCallback(() => {
+    const end = 40;
+    const duration = 1500;
+    const startTime = performance.now();
+
+    const animate = (currentTime) => {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      setHoliCount(Math.floor(progress * end));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, []);
+
+  // Diwali counters
+  const animateDiwaliValue = useCallback((key, end, duration = 1500) => {
+    const startTime = performance.now();
+    const animate = (currentTime) => {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      setDiwaliCounts((prev) => ({
+        ...prev,
+        [key]: Math.floor(easeOut * end),
+      }));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, []);
+
+  const startDiwaliCount = useCallback(() => {
+    animateDiwaliValue("films", 4);
+    animateDiwaliValue("statics", 10);
+    animateDiwaliValue("crew", 90);
+  }, [animateDiwaliValue]);
+
   // Intersection observer — trigger counting when section enters view
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,42 +79,7 @@ function HoliSlider() {
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, [holiAnimated, diwaliAnimated]);
-
-  // Holi counter
-  const startHoliCount = () => {
-    const end = 40;
-    const duration = 1500;
-    const startTime = performance.now();
-
-    const animate = (currentTime) => {
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      setHoliCount(Math.floor(progress * end));
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
-  };
-
-  // Diwali counters
-  const animateDiwaliValue = (key, end, duration = 1500) => {
-    const startTime = performance.now();
-    const animate = (currentTime) => {
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      setDiwaliCounts((prev) => ({
-        ...prev,
-        [key]: Math.floor(easeOut * end),
-      }));
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
-  };
-
-  const startDiwaliCount = () => {
-    animateDiwaliValue("films", 4);
-    animateDiwaliValue("statics", 10);
-    animateDiwaliValue("crew", 90);
-  };
+  }, [holiAnimated, diwaliAnimated, startHoliCount, startDiwaliCount]);
 
   // — Apply transform with transition when currentSlide changes (arrow nav / snap) —
   useEffect(() => {
@@ -119,6 +119,8 @@ function HoliSlider() {
                   loop
                   muted
                   playsInline
+                  onClick={() => window.open("https://youtu.be/GjLc2w6TkfA?si=7VY2kzJ2Jctx5h7g", "_blank")}
+                  style={{ cursor: "pointer" }}
                 />
               </div>
               <div className="home-holi-text">
@@ -162,6 +164,8 @@ function HoliSlider() {
                   loop
                   muted
                   playsInline
+                  onClick={() => window.open("https://youtu.be/GjLc2w6TkfA?si=7VY2kzJ2Jctx5h7g", "_blank")}
+                  style={{ cursor: "pointer" }}
                 />
               </div>
 

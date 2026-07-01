@@ -18,27 +18,7 @@ function Reality() {
     return () => clearInterval(interval);
   }, []);
 
-  // 🌈 Background change (your existing logic)
-  useEffect(() => {
-    const section = testimonyRef.current;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          document.body.style.backgroundColor = "#f4f0e9";
-        } else {
-          document.body.style.backgroundColor = "#fff";
-        }
-      },
-      { threshold: 0.5 },
-    );
-
-    if (section) observer.observe(section);
-
-    return () => {
-      if (section) observer.unobserve(section);
-    };
-  }, []);
 
   return (
     <section className="home-reality-wrapper" ref={testimonyRef} id="reality">

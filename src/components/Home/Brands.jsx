@@ -3,7 +3,15 @@ import HusbandAndWife from "../../assets/Home/Parle/Campaign 1/Husband and Wife.
 import Grandparents from "../../assets/Home/Parle/Campaign 1/Grandparents.mp4";
 import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
 import Family from "../../assets/Home/Parle/Campaign 1/Family.mp4";
-import ParleHoli9x16 from "../../assets/Home/Parle/Campaign 1/Parle Holi 9x16.mp4";
+import ParleHoli16x9 from "../../assets/Home/Parle/Campaign 1/Parle Holi 16x9.mp4";
+
+const YOUTUBE_LINKS = [
+  "https://youtu.be/GjLc2w6TkfA?si=7VY2kzJ2Jctx5h7g", // Husband and Wife
+  "https://youtu.be/GjLc2w6TkfA?si=7VY2kzJ2Jctx5h7g", // Grandparents
+  "https://youtu.be/GjLc2w6TkfA?si=7VY2kzJ2Jctx5h7g", // Mother and Daughter
+  "https://youtu.be/GjLc2w6TkfA?si=7VY2kzJ2Jctx5h7g", // Family
+  "https://youtu.be/GjLc2w6TkfA?si=7VY2kzJ2Jctx5h7g", // Parle Holi 9x16
+];
 
 function Brands() {
   const slideRef = useRef(null);
@@ -22,7 +30,14 @@ function Brands() {
       const isMobile = window.innerWidth <= 1200;
       const extraSpace = isMobile ? 0 : 80;
 
-      setMaxTranslate(containerWidth - scrollWidth - extraSpace);
+      const computedMax = containerWidth - scrollWidth - extraSpace;
+      setMaxTranslate(computedMax);
+
+      setTranslateX((prev) => {
+        if (computedMax >= 0) return 0;
+        if (prev < computedMax) return computedMax;
+        return prev;
+      });
     };
 
     const resizeObserver = new ResizeObserver(() => {
@@ -38,14 +53,6 @@ function Brands() {
       resizeObserver.disconnect();
     };
   }, []);
-
-  useEffect(() => {
-    setTranslateX((prev) => {
-      if (maxTranslate >= 0) return 0;
-      if (prev < maxTranslate) return maxTranslate;
-      return prev;
-    });
-  }, [maxTranslate]);
 
   const handleNext = () => {
     if (!containerRef.current || !slideRef.current) return;
@@ -81,29 +88,6 @@ function Brands() {
   const isLast = translateX <= maxTranslate || maxTranslate >= 0;
 
   const testimonyRef = useRef(null);
-
-  useEffect(() => {
-    const section = testimonyRef.current;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          document.body.style.backgroundColor = "#f4f0e9";
-        } else {
-          document.body.style.backgroundColor = "#fff";
-        }
-      },
-      {
-        threshold: 0.5,
-      },
-    );
-
-    if (section) observer.observe(section);
-
-    return () => {
-      if (section) observer.unobserve(section);
-    };
-  }, []);
 
   return (
     <section className="home-brands-wrapper" id="brands">
@@ -214,35 +198,75 @@ function Brands() {
             }}
           >
             <article className="home-brands-set">
-              <video src={HusbandAndWife} autoPlay loop muted playsInline />
+              <video
+                src={HusbandAndWife}
+                autoPlay
+                loop
+                muted
+                playsInline
+                onClick={() => window.open(YOUTUBE_LINKS[0], "_blank")}
+                style={{ cursor: "pointer" }}
+              />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video src={Grandparents} autoPlay loop muted playsInline />
+              <video
+                src={Grandparents}
+                autoPlay
+                loop
+                muted
+                playsInline
+                onClick={() => window.open(YOUTUBE_LINKS[1], "_blank")}
+                style={{ cursor: "pointer" }}
+              />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video src={MotherAndDaughter} autoPlay loop muted playsInline />
+              <video
+                src={MotherAndDaughter}
+                autoPlay
+                loop
+                muted
+                playsInline
+                onClick={() => window.open(YOUTUBE_LINKS[2], "_blank")}
+                style={{ cursor: "pointer" }}
+              />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video src={Family} autoPlay loop muted playsInline />
+              <video
+                src={Family}
+                autoPlay
+                loop
+                muted
+                playsInline
+                onClick={() => window.open(YOUTUBE_LINKS[3], "_blank")}
+                style={{ cursor: "pointer" }}
+              />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video src={ParleHoli9x16} autoPlay loop muted playsInline />
+              <video
+                src={ParleHoli16x9}
+                autoPlay
+                loop
+                muted
+                playsInline
+                onClick={() => window.open(YOUTUBE_LINKS[4], "_blank")}
+                style={{ cursor: "pointer" }}
+              />
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk

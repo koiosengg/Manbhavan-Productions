@@ -9,6 +9,7 @@ function Campaign2() {
         muted
         autoPlay
         loop
+        playsInline
         className="home-parle-set-video-1"
       />
       <video
@@ -16,6 +17,7 @@ function Campaign2() {
         muted
         autoPlay
         loop
+        playsInline
         className="home-parle-set-video-2"
       />
       <p className="l-regular">
@@ -29,6 +31,7 @@ function Campaign2() {
         muted
         autoPlay
         loop
+        playsInline
         className="home-parle-set-video-3"
       />
       <video
@@ -36,6 +39,7 @@ function Campaign2() {
         muted
         autoPlay
         loop
+        playsInline
         className="home-parle-set-video-4"
       />
     </article>

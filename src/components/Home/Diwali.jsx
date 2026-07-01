@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import DiwaliImage from "../../assets/Home/Diwali/Diwali Image.png";
 import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
 
@@ -12,23 +12,7 @@ function Diwali() {
     crew: 0,
   });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          startCounting();
-          setHasAnimated(true);
-        }
-      },
-      { threshold: 0.5 },
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
-  }, [hasAnimated]);
-
-  const animateValue = (key, end, duration = 1500) => {
+  const animateValue = useCallback((key, end, duration = 1500) => {
     const startTime = performance.now();
 
     const animate = (currentTime) => {
@@ -47,19 +31,43 @@ function Diwali() {
     };
 
     requestAnimationFrame(animate);
-  };
+  }, []);
 
-  const startCounting = () => {
+  const startCounting = useCallback(() => {
     animateValue("films", 4);
     animateValue("statics", 10);
     animateValue("crew", 90);
-  };
+  }, [animateValue]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          startCounting();
+          setHasAnimated(true);
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, [hasAnimated, startCounting]);
 
   return (
     <section className="home-brands-wrapper" ref={sectionRef}>
       <div className="home-holi home-diwali">
         <div className="home-holi-img">
-          <video src={MotherAndDaughter} autoPlay loop muted playsInline />
+          <video
+            src={MotherAndDaughter}
+            autoPlay
+            loop
+            muted
+            playsInline
+            onClick={() => window.open("https://youtu.be/GjLc2w6TkfA?si=7VY2kzJ2Jctx5h7g", "_blank")}
+            style={{ cursor: "pointer" }}
+          />
         </div>
 
         <div className="home-holi-text">
