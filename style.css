@@ -1485,7 +1485,6 @@ body {
   position: sticky;
   top: 0;
   height: auto;
-  min-height: 100svh;
 }
 
 .home-brands .template-heading h3 span {
@@ -1586,7 +1585,7 @@ body {
 }
 
 .home-brands-set {
-  width: 40%;
+  width: 328px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -1595,12 +1594,25 @@ body {
   flex-shrink: 0;
 }
 
-.home-brands-set img,
-.home-brands-set video {
+.home-brands-video-wrapper {
+  width: 328px;
+  height: 583px;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+.home-brands-video-wrapper video,
+.home-brands-set img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+}
+
+/* Zoom in slightly on the first two videos to crop out the baked-in black bars on the sides */
+.home-brands-set:nth-child(1) .home-brands-video-wrapper video,
+.home-brands-set:nth-child(2) .home-brands-video-wrapper video {
+  transform: scale(1.08);
 }
 
 .home-brands-set p,
@@ -1615,6 +1627,7 @@ body {
 .home-brands-set p {
   color: var(--color-black-300, #606060);
   font-weight: 500;
+  max-width: 258px;
 }
 
 .home-brands-set p span {
@@ -2408,11 +2421,14 @@ footer {
   /* Home */
 
   .home-banner {
-    margin-top: 64px;
+    margin-top: 48px;
     padding: 0px 20px 64px 20px;
     min-height: 85svh;
   }
-
+  .home-banner::before,
+  .home-banner::after {
+    width: 20%;
+  }
   .home-banner-heading {
     padding: 0px;
   }
@@ -2465,7 +2481,7 @@ footer {
   }
 
   .home-banner-background-marquee img {
-    width: 86px;
+    width: 98px;
     height: 98px;
   }
 
@@ -2548,7 +2564,9 @@ footer {
     line-height: 120%;
     letter-spacing: -0.32px;
   }
-
+  .home-holi {
+    gap: 64px;
+  }
   .home-reality-container p {
     color: var(--color-black-400, #414141);
   }
@@ -2610,6 +2628,14 @@ footer {
     padding: 64px 20px;
   }
 
+  .home-art-section-wrapper {
+    padding: 64px 0px;
+  }
+
+  .home-testimony-section-wrapper {
+    background-color: #f4f0e9;
+  }
+
   .home-brands {
     padding: 0px;
     flex-direction: column;
@@ -2662,15 +2688,24 @@ footer {
   }
 
   .home-brands-set {
-    width: 80%;
+    width: auto;
     height: auto;
     flex-shrink: 0;
   }
 
-  .home-brands-set img,
-  .home-brands-set video {
+  .home-brands-video-wrapper {
+    height: 450px;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .home-brands-video-wrapper video,
+  .home-brands-set img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
   }
 
   .home-holi-slider-controls {
@@ -2914,7 +2949,6 @@ footer {
   .home-art img {
     width: 100%;
     height: auto;
-    border-left: 2px solid #fff;
   }
 
   .home-art-container {
@@ -2943,7 +2977,7 @@ footer {
     position: static;
     animation: none;
     opacity: 1;
-    gap: 80px;
+    gap: 64px;
   }
 
   .home-bts .template-heading {
@@ -3082,7 +3116,7 @@ footer {
   /* Footer */
 
   footer {
-    padding: 120px 20px 80px 20px;
+    padding: 120px 20px 20px 20px;
   }
 
   .footer-top-heading {
@@ -3134,7 +3168,9 @@ footer {
     padding: 0px;
     height: 800px;
   }
-
+  .home-art-container h2 {
+    text-align: center;
+  }
   .home-marquee {
     height: 157px;
     padding: 50px 0px;
@@ -3299,6 +3335,9 @@ footer {
 }
 .social-sidebar-icon:nth-child(4) {
   transition-delay: 0.09s;
+}
+.home-banner {
+  margin-top: 64px;
 }
 
 /* ── Mobile Nav Social Icons ── */

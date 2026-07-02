@@ -3,7 +3,7 @@ import HusbandAndWife from "../../assets/Home/Parle/Campaign 1/Husband and Wife.
 import Grandparents from "../../assets/Home/Parle/Campaign 1/Grandparents.mp4";
 import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
 import Family from "../../assets/Home/Parle/Campaign 1/Family.mp4";
-import ParleHoli16x9 from "../../assets/Home/Parle/Campaign 1/Parle Holi 16x9.mp4";
+import ParleHoli16x9 from "../../assets/Home/Parle/Campaign 1/Parle Holi 9x16.mp4";
 
 const YOUTUBE_LINKS = [
   "https://youtu.be/GjLc2w6TkfA?si=7VY2kzJ2Jctx5h7g", // Husband and Wife
@@ -198,75 +198,85 @@ function Brands() {
             }}
           >
             <article className="home-brands-set">
-              <video
-                src={HusbandAndWife}
-                autoPlay
-                loop
-                muted
-                playsInline
-                onClick={() => window.open(YOUTUBE_LINKS[0], "_blank")}
-                style={{ cursor: "pointer" }}
-              />
+              <div className="home-brands-video-wrapper">
+                <video
+                  src={`${HusbandAndWife}?v=1`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onClick={() => window.open(YOUTUBE_LINKS[0], "_blank")}
+                  style={{ cursor: "pointer", objectFit: "cover" }}
+                />
+              </div>
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video
-                src={Grandparents}
-                autoPlay
-                loop
-                muted
-                playsInline
-                onClick={() => window.open(YOUTUBE_LINKS[1], "_blank")}
-                style={{ cursor: "pointer" }}
-              />
+              <div className="home-brands-video-wrapper">
+                <video
+                  src={`${Grandparents}?v=1`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onClick={() => window.open(YOUTUBE_LINKS[1], "_blank")}
+                  style={{ cursor: "pointer", objectFit: "cover" }}
+                />
+              </div>
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video
-                src={MotherAndDaughter}
-                autoPlay
-                loop
-                muted
-                playsInline
-                onClick={() => window.open(YOUTUBE_LINKS[2], "_blank")}
-                style={{ cursor: "pointer" }}
-              />
+              <div className="home-brands-video-wrapper">
+                <video
+                  src={`${MotherAndDaughter}?v=1`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onClick={() => window.open(YOUTUBE_LINKS[2], "_blank")}
+                  style={{ cursor: "pointer", objectFit: "cover" }}
+                />
+              </div>
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video
-                src={Family}
-                autoPlay
-                loop
-                muted
-                playsInline
-                onClick={() => window.open(YOUTUBE_LINKS[3], "_blank")}
-                style={{ cursor: "pointer" }}
-              />
+              <div className="home-brands-video-wrapper">
+                <video
+                  src={`${Family}?v=1`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onClick={() => window.open(YOUTUBE_LINKS[3], "_blank")}
+                  style={{ cursor: "pointer", objectFit: "cover" }}
+                />
+              </div>
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
               </p>
             </article>
             <article className="home-brands-set">
-              <video
-                src={ParleHoli16x9}
-                autoPlay
-                loop
-                muted
-                playsInline
-                onClick={() => window.open(YOUTUBE_LINKS[4], "_blank")}
-                style={{ cursor: "pointer" }}
-              />
+              <div className="home-brands-video-wrapper">
+                <video
+                  src={`${ParleHoli16x9}?v=1`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onClick={() => window.open(YOUTUBE_LINKS[4], "_blank")}
+                  style={{ cursor: "pointer", objectFit: "cover" }}
+                />
+              </div>
               <p>
                 <span>Parle Diwali Campaign</span> dolor sit amet conskdoisk
                 ectetur. Maecenas at quis vestinsk
