@@ -1,18 +1,17 @@
 import React from "react";
 import Logo from "../../assets/Home/Banner/Logo.png";
-import BackgroundImage1 from "../../assets/Home/Banner/Background Image 1.png";
-import BackgroundImage2 from "../../assets/Home/Banner/Background Image 2.png";
-import BackgroundImage3 from "../../assets/Home/Banner/Background Image 3.png";
-import BackgroundImage4 from "../../assets/Home/Banner/Background Image 4.png";
-import BackgroundImage5 from "../../assets/Home/Banner/Background Image 5.png";
-import BackgroundImage6 from "../../assets/Home/Banner/Background Image 6.png";
-import BackgroundImage7 from "../../assets/Home/Banner/Background Image 7.png";
-import BackgroundImage8 from "../../assets/Home/Banner/Background Image 8.png";
-import BackgroundImage9 from "../../assets/Home/Banner/Background Image 9.png";
-import BackgroundImage10 from "../../assets/Home/Banner/Background Image 10.png";
-import BackgroundImage11 from "../../assets/Home/Banner/Background Image 11.png";
-import BackgroundImage12 from "../../assets/Home/Banner/Background Image 12.png";
-import BackgroundImage13 from "../../assets/Home/Banner/Background Image 13.png";
+
+// Import all 59 homepage WebP images dynamically
+const bannerImages = Object.values(
+  import.meta.glob("../../assets/Home/Banner/Manbhavan Homepage/*.webp", {
+    eager: true,
+    import: "default",
+  })
+);
+
+// Split images: 29 for top row, 30 for bottom row
+const topMarqueeImages = bannerImages.slice(0, 29);
+const bottomMarqueeImages = bannerImages.slice(29);
 
 function Banner() {
   return (
@@ -67,32 +66,12 @@ function Banner() {
       <div className="home-banner-background">
         <div className="home-banner-background-wrapper">
           <div className="home-banner-background-marquee">
-            <img src={BackgroundImage1} alt="Background Image 1" />
-            <img src={BackgroundImage2} alt="Background Image 1" />
-            <img src={BackgroundImage3} alt="Background Image 1" />
-            <img src={BackgroundImage4} alt="Background Image 1" />
-            <img src={BackgroundImage5} alt="Background Image 1" />
-            <img src={BackgroundImage6} alt="Background Image 1" />
-            <img src={BackgroundImage7} alt="Background Image 1" />
-            <img src={BackgroundImage8} alt="Background Image 1" />
-            <img src={BackgroundImage9} alt="Background Image 1" />
-            <img src={BackgroundImage10} alt="Background Image 1" />
-            <img src={BackgroundImage11} alt="Background Image 1" />
-            <img src={BackgroundImage12} alt="Background Image 1" />
-            <img src={BackgroundImage13} alt="Background Image 1" />
-            <img src={BackgroundImage1} alt="Background Image 1" />
-            <img src={BackgroundImage2} alt="Background Image 1" />
-            <img src={BackgroundImage3} alt="Background Image 1" />
-            <img src={BackgroundImage4} alt="Background Image 1" />
-            <img src={BackgroundImage5} alt="Background Image 1" />
-            <img src={BackgroundImage6} alt="Background Image 1" />
-            <img src={BackgroundImage7} alt="Background Image 1" />
-            <img src={BackgroundImage8} alt="Background Image 1" />
-            <img src={BackgroundImage9} alt="Background Image 1" />
-            <img src={BackgroundImage10} alt="Background Image 1" />
-            <img src={BackgroundImage11} alt="Background Image 1" />
-            <img src={BackgroundImage12} alt="Background Image 1" />
-            <img src={BackgroundImage13} alt="Background Image 1" />
+            {topMarqueeImages.map((src, index) => (
+              <img key={`marquee-top-${index}`} src={src} alt={`Banner Image ${index + 1}`} />
+            ))}
+            {topMarqueeImages.map((src, index) => (
+              <img key={`marquee-top-repeat-${index}`} src={src} alt={`Banner Image ${index + 1}`} />
+            ))}
           </div>
         </div>
         <div className="home-banner-container">
@@ -104,32 +83,12 @@ function Banner() {
         </div>
         <div className="home-banner-background-wrapper">
           <div className="home-banner-background-marquee">
-            <img src={BackgroundImage1} alt="Background Image 1" />
-            <img src={BackgroundImage2} alt="Background Image 1" />
-            <img src={BackgroundImage3} alt="Background Image 1" />
-            <img src={BackgroundImage4} alt="Background Image 1" />
-            <img src={BackgroundImage5} alt="Background Image 1" />
-            <img src={BackgroundImage6} alt="Background Image 1" />
-            <img src={BackgroundImage7} alt="Background Image 1" />
-            <img src={BackgroundImage8} alt="Background Image 1" />
-            <img src={BackgroundImage9} alt="Background Image 1" />
-            <img src={BackgroundImage10} alt="Background Image 1" />
-            <img src={BackgroundImage11} alt="Background Image 1" />
-            <img src={BackgroundImage12} alt="Background Image 1" />
-            <img src={BackgroundImage13} alt="Background Image 1" />
-            <img src={BackgroundImage1} alt="Background Image 1" />
-            <img src={BackgroundImage2} alt="Background Image 1" />
-            <img src={BackgroundImage3} alt="Background Image 1" />
-            <img src={BackgroundImage4} alt="Background Image 1" />
-            <img src={BackgroundImage5} alt="Background Image 1" />
-            <img src={BackgroundImage6} alt="Background Image 1" />
-            <img src={BackgroundImage7} alt="Background Image 1" />
-            <img src={BackgroundImage8} alt="Background Image 1" />
-            <img src={BackgroundImage9} alt="Background Image 1" />
-            <img src={BackgroundImage10} alt="Background Image 1" />
-            <img src={BackgroundImage11} alt="Background Image 1" />
-            <img src={BackgroundImage12} alt="Background Image 1" />
-            <img src={BackgroundImage13} alt="Background Image 1" />
+            {bottomMarqueeImages.map((src, index) => (
+              <img key={`marquee-bottom-${index}`} src={src} alt={`Banner Image ${index + 30}`} />
+            ))}
+            {bottomMarqueeImages.map((src, index) => (
+              <img key={`marquee-bottom-repeat-${index}`} src={src} alt={`Banner Image ${index + 30}`} />
+            ))}
           </div>
         </div>
       </div>

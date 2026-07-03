@@ -1,28 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
-// Google Play assets
-import GPImg1 from "../../assets/Home/Parle/GooglePlay/Img1.webp";
-import GPImg2 from "../../assets/Home/Parle/GooglePlay/Img2.webp";
-import GPImg3 from "../../assets/Home/Parle/GooglePlay/Img3.webp";
-import GPImg4 from "../../assets/Home/Parle/GooglePlay/Img4.webp";
-import GPImg5 from "../../assets/Home/Parle/GooglePlay/Img5.webp";
-import GPImg6 from "../../assets/Home/Parle/GooglePlay/Img6.webp";
-import GPImg7 from "../../assets/Home/Parle/GooglePlay/Img7.webp";
-import GPImg8 from "../../assets/Home/Parle/GooglePlay/Img8.webp";
-import GPImg9 from "../../assets/Home/Parle/GooglePlay/Img9.webp";
-import GPImg10 from "../../assets/Home/Parle/GooglePlay/Img10.webp";
-import GPImg11 from "../../assets/Home/Parle/GooglePlay/Img11.webp";
-import GPImg12 from "../../assets/Home/Parle/GooglePlay/Img12.webp";
-import GPImg13 from "../../assets/Home/Parle/GooglePlay/Img13.webp";
-import GPImg14 from "../../assets/Home/Parle/GooglePlay/Img14.webp";
-import GPImg15 from "../../assets/Home/Parle/GooglePlay/Img15.webp";
-import GPImg16 from "../../assets/Home/Parle/GooglePlay/Img16.webp";
-import GPImg17 from "../../assets/Home/Parle/GooglePlay/Img17.webp";
-import GPImg18 from "../../assets/Home/Parle/GooglePlay/Img18.webp";
-import GPImg19 from "../../assets/Home/Parle/GooglePlay/Img19.webp";
-import GPImg20 from "../../assets/Home/Parle/GooglePlay/Img20.webp";
-import GPImg21 from "../../assets/Home/Parle/GooglePlay/Img21.webp";
-import GPImg22 from "../../assets/Home/Parle/GooglePlay/Img22.webp";
+// Google Play assets (removed for Manbhavan-Productions)
 
 // Lipton assets
 import LiptonMain from "../../assets/Home/Parle/Lipton/Main.webp";
@@ -454,28 +432,7 @@ function Parle() {
         { type: "images", data: [MImg20, MImg21, MImg22, MImg23, MImg24] },
       ],
     },
-    {
-      prefix: "Google Play | ",
-      highlight: (
-        <>
-          Play Squad Tournament <br className="heading-br-desktop" />
-        </>
-      ),
-      link: "https://youtu.be/hDcLE53AexU?si=UArMyAZaSRVo-2iX",
-      elements: [
-        { type: "images", data: [GPImg1, GPImg2, GPImg3, GPImg4, GPImg5] },
-        { type: "youtube", data: "hDcLE53AexU" },
-        { type: "images", data: [GPImg6, GPImg7, GPImg8, GPImg9, GPImg10] },
-        {
-          type: "images",
-          data: [GPImg11, GPImg12, GPImg13, GPImg14, GPImg15, GPImg16],
-        },
-        {
-          type: "images",
-          data: [GPImg17, GPImg18, GPImg19, GPImg20, GPImg21, GPImg22],
-        },
-      ],
-    },
+
   ];
 
   useEffect(() => {
