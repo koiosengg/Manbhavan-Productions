@@ -1,182 +1,206 @@
 import React, { useRef, useState, useEffect } from "react";
 
+// Google Play assets
+import GPImg1 from "../../assets/Home/Parle/GooglePlay/Img1.webp";
+import GPImg2 from "../../assets/Home/Parle/GooglePlay/Img2.webp";
+import GPImg3 from "../../assets/Home/Parle/GooglePlay/Img3.webp";
+import GPImg4 from "../../assets/Home/Parle/GooglePlay/Img4.webp";
+import GPImg5 from "../../assets/Home/Parle/GooglePlay/Img5.webp";
+import GPImg6 from "../../assets/Home/Parle/GooglePlay/Img6.webp";
+import GPImg7 from "../../assets/Home/Parle/GooglePlay/Img7.webp";
+import GPImg8 from "../../assets/Home/Parle/GooglePlay/Img8.webp";
+import GPImg9 from "../../assets/Home/Parle/GooglePlay/Img9.webp";
+import GPImg10 from "../../assets/Home/Parle/GooglePlay/Img10.webp";
+import GPImg11 from "../../assets/Home/Parle/GooglePlay/Img11.webp";
+import GPImg12 from "../../assets/Home/Parle/GooglePlay/Img12.webp";
+import GPImg13 from "../../assets/Home/Parle/GooglePlay/Img13.webp";
+import GPImg14 from "../../assets/Home/Parle/GooglePlay/Img14.webp";
+import GPImg15 from "../../assets/Home/Parle/GooglePlay/Img15.webp";
+import GPImg16 from "../../assets/Home/Parle/GooglePlay/Img16.webp";
+import GPImg17 from "../../assets/Home/Parle/GooglePlay/Img17.webp";
+import GPImg18 from "../../assets/Home/Parle/GooglePlay/Img18.webp";
+import GPImg19 from "../../assets/Home/Parle/GooglePlay/Img19.webp";
+import GPImg20 from "../../assets/Home/Parle/GooglePlay/Img20.webp";
+import GPImg21 from "../../assets/Home/Parle/GooglePlay/Img21.webp";
+import GPImg22 from "../../assets/Home/Parle/GooglePlay/Img22.webp";
+
 // Lipton assets
-import LiptonMain from "../../assets/Home/Parle/Lipton/Main.jpg";
-import LImg1 from "../../assets/Home/Parle/Lipton/Img1.jpg";
-import LImg2 from "../../assets/Home/Parle/Lipton/Img2.jpg";
-import LImg3 from "../../assets/Home/Parle/Lipton/Img3.jpg";
-import LImg4 from "../../assets/Home/Parle/Lipton/Img4.jpg";
-import LImg5 from "../../assets/Home/Parle/Lipton/Img5.jpg";
-import LImg6 from "../../assets/Home/Parle/Lipton/Img6.jpg";
-import LImg7 from "../../assets/Home/Parle/Lipton/Img7.jpg";
+import LiptonMain from "../../assets/Home/Parle/Lipton/Main.webp";
+import LImg1 from "../../assets/Home/Parle/Lipton/Img1.webp";
+import LImg2 from "../../assets/Home/Parle/Lipton/Img2.webp";
+import LImg3 from "../../assets/Home/Parle/Lipton/Img3.webp";
+import LImg4 from "../../assets/Home/Parle/Lipton/Img4.webp";
+import LImg5 from "../../assets/Home/Parle/Lipton/Img5.webp";
+import LImg6 from "../../assets/Home/Parle/Lipton/Img6.webp";
+import LImg7 from "../../assets/Home/Parle/Lipton/Img7.webp";
 
 // Pukka assets
-import PukkaMain from "../../assets/Home/Parle/Pukka/Main.jpg";
-import PImg1 from "../../assets/Home/Parle/Pukka/Img1.jpg";
-import PImg2 from "../../assets/Home/Parle/Pukka/Img2.jpg";
-import PImg3 from "../../assets/Home/Parle/Pukka/Img3.jpg";
-import PImg4 from "../../assets/Home/Parle/Pukka/Img4.jpg";
-import PImg4_PNG from "../../assets/Home/Parle/Pukka/Img4.PNG";
-import PImg5 from "../../assets/Home/Parle/Pukka/Img5.jpg";
-import PImg6 from "../../assets/Home/Parle/Pukka/Img6.jpg";
-import PImg7 from "../../assets/Home/Parle/Pukka/Img7.jpg";
-import PImg10 from "../../assets/Home/Parle/Pukka/Img10.jpg";
-import PImg11 from "../../assets/Home/Parle/Pukka/Img11.jpg";
-import PImg12 from "../../assets/Home/Parle/Pukka/Img12.jpg";
-import PImg13 from "../../assets/Home/Parle/Pukka/Img13.jpg";
+import PukkaMain from "../../assets/Home/Parle/Pukka/Main.webp";
+import PImg1 from "../../assets/Home/Parle/Pukka/Img1.webp";
+import PImg2 from "../../assets/Home/Parle/Pukka/Img2.webp";
+import PImg3 from "../../assets/Home/Parle/Pukka/Img3.webp";
+import PImg4 from "../../assets/Home/Parle/Pukka/Img4.webp";
+import PImg4_PNG from "../../assets/Home/Parle/Pukka/Img4.webp";
+import PImg5 from "../../assets/Home/Parle/Pukka/Img5.webp";
+import PImg6 from "../../assets/Home/Parle/Pukka/Img6.webp";
+import PImg7 from "../../assets/Home/Parle/Pukka/Img7.webp";
+import PImg10 from "../../assets/Home/Parle/Pukka/Img10.webp";
+import PImg11 from "../../assets/Home/Parle/Pukka/Img11.webp";
+import PImg12 from "../../assets/Home/Parle/Pukka/Img12.webp";
+import PImg13 from "../../assets/Home/Parle/Pukka/Img13.webp";
 
 // Mahindra assets
-import MahindraMain from "../../assets/Home/Parle/Mahindra/Main.png";
-import MImg2 from "../../assets/Home/Parle/Mahindra/Img2.png";
-import MImg3 from "../../assets/Home/Parle/Mahindra/Img3.png";
-import MImg4 from "../../assets/Home/Parle/Mahindra/Img4.png";
-import MImg5 from "../../assets/Home/Parle/Mahindra/Img5.png";
-import MImg6 from "../../assets/Home/Parle/Mahindra/Img6.png";
-import MImg7 from "../../assets/Home/Parle/Mahindra/Img7.png";
-import MImg8 from "../../assets/Home/Parle/Mahindra/Img8.png";
-import MImg9 from "../../assets/Home/Parle/Mahindra/Img9.png";
-import MImg10 from "../../assets/Home/Parle/Mahindra/Img10.png";
-import MImg11 from "../../assets/Home/Parle/Mahindra/Img11.png";
-import MImg12 from "../../assets/Home/Parle/Mahindra/Img12.png";
-import MImg13 from "../../assets/Home/Parle/Mahindra/Img13.png";
-import MImg14 from "../../assets/Home/Parle/Mahindra/Img14.png";
-import MImg15 from "../../assets/Home/Parle/Mahindra/Img15.png";
-import MImg16 from "../../assets/Home/Parle/Mahindra/Img16.png";
-import MImg17 from "../../assets/Home/Parle/Mahindra/Img17.png";
-import MImg18 from "../../assets/Home/Parle/Mahindra/Img18.png";
-import MImg19 from "../../assets/Home/Parle/Mahindra/Img19.png";
-import MImg20 from "../../assets/Home/Parle/Mahindra/Img20.png";
-import MImg21 from "../../assets/Home/Parle/Mahindra/Img21.png";
-import MImg22 from "../../assets/Home/Parle/Mahindra/Img22.png";
-import MImg23 from "../../assets/Home/Parle/Mahindra/Img23.png";
-import MImg24 from "../../assets/Home/Parle/Mahindra/Img24.png";
+import MahindraMain from "../../assets/Home/Parle/Mahindra/Main.webp";
+import MImg2 from "../../assets/Home/Parle/Mahindra/Img2.webp";
+import MImg3 from "../../assets/Home/Parle/Mahindra/Img3.webp";
+import MImg4 from "../../assets/Home/Parle/Mahindra/Img4.webp";
+import MImg5 from "../../assets/Home/Parle/Mahindra/Img5.webp";
+import MImg6 from "../../assets/Home/Parle/Mahindra/Img6.webp";
+import MImg7 from "../../assets/Home/Parle/Mahindra/Img7.webp";
+import MImg8 from "../../assets/Home/Parle/Mahindra/Img8.webp";
+import MImg9 from "../../assets/Home/Parle/Mahindra/Img9.webp";
+import MImg10 from "../../assets/Home/Parle/Mahindra/Img10.webp";
+import MImg11 from "../../assets/Home/Parle/Mahindra/Img11.webp";
+import MImg12 from "../../assets/Home/Parle/Mahindra/Img12.webp";
+import MImg13 from "../../assets/Home/Parle/Mahindra/Img13.webp";
+import MImg14 from "../../assets/Home/Parle/Mahindra/Img14.webp";
+import MImg15 from "../../assets/Home/Parle/Mahindra/Img15.webp";
+import MImg16 from "../../assets/Home/Parle/Mahindra/Img16.webp";
+import MImg17 from "../../assets/Home/Parle/Mahindra/Img17.webp";
+import MImg18 from "../../assets/Home/Parle/Mahindra/Img18.webp";
+import MImg19 from "../../assets/Home/Parle/Mahindra/Img19.webp";
+import MImg20 from "../../assets/Home/Parle/Mahindra/Img20.webp";
+import MImg21 from "../../assets/Home/Parle/Mahindra/Img21.webp";
+import MImg22 from "../../assets/Home/Parle/Mahindra/Img22.webp";
+import MImg23 from "../../assets/Home/Parle/Mahindra/Img23.webp";
+import MImg24 from "../../assets/Home/Parle/Mahindra/Img24.webp";
 
 // Father's Day assets
-import FDImg1 from "../../assets/Home/Parle/Father'sDay/Img1.png";
-import FDImg2 from "../../assets/Home/Parle/Father'sDay/Img2.png";
-import FDImg3 from "../../assets/Home/Parle/Father'sDay/Img3.png";
-import FDImg4 from "../../assets/Home/Parle/Father'sDay/Img4.png";
-import FDImg5 from "../../assets/Home/Parle/Father'sDay/Img5.png";
-import FDImg6 from "../../assets/Home/Parle/Father'sDay/Img6.png";
-import FDImg7 from "../../assets/Home/Parle/Father'sDay/Img7.png";
-import FDImg8 from "../../assets/Home/Parle/Father'sDay/Img8.png";
-import FDImg9 from "../../assets/Home/Parle/Father'sDay/Img9.png";
-import FDImg10 from "../../assets/Home/Parle/Father'sDay/Img10.png";
-import FDImg11 from "../../assets/Home/Parle/Father'sDay/Img11.png";
-import FDImg12 from "../../assets/Home/Parle/Father'sDay/Img12.png";
-import FDImg13 from "../../assets/Home/Parle/Father'sDay/Img13.png";
-import FDImg14 from "../../assets/Home/Parle/Father'sDay/Img14.png";
-import FDImg15 from "../../assets/Home/Parle/Father'sDay/Img15.png";
-import FDImg16 from "../../assets/Home/Parle/Father'sDay/Img16.png";
-import FDImg17 from "../../assets/Home/Parle/Father'sDay/Img17.png";
-import FDImg18 from "../../assets/Home/Parle/Father'sDay/Img18.png";
-import FDImg19 from "../../assets/Home/Parle/Father'sDay/Img19.png";
-import FDImg20 from "../../assets/Home/Parle/Father'sDay/Img20.png";
-import FDImg21 from "../../assets/Home/Parle/Father'sDay/Img21.png";
-import FDImg22 from "../../assets/Home/Parle/Father'sDay/Img22.png";
+import FDImg1 from "../../assets/Home/Parle/Father'sDay/Img1.webp";
+import FDImg2 from "../../assets/Home/Parle/Father'sDay/Img2.webp";
+import FDImg3 from "../../assets/Home/Parle/Father'sDay/Img3.webp";
+import FDImg4 from "../../assets/Home/Parle/Father'sDay/Img4.webp";
+import FDImg5 from "../../assets/Home/Parle/Father'sDay/Img5.webp";
+import FDImg6 from "../../assets/Home/Parle/Father'sDay/Img6.webp";
+import FDImg7 from "../../assets/Home/Parle/Father'sDay/Img7.webp";
+import FDImg8 from "../../assets/Home/Parle/Father'sDay/Img8.webp";
+import FDImg9 from "../../assets/Home/Parle/Father'sDay/Img9.webp";
+import FDImg10 from "../../assets/Home/Parle/Father'sDay/Img10.webp";
+import FDImg11 from "../../assets/Home/Parle/Father'sDay/Img11.webp";
+import FDImg12 from "../../assets/Home/Parle/Father'sDay/Img12.webp";
+import FDImg13 from "../../assets/Home/Parle/Father'sDay/Img13.webp";
+import FDImg14 from "../../assets/Home/Parle/Father'sDay/Img14.webp";
+import FDImg15 from "../../assets/Home/Parle/Father'sDay/Img15.webp";
+import FDImg16 from "../../assets/Home/Parle/Father'sDay/Img16.webp";
+import FDImg17 from "../../assets/Home/Parle/Father'sDay/Img17.webp";
+import FDImg18 from "../../assets/Home/Parle/Father'sDay/Img18.webp";
+import FDImg19 from "../../assets/Home/Parle/Father'sDay/Img19.webp";
+import FDImg20 from "../../assets/Home/Parle/Father'sDay/Img20.webp";
+import FDImg21 from "../../assets/Home/Parle/Father'sDay/Img21.webp";
+import FDImg22 from "../../assets/Home/Parle/Father'sDay/Img22.webp";
 
 // Holi assets
-import HImg1 from "../../assets/Home/Parle/Holi/Img1.png";
-import HImg2 from "../../assets/Home/Parle/Holi/Img2.png";
-import HImg3 from "../../assets/Home/Parle/Holi/Img3.png";
-import HImg4 from "../../assets/Home/Parle/Holi/Img4.png";
-import HImg5 from "../../assets/Home/Parle/Holi/Img5.png";
-import HImg6 from "../../assets/Home/Parle/Holi/Img6.png";
-import HImg7 from "../../assets/Home/Parle/Holi/Img7.png";
-import HImg8 from "../../assets/Home/Parle/Holi/Img8.png";
-import HImg9 from "../../assets/Home/Parle/Holi/Img9.png";
-import HImg10 from "../../assets/Home/Parle/Holi/Img10.png";
-import HImg11 from "../../assets/Home/Parle/Holi/Img11.png";
-import HImg12 from "../../assets/Home/Parle/Holi/Img12.png";
-import HImg13 from "../../assets/Home/Parle/Holi/Img13.png";
-import HImg14 from "../../assets/Home/Parle/Holi/Img14.png";
-import HImg15 from "../../assets/Home/Parle/Holi/Img15.png";
+import HImg1 from "../../assets/Home/Parle/Holi/Img1.webp";
+import HImg2 from "../../assets/Home/Parle/Holi/Img2.webp";
+import HImg3 from "../../assets/Home/Parle/Holi/Img3.webp";
+import HImg4 from "../../assets/Home/Parle/Holi/Img4.webp";
+import HImg5 from "../../assets/Home/Parle/Holi/Img5.webp";
+import HImg6 from "../../assets/Home/Parle/Holi/Img6.webp";
+import HImg7 from "../../assets/Home/Parle/Holi/Img7.webp";
+import HImg8 from "../../assets/Home/Parle/Holi/Img8.webp";
+import HImg9 from "../../assets/Home/Parle/Holi/Img9.webp";
+import HImg10 from "../../assets/Home/Parle/Holi/Img10.webp";
+import HImg11 from "../../assets/Home/Parle/Holi/Img11.webp";
+import HImg12 from "../../assets/Home/Parle/Holi/Img12.webp";
+import HImg13 from "../../assets/Home/Parle/Holi/Img13.webp";
+import HImg14 from "../../assets/Home/Parle/Holi/Img14.webp";
+import HImg15 from "../../assets/Home/Parle/Holi/Img15.webp";
 
 // Ciena assets
-import CImg1 from "../../assets/Home/Parle/Ciena/Img1.png";
-import CImg2 from "../../assets/Home/Parle/Ciena/Img2.png";
-import CImg3 from "../../assets/Home/Parle/Ciena/Img3.png";
-import CImg4 from "../../assets/Home/Parle/Ciena/Img4.png";
-import CImg5 from "../../assets/Home/Parle/Ciena/Img5.png";
-import CImg6 from "../../assets/Home/Parle/Ciena/Img6.png";
-import CImg7 from "../../assets/Home/Parle/Ciena/Img7.png";
-import CImg8 from "../../assets/Home/Parle/Ciena/Img8.png";
-import CImg9 from "../../assets/Home/Parle/Ciena/Img9.png";
-import CImg10 from "../../assets/Home/Parle/Ciena/Img10.png";
-import CImg11 from "../../assets/Home/Parle/Ciena/Img11.png";
-import CImg12 from "../../assets/Home/Parle/Ciena/Img12.png";
-import CImg13 from "../../assets/Home/Parle/Ciena/Img13.png";
-import CImg14 from "../../assets/Home/Parle/Ciena/Img14.png";
-import CImg15 from "../../assets/Home/Parle/Ciena/Img15.png";
-import CImg16 from "../../assets/Home/Parle/Ciena/Img16.png";
+import CImg1 from "../../assets/Home/Parle/Ciena/Img1.webp";
+import CImg2 from "../../assets/Home/Parle/Ciena/Img2.webp";
+import CImg3 from "../../assets/Home/Parle/Ciena/Img3.webp";
+import CImg4 from "../../assets/Home/Parle/Ciena/Img4.webp";
+import CImg5 from "../../assets/Home/Parle/Ciena/Img5.webp";
+import CImg6 from "../../assets/Home/Parle/Ciena/Img6.webp";
+import CImg7 from "../../assets/Home/Parle/Ciena/Img7.webp";
+import CImg8 from "../../assets/Home/Parle/Ciena/Img8.webp";
+import CImg9 from "../../assets/Home/Parle/Ciena/Img9.webp";
+import CImg10 from "../../assets/Home/Parle/Ciena/Img10.webp";
+import CImg11 from "../../assets/Home/Parle/Ciena/Img11.webp";
+import CImg12 from "../../assets/Home/Parle/Ciena/Img12.webp";
+import CImg13 from "../../assets/Home/Parle/Ciena/Img13.webp";
+import CImg14 from "../../assets/Home/Parle/Ciena/Img14.webp";
+import CImg15 from "../../assets/Home/Parle/Ciena/Img15.webp";
+import CImg16 from "../../assets/Home/Parle/Ciena/Img16.webp";
 
 // Diwali 01 assets for slide 1
-import Img1 from "../../assets/Home/Parle/Diwali 01/Img1.png";
-import Img2 from "../../assets/Home/Parle/Diwali 01/Img2.png";
-import Img3 from "../../assets/Home/Parle/Diwali 01/Img3.png";
-import Img4 from "../../assets/Home/Parle/Diwali 01/Img4.png";
-import Img5 from "../../assets/Home/Parle/Diwali 01/Img5.png";
-import Img6 from "../../assets/Home/Parle/Diwali 01/Img6.png";
-import Img7 from "../../assets/Home/Parle/Diwali 01/Img7.png";
-import Img8 from "../../assets/Home/Parle/Diwali 01/Img8.png";
-import Img9 from "../../assets/Home/Parle/Diwali 01/Img9.png";
-import Img10 from "../../assets/Home/Parle/Diwali 01/Img10.png";
-import Img11 from "../../assets/Home/Parle/Diwali 01/Img11.png";
-import Img12 from "../../assets/Home/Parle/Diwali 01/Img12.png";
-import Img13 from "../../assets/Home/Parle/Diwali 01/Img13.png";
-import Img14 from "../../assets/Home/Parle/Diwali 01/Img14.png";
-import Img15 from "../../assets/Home/Parle/Diwali 01/Img15.png";
-import Img16 from "../../assets/Home/Parle/Diwali 01/Img16.png";
-import Img17 from "../../assets/Home/Parle/Diwali 01/Img17.png";
-import Img18 from "../../assets/Home/Parle/Diwali 01/Img18.png";
-import Img19 from "../../assets/Home/Parle/Diwali 01/Img19.png";
+import Img1 from "../../assets/Home/Parle/Diwali 01/Img1.webp";
+import Img2 from "../../assets/Home/Parle/Diwali 01/Img2.webp";
+import Img3 from "../../assets/Home/Parle/Diwali 01/Img3.webp";
+import Img4 from "../../assets/Home/Parle/Diwali 01/Img4.webp";
+import Img5 from "../../assets/Home/Parle/Diwali 01/Img5.webp";
+import Img6 from "../../assets/Home/Parle/Diwali 01/Img6.webp";
+import Img7 from "../../assets/Home/Parle/Diwali 01/Img7.webp";
+import Img8 from "../../assets/Home/Parle/Diwali 01/Img8.webp";
+import Img9 from "../../assets/Home/Parle/Diwali 01/Img9.webp";
+import Img10 from "../../assets/Home/Parle/Diwali 01/Img10.webp";
+import Img11 from "../../assets/Home/Parle/Diwali 01/Img11.webp";
+import Img12 from "../../assets/Home/Parle/Diwali 01/Img12.webp";
+import Img13 from "../../assets/Home/Parle/Diwali 01/Img13.webp";
+import Img14 from "../../assets/Home/Parle/Diwali 01/Img14.webp";
+import Img15 from "../../assets/Home/Parle/Diwali 01/Img15.webp";
+import Img16 from "../../assets/Home/Parle/Diwali 01/Img16.webp";
+import Img17 from "../../assets/Home/Parle/Diwali 01/Img17.webp";
+import Img18 from "../../assets/Home/Parle/Diwali 01/Img18.webp";
+import Img19 from "../../assets/Home/Parle/Diwali 01/Img19.webp";
 
 // Diwali 02 assets
-import D2Img1 from "../../assets/Home/Parle/Diwali 02/Img1.png";
-import D2Img2 from "../../assets/Home/Parle/Diwali 02/Img2.png";
-import D2Img3 from "../../assets/Home/Parle/Diwali 02/Img3.png";
-import D2Img4 from "../../assets/Home/Parle/Diwali 02/Img4.png";
-import D2Img5 from "../../assets/Home/Parle/Diwali 02/Img5.png";
-import D2Img6 from "../../assets/Home/Parle/Diwali 02/Img6.png";
-import D2Img7 from "../../assets/Home/Parle/Diwali 02/Img7.png";
-import D2Img8 from "../../assets/Home/Parle/Diwali 02/Img8.png";
-import D2Img9 from "../../assets/Home/Parle/Diwali 02/Img9.png";
-import D2Img10 from "../../assets/Home/Parle/Diwali 02/Img10.png";
-import D2Img11 from "../../assets/Home/Parle/Diwali 02/Img11.png";
-import D2Img12 from "../../assets/Home/Parle/Diwali 02/Img12.png";
-import D2Img13 from "../../assets/Home/Parle/Diwali 02/Img13.png";
-import D2Img14 from "../../assets/Home/Parle/Diwali 02/Img14.png";
-import D2Img15 from "../../assets/Home/Parle/Diwali 02/Img15.png";
-import D2Img16 from "../../assets/Home/Parle/Diwali 02/Img16.png";
-import D2Img17 from "../../assets/Home/Parle/Diwali 02/Img17.png";
+import D2Img1 from "../../assets/Home/Parle/Diwali 02/Img1.webp";
+import D2Img2 from "../../assets/Home/Parle/Diwali 02/Img2.webp";
+import D2Img3 from "../../assets/Home/Parle/Diwali 02/Img3.webp";
+import D2Img4 from "../../assets/Home/Parle/Diwali 02/Img4.webp";
+import D2Img5 from "../../assets/Home/Parle/Diwali 02/Img5.webp";
+import D2Img6 from "../../assets/Home/Parle/Diwali 02/Img6.webp";
+import D2Img7 from "../../assets/Home/Parle/Diwali 02/Img7.webp";
+import D2Img8 from "../../assets/Home/Parle/Diwali 02/Img8.webp";
+import D2Img9 from "../../assets/Home/Parle/Diwali 02/Img9.webp";
+import D2Img10 from "../../assets/Home/Parle/Diwali 02/Img10.webp";
+import D2Img11 from "../../assets/Home/Parle/Diwali 02/Img11.webp";
+import D2Img12 from "../../assets/Home/Parle/Diwali 02/Img12.webp";
+import D2Img13 from "../../assets/Home/Parle/Diwali 02/Img13.webp";
+import D2Img14 from "../../assets/Home/Parle/Diwali 02/Img14.webp";
+import D2Img15 from "../../assets/Home/Parle/Diwali 02/Img15.webp";
+import D2Img16 from "../../assets/Home/Parle/Diwali 02/Img16.webp";
+import D2Img17 from "../../assets/Home/Parle/Diwali 02/Img17.webp";
 
 // Diwali 03 assets
-import D3Img1 from "../../assets/Home/Parle/Diwali 03/Img1.png";
-import D3Img2 from "../../assets/Home/Parle/Diwali 03/Img2.png";
-import D3Img3 from "../../assets/Home/Parle/Diwali 03/Img3.png";
-import D3Img4 from "../../assets/Home/Parle/Diwali 03/Img4.png";
-import D3Img5 from "../../assets/Home/Parle/Diwali 03/Img5.png";
-import D3Img6 from "../../assets/Home/Parle/Diwali 03/Img6.png";
-import D3Img7 from "../../assets/Home/Parle/Diwali 03/Img7.png";
-import D3Img8 from "../../assets/Home/Parle/Diwali 03/Img8.png";
-import D3Img9 from "../../assets/Home/Parle/Diwali 03/Img9.png";
-import D3Img10 from "../../assets/Home/Parle/Diwali 03/Img10.png";
-import D3Img11 from "../../assets/Home/Parle/Diwali 03/Img11.png";
-import D3Img12 from "../../assets/Home/Parle/Diwali 03/Img12.png";
-import D3Img13 from "../../assets/Home/Parle/Diwali 03/Img13.png";
-import D3Img14 from "../../assets/Home/Parle/Diwali 03/Img14.png";
-import D3Img15 from "../../assets/Home/Parle/Diwali 03/Img15.png";
+import D3Img1 from "../../assets/Home/Parle/Diwali 03/Img1.webp";
+import D3Img2 from "../../assets/Home/Parle/Diwali 03/Img2.webp";
+import D3Img3 from "../../assets/Home/Parle/Diwali 03/Img3.webp";
+import D3Img4 from "../../assets/Home/Parle/Diwali 03/Img4.webp";
+import D3Img5 from "../../assets/Home/Parle/Diwali 03/Img5.webp";
+import D3Img6 from "../../assets/Home/Parle/Diwali 03/Img6.webp";
+import D3Img7 from "../../assets/Home/Parle/Diwali 03/Img7.webp";
+import D3Img8 from "../../assets/Home/Parle/Diwali 03/Img8.webp";
+import D3Img9 from "../../assets/Home/Parle/Diwali 03/Img9.webp";
+import D3Img10 from "../../assets/Home/Parle/Diwali 03/Img10.webp";
+import D3Img11 from "../../assets/Home/Parle/Diwali 03/Img11.webp";
+import D3Img12 from "../../assets/Home/Parle/Diwali 03/Img12.webp";
+import D3Img13 from "../../assets/Home/Parle/Diwali 03/Img13.webp";
+import D3Img14 from "../../assets/Home/Parle/Diwali 03/Img14.webp";
+import D3Img15 from "../../assets/Home/Parle/Diwali 03/Img15.webp";
 
 // Diwali 04 assets
-import D4Img1 from "../../assets/Home/Parle/Diwali 04/Img1.png";
-import D4Img2 from "../../assets/Home/Parle/Diwali 04/Img2.png";
-import D4Img3 from "../../assets/Home/Parle/Diwali 04/Img3.png";
-import D4Img4 from "../../assets/Home/Parle/Diwali 04/Img4.png";
-import D4Img5 from "../../assets/Home/Parle/Diwali 04/Img5.png";
-import D4Img6 from "../../assets/Home/Parle/Diwali 04/Img6.png";
-import D4Img7 from "../../assets/Home/Parle/Diwali 04/Img7.png";
-import D4Img8 from "../../assets/Home/Parle/Diwali 04/Img8.png";
-import D4Img9 from "../../assets/Home/Parle/Diwali 04/Img9.png";
+import D4Img1 from "../../assets/Home/Parle/Diwali 04/Img1.webp";
+import D4Img2 from "../../assets/Home/Parle/Diwali 04/Img2.webp";
+import D4Img3 from "../../assets/Home/Parle/Diwali 04/Img3.webp";
+import D4Img4 from "../../assets/Home/Parle/Diwali 04/Img4.webp";
+import D4Img5 from "../../assets/Home/Parle/Diwali 04/Img5.webp";
+import D4Img6 from "../../assets/Home/Parle/Diwali 04/Img6.webp";
+import D4Img7 from "../../assets/Home/Parle/Diwali 04/Img7.webp";
+import D4Img8 from "../../assets/Home/Parle/Diwali 04/Img8.webp";
+import D4Img9 from "../../assets/Home/Parle/Diwali 04/Img9.webp";
 
 const getRandomInterval = () => Math.floor(Math.random() * 5000) + 8000;
 
@@ -428,6 +452,28 @@ function Parle() {
           data: [MImg14, MImg15, MImg16, MImg17, MImg18, MImg19],
         },
         { type: "images", data: [MImg20, MImg21, MImg22, MImg23, MImg24] },
+      ],
+    },
+    {
+      prefix: "Google Play | ",
+      highlight: (
+        <>
+          Play Squad Tournament <br className="heading-br-desktop" />
+        </>
+      ),
+      link: "https://youtu.be/hDcLE53AexU?si=UArMyAZaSRVo-2iX",
+      elements: [
+        { type: "images", data: [GPImg1, GPImg2, GPImg3, GPImg4, GPImg5] },
+        { type: "youtube", data: "hDcLE53AexU" },
+        { type: "images", data: [GPImg6, GPImg7, GPImg8, GPImg9, GPImg10] },
+        {
+          type: "images",
+          data: [GPImg11, GPImg12, GPImg13, GPImg14, GPImg15, GPImg16],
+        },
+        {
+          type: "images",
+          data: [GPImg17, GPImg18, GPImg19, GPImg20, GPImg21, GPImg22],
+        },
       ],
     },
   ];
