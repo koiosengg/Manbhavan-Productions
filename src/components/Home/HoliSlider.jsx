@@ -153,7 +153,7 @@ function HoliSlider() {
             <div className="home-holi home-diwali home-holi-slide-item">
               <div className="home-holi-img">
                 <iframe
-                  src="https://www.youtube.com/embed/AXQ6-jh5VYE?autoplay=1&mute=1&loop=1&playlist=AXQ6-jh5VYE&controls=1&rel=0"
+                  src="https://www.youtube.com/embed/AXQ6-jh5VYE?controls=1&rel=0"
                   title="Parle Father’s Day Campaign"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -202,7 +202,7 @@ function HoliSlider() {
             <div className="home-holi home-diwali home-holi-slide-item">
               <div className="home-holi-img">
                 <iframe
-                  src="https://www.youtube.com/embed/yqZdK8_fR_k?autoplay=1&mute=1&loop=1&playlist=yqZdK8_fR_k&controls=1&rel=0"
+                  src="https://www.youtube.com/embed/yqZdK8_fR_k?controls=1&rel=0"
                   title="Parle Diwali Campaign"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -255,7 +255,7 @@ function HoliSlider() {
             <div className="home-holi home-diwali home-holi-slide-item">
               <div className="home-holi-img">
                 <iframe
-                  src="https://www.youtube.com/embed/i7lZxjti8Dk?autoplay=1&mute=1&loop=1&playlist=i7lZxjti8Dk&controls=1&rel=0"
+                  src="https://www.youtube.com/embed/i7lZxjti8Dk?controls=1&rel=0"
                   title="Ciena Live Event"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen

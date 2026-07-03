@@ -1,125 +1,73 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
-import BTS1 from "../../assets/Home/BTS/BTS Image 1.png";
-import BTS2 from "../../assets/Home/BTS/BTS Image 2.png";
-import BTS3 from "../../assets/Home/BTS/BTS Image 3.png";
-import BTS4 from "../../assets/Home/BTS/BTS Image 4.png";
-import BTS5 from "../../assets/Home/BTS/BTS Image 5.png";
+import React, { useState, useEffect, useCallback } from "react";
 
-// ── Constants (outside component — stable, never recreated) ──────────────────
-const BASE_SET = [BTS1, BTS2, BTS3, BTS4, BTS5];
+// Dynamically import all 35 WebP images from Phase 1
+const btsImages = Object.values(
+  import.meta.glob("../../assets/Home/BTS/Phase 1/*.webp", {
+    eager: true,
+    import: "default",
+  })
+);
+
+const BASE_SET = btsImages;
 const DESKTOP_CLASSES = [3, 2, 1, 0, 1, 2, 3];
 const MOBILE_CLASSES = [1, 0, 1];
-const STEP = 16; // px per slide (matches inactive item width in CSS)
 
-// Fixed circular buffer: 5 × BASE_SET = 25 items.
-// Content at index X === content at index X ± 5 (cyclic), so teleporting
-// by ±5 positions is visually seamless.
-const IMAGES = [
-  ...BASE_SET,
-  ...BASE_SET,
-  ...BASE_SET,
-  ...BASE_SET,
-  ...BASE_SET,
-]; // indices 0–24
-
-// Keep activeStart inside [3, 17].
-// Outside this range we teleport without the user noticing (noTransition).
-const TELEPORT_FWD_AT = 17; // when activeStart > this → jump back by 5
-const TELEPORT_BWD_AT = 2; //  when activeStart < this → jump forward by 5
+const L = BASE_SET.length;
 
 function BTS() {
-  const [translateX, setTranslateX] = useState(0);
   const [activeStart, setActiveStart] = useState(0);
-  const [fixedHeight, setFixedHeight] = useState(0);
   const [baseClasses, setBaseClasses] = useState(DESKTOP_CLASSES);
-  const [noTransition, setNoTransition] = useState(false);
-
-  const slideRef = useRef(null);
-  // Skip teleport on the very first render (activeStart=0 is intentionally below
-  // TELEPORT_BWD_AT but is the correct initial visual position).
-  const isFirstRender = useRef(true);
 
   // ── Responsive classes ────────────────────────────────────────────────────
   useEffect(() => {
     const handleResize = () => {
-      setBaseClasses(
-        window.innerWidth <= 768 ? MOBILE_CLASSES : DESKTOP_CLASSES
-      );
+      const w = window.innerWidth;
+      if (w <= 1200) {
+        setBaseClasses(MOBILE_CLASSES);
+      } else {
+        setBaseClasses(DESKTOP_CLASSES);
+      }
     };
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ── Height lock via ResizeObserver (reliable vs flaky setTimeout) ─────────
-  useEffect(() => {
-    let observer;
-    const measure = () => {
-      const el = slideRef.current?.querySelector(".home-bts-set-0");
-      if (el && el.offsetHeight > 0) {
-        setFixedHeight(el.offsetHeight);
-        return true;
-      }
-      return false;
-    };
-    if (!measure()) {
-      const container = slideRef.current;
-      if (container) {
-        observer = new ResizeObserver(() => {
-          if (measure()) observer.disconnect();
-        });
-        observer.observe(container);
-      }
-    }
-    return () => observer?.disconnect();
-  }, []);
-
   // ── Navigation ────────────────────────────────────────────────────────────
   const next = useCallback(() => {
-    setTranslateX((prev) => prev - STEP);
-    setActiveStart((prev) => prev + 1);
+    if (L > 0) {
+      setActiveStart((prev) => (prev + 1) % L);
+    }
   }, []);
 
   const prev = useCallback(() => {
-    setTranslateX((prev) => prev + STEP);
-    setActiveStart((prev) => prev - 1);
+    if (L > 0) {
+      setActiveStart((prev) => (prev - 1 + L) % L);
+    }
   }, []);
-
-  // ── Circular teleport — prevents activeStart from ever leaving safe zone ──
-  // Because IMAGES is cyclic (same 5 images repeating), jumping ±5 positions
-  // shows identical content. The translateX adjustment compensates exactly
-  // (STEP = inactive item width), so the jump is invisible even without
-  // noTransition — but we disable it anyway for absolute safety.
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
-    if (activeStart > TELEPORT_FWD_AT) {
-      // Too far forward — jump back 5 positions (same images)
-      setNoTransition(true);
-      setActiveStart((prev) => prev - BASE_SET.length);
-      setTranslateX((prev) => prev + STEP * BASE_SET.length);
-      requestAnimationFrame(() =>
-        requestAnimationFrame(() => setNoTransition(false))
-      );
-    } else if (activeStart < TELEPORT_BWD_AT) {
-      // Too far back — jump forward 5 positions (same images)
-      setNoTransition(true);
-      setActiveStart((prev) => prev + BASE_SET.length);
-      setTranslateX((prev) => prev - STEP * BASE_SET.length);
-      requestAnimationFrame(() =>
-        requestAnimationFrame(() => setNoTransition(false))
-      );
-    }
-  }, [activeStart]);
 
   // ── Auto-slide every 3.5 s ────────────────────────────────────────────────
   useEffect(() => {
     const interval = setInterval(next, 3500);
     return () => clearInterval(interval);
-  }, [next]); // next is stable (useCallback, no deps)
+  }, [next]);
+
+  // Generate the active set of items (including 1 buffer on each end for smooth transition)
+  const getVisibleSlides = () => {
+    if (L === 0) return [];
+    const items = [];
+    const count = baseClasses.length;
+    // We slice from activeStart - 1 to activeStart + count
+    for (let i = -1; i <= count; i++) {
+      const originalIndex = (activeStart + i + L) % L;
+      items.push({
+        img: BASE_SET[originalIndex],
+        originalIndex,
+        position: i,
+      });
+    }
+    return items;
+  };
 
   return (
     <section className="home-brands-wrapper">
@@ -130,34 +78,24 @@ function BTS() {
             <span>Behind the Scenes</span>
           </h3>
           <p className="m-regular">
-            Lorem ipsum dolor sit amet consectetur. Maecenas at quis vestibulum
-            diam hac consectetur eget.{" "}
+            A sneak peek into the creativity, collaboration, and high-energy production that goes into crafting every visual story.
           </p>
         </div>
 
         <div className="home-bts-container">
-          <div
-            ref={slideRef}
-            className="home-bts-slide"
-            style={{
-              transform: `translateX(${translateX}px)`,
-              transition: noTransition ? "none" : "transform 0.6s ease",
-              height: fixedHeight ? `${fixedHeight}px` : "auto",
-            }}
-          >
-            {IMAGES.map((img, index) => {
-              const visibleCount = baseClasses.length;
-              const isActive =
-                index >= activeStart && index < activeStart + visibleCount;
+          <div className="home-bts-slide">
+            {getVisibleSlides().map(({ img, originalIndex, position }) => {
+              const count = baseClasses.length;
+              const isActive = position >= 0 && position < count;
+              const className = isActive
+                ? `home-bts-set-${baseClasses[position]}`
+                : ""; // Inactive items have no suffix (width 0)
               return (
                 <article
-                  key={index}
-                  className={`home-bts-set ${isActive
-                      ? `home-bts-set-${baseClasses[index - activeStart]}`
-                      : ""
-                    }`}
+                  key={originalIndex}
+                  className={`home-bts-set ${className}`}
                 >
-                  <img src={img} alt="" />
+                  <img src={img} alt={`BTS ${originalIndex + 1}`} />
                 </article>
               );
             })}

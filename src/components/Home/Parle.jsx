@@ -518,7 +518,7 @@ function Parle() {
                         style={elementStyle}
                       >
                         <iframe
-                          src={`https://www.youtube.com/embed/${el.data}?autoplay=1&mute=1&loop=1&playlist=${el.data}&controls=1&rel=0`}
+                          src={`https://www.youtube.com/embed/${el.data}?controls=1&rel=0`}
                           title="YouTube video player"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowFullScreen
