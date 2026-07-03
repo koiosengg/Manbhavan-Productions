@@ -1,10 +1,256 @@
 import React, { useRef, useState, useEffect } from "react";
-import HusbandAndWife from "../../assets/Home/Parle/Campaign 1/Husband and Wife.mp4";
-import Grandparents from "../../assets/Home/Parle/Campaign 1/Grandparents.mp4";
-import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
-import Family from "../../assets/Home/Parle/Campaign 1/Family.mp4";
-import Campaign11 from "../../assets/Home/Parle/Campaign 1/Campaign 1 1.mp4";
-import ParleHoli from "../../assets/Home/Parle/Campaign 1/Parle Holi 16x9.mp4";
+
+// Lipton assets
+import LiptonMain from "../../assets/Home/Parle/Lipton/Main.jpg";
+import LImg1 from "../../assets/Home/Parle/Lipton/Img1.jpg";
+import LImg2 from "../../assets/Home/Parle/Lipton/Img2.jpg";
+import LImg3 from "../../assets/Home/Parle/Lipton/Img3.jpg";
+import LImg4 from "../../assets/Home/Parle/Lipton/Img4.jpg";
+import LImg5 from "../../assets/Home/Parle/Lipton/Img5.jpg";
+import LImg6 from "../../assets/Home/Parle/Lipton/Img6.jpg";
+import LImg7 from "../../assets/Home/Parle/Lipton/Img7.jpg";
+
+// Pukka assets
+import PukkaMain from "../../assets/Home/Parle/Pukka/Main.jpg";
+import PImg1 from "../../assets/Home/Parle/Pukka/Img1.jpg";
+import PImg2 from "../../assets/Home/Parle/Pukka/Img2.jpg";
+import PImg3 from "../../assets/Home/Parle/Pukka/Img3.jpg";
+import PImg4 from "../../assets/Home/Parle/Pukka/Img4.jpg";
+import PImg4_PNG from "../../assets/Home/Parle/Pukka/Img4.PNG";
+import PImg5 from "../../assets/Home/Parle/Pukka/Img5.jpg";
+import PImg6 from "../../assets/Home/Parle/Pukka/Img6.jpg";
+import PImg7 from "../../assets/Home/Parle/Pukka/Img7.jpg";
+import PImg10 from "../../assets/Home/Parle/Pukka/Img10.jpg";
+import PImg11 from "../../assets/Home/Parle/Pukka/Img11.jpg";
+import PImg12 from "../../assets/Home/Parle/Pukka/Img12.jpg";
+import PImg13 from "../../assets/Home/Parle/Pukka/Img13.jpg";
+
+// Mahindra assets
+import MahindraMain from "../../assets/Home/Parle/Mahindra/Main.png";
+import MImg2 from "../../assets/Home/Parle/Mahindra/Img2.png";
+import MImg3 from "../../assets/Home/Parle/Mahindra/Img3.png";
+import MImg4 from "../../assets/Home/Parle/Mahindra/Img4.png";
+import MImg5 from "../../assets/Home/Parle/Mahindra/Img5.png";
+import MImg6 from "../../assets/Home/Parle/Mahindra/Img6.png";
+import MImg7 from "../../assets/Home/Parle/Mahindra/Img7.png";
+import MImg8 from "../../assets/Home/Parle/Mahindra/Img8.png";
+import MImg9 from "../../assets/Home/Parle/Mahindra/Img9.png";
+import MImg10 from "../../assets/Home/Parle/Mahindra/Img10.png";
+import MImg11 from "../../assets/Home/Parle/Mahindra/Img11.png";
+import MImg12 from "../../assets/Home/Parle/Mahindra/Img12.png";
+import MImg13 from "../../assets/Home/Parle/Mahindra/Img13.png";
+import MImg14 from "../../assets/Home/Parle/Mahindra/Img14.png";
+import MImg15 from "../../assets/Home/Parle/Mahindra/Img15.png";
+import MImg16 from "../../assets/Home/Parle/Mahindra/Img16.png";
+import MImg17 from "../../assets/Home/Parle/Mahindra/Img17.png";
+import MImg18 from "../../assets/Home/Parle/Mahindra/Img18.png";
+import MImg19 from "../../assets/Home/Parle/Mahindra/Img19.png";
+import MImg20 from "../../assets/Home/Parle/Mahindra/Img20.png";
+import MImg21 from "../../assets/Home/Parle/Mahindra/Img21.png";
+import MImg22 from "../../assets/Home/Parle/Mahindra/Img22.png";
+import MImg23 from "../../assets/Home/Parle/Mahindra/Img23.png";
+import MImg24 from "../../assets/Home/Parle/Mahindra/Img24.png";
+
+// Father's Day assets
+import FDImg1 from "../../assets/Home/Parle/Father'sDay/Img1.png";
+import FDImg2 from "../../assets/Home/Parle/Father'sDay/Img2.png";
+import FDImg3 from "../../assets/Home/Parle/Father'sDay/Img3.png";
+import FDImg4 from "../../assets/Home/Parle/Father'sDay/Img4.png";
+import FDImg5 from "../../assets/Home/Parle/Father'sDay/Img5.png";
+import FDImg6 from "../../assets/Home/Parle/Father'sDay/Img6.png";
+import FDImg7 from "../../assets/Home/Parle/Father'sDay/Img7.png";
+import FDImg8 from "../../assets/Home/Parle/Father'sDay/Img8.png";
+import FDImg9 from "../../assets/Home/Parle/Father'sDay/Img9.png";
+import FDImg10 from "../../assets/Home/Parle/Father'sDay/Img10.png";
+import FDImg11 from "../../assets/Home/Parle/Father'sDay/Img11.png";
+import FDImg12 from "../../assets/Home/Parle/Father'sDay/Img12.png";
+import FDImg13 from "../../assets/Home/Parle/Father'sDay/Img13.png";
+import FDImg14 from "../../assets/Home/Parle/Father'sDay/Img14.png";
+import FDImg15 from "../../assets/Home/Parle/Father'sDay/Img15.png";
+import FDImg16 from "../../assets/Home/Parle/Father'sDay/Img16.png";
+import FDImg17 from "../../assets/Home/Parle/Father'sDay/Img17.png";
+import FDImg18 from "../../assets/Home/Parle/Father'sDay/Img18.png";
+import FDImg19 from "../../assets/Home/Parle/Father'sDay/Img19.png";
+import FDImg20 from "../../assets/Home/Parle/Father'sDay/Img20.png";
+import FDImg21 from "../../assets/Home/Parle/Father'sDay/Img21.png";
+import FDImg22 from "../../assets/Home/Parle/Father'sDay/Img22.png";
+
+// Holi assets
+import HImg1 from "../../assets/Home/Parle/Holi/Img1.png";
+import HImg2 from "../../assets/Home/Parle/Holi/Img2.png";
+import HImg3 from "../../assets/Home/Parle/Holi/Img3.png";
+import HImg4 from "../../assets/Home/Parle/Holi/Img4.png";
+import HImg5 from "../../assets/Home/Parle/Holi/Img5.png";
+import HImg6 from "../../assets/Home/Parle/Holi/Img6.png";
+import HImg7 from "../../assets/Home/Parle/Holi/Img7.png";
+import HImg8 from "../../assets/Home/Parle/Holi/Img8.png";
+import HImg9 from "../../assets/Home/Parle/Holi/Img9.png";
+import HImg10 from "../../assets/Home/Parle/Holi/Img10.png";
+import HImg11 from "../../assets/Home/Parle/Holi/Img11.png";
+import HImg12 from "../../assets/Home/Parle/Holi/Img12.png";
+import HImg13 from "../../assets/Home/Parle/Holi/Img13.png";
+import HImg14 from "../../assets/Home/Parle/Holi/Img14.png";
+import HImg15 from "../../assets/Home/Parle/Holi/Img15.png";
+
+// Ciena assets
+import CImg1 from "../../assets/Home/Parle/Ciena/Img1.png";
+import CImg2 from "../../assets/Home/Parle/Ciena/Img2.png";
+import CImg3 from "../../assets/Home/Parle/Ciena/Img3.png";
+import CImg4 from "../../assets/Home/Parle/Ciena/Img4.png";
+import CImg5 from "../../assets/Home/Parle/Ciena/Img5.png";
+import CImg6 from "../../assets/Home/Parle/Ciena/Img6.png";
+import CImg7 from "../../assets/Home/Parle/Ciena/Img7.png";
+import CImg8 from "../../assets/Home/Parle/Ciena/Img8.png";
+import CImg9 from "../../assets/Home/Parle/Ciena/Img9.png";
+import CImg10 from "../../assets/Home/Parle/Ciena/Img10.png";
+import CImg11 from "../../assets/Home/Parle/Ciena/Img11.png";
+import CImg12 from "../../assets/Home/Parle/Ciena/Img12.png";
+import CImg13 from "../../assets/Home/Parle/Ciena/Img13.png";
+import CImg14 from "../../assets/Home/Parle/Ciena/Img14.png";
+import CImg15 from "../../assets/Home/Parle/Ciena/Img15.png";
+import CImg16 from "../../assets/Home/Parle/Ciena/Img16.png";
+
+// Diwali 01 assets for slide 1
+import Img1 from "../../assets/Home/Parle/Diwali 01/Img1.png";
+import Img2 from "../../assets/Home/Parle/Diwali 01/Img2.png";
+import Img3 from "../../assets/Home/Parle/Diwali 01/Img3.png";
+import Img4 from "../../assets/Home/Parle/Diwali 01/Img4.png";
+import Img5 from "../../assets/Home/Parle/Diwali 01/Img5.png";
+import Img6 from "../../assets/Home/Parle/Diwali 01/Img6.png";
+import Img7 from "../../assets/Home/Parle/Diwali 01/Img7.png";
+import Img8 from "../../assets/Home/Parle/Diwali 01/Img8.png";
+import Img9 from "../../assets/Home/Parle/Diwali 01/Img9.png";
+import Img10 from "../../assets/Home/Parle/Diwali 01/Img10.png";
+import Img11 from "../../assets/Home/Parle/Diwali 01/Img11.png";
+import Img12 from "../../assets/Home/Parle/Diwali 01/Img12.png";
+import Img13 from "../../assets/Home/Parle/Diwali 01/Img13.png";
+import Img14 from "../../assets/Home/Parle/Diwali 01/Img14.png";
+import Img15 from "../../assets/Home/Parle/Diwali 01/Img15.png";
+import Img16 from "../../assets/Home/Parle/Diwali 01/Img16.png";
+import Img17 from "../../assets/Home/Parle/Diwali 01/Img17.png";
+import Img18 from "../../assets/Home/Parle/Diwali 01/Img18.png";
+import Img19 from "../../assets/Home/Parle/Diwali 01/Img19.png";
+
+// Diwali 02 assets
+import D2Img1 from "../../assets/Home/Parle/Diwali 02/Img1.png";
+import D2Img2 from "../../assets/Home/Parle/Diwali 02/Img2.png";
+import D2Img3 from "../../assets/Home/Parle/Diwali 02/Img3.png";
+import D2Img4 from "../../assets/Home/Parle/Diwali 02/Img4.png";
+import D2Img5 from "../../assets/Home/Parle/Diwali 02/Img5.png";
+import D2Img6 from "../../assets/Home/Parle/Diwali 02/Img6.png";
+import D2Img7 from "../../assets/Home/Parle/Diwali 02/Img7.png";
+import D2Img8 from "../../assets/Home/Parle/Diwali 02/Img8.png";
+import D2Img9 from "../../assets/Home/Parle/Diwali 02/Img9.png";
+import D2Img10 from "../../assets/Home/Parle/Diwali 02/Img10.png";
+import D2Img11 from "../../assets/Home/Parle/Diwali 02/Img11.png";
+import D2Img12 from "../../assets/Home/Parle/Diwali 02/Img12.png";
+import D2Img13 from "../../assets/Home/Parle/Diwali 02/Img13.png";
+import D2Img14 from "../../assets/Home/Parle/Diwali 02/Img14.png";
+import D2Img15 from "../../assets/Home/Parle/Diwali 02/Img15.png";
+import D2Img16 from "../../assets/Home/Parle/Diwali 02/Img16.png";
+import D2Img17 from "../../assets/Home/Parle/Diwali 02/Img17.png";
+
+// Diwali 03 assets
+import D3Img1 from "../../assets/Home/Parle/Diwali 03/Img1.png";
+import D3Img2 from "../../assets/Home/Parle/Diwali 03/Img2.png";
+import D3Img3 from "../../assets/Home/Parle/Diwali 03/Img3.png";
+import D3Img4 from "../../assets/Home/Parle/Diwali 03/Img4.png";
+import D3Img5 from "../../assets/Home/Parle/Diwali 03/Img5.png";
+import D3Img6 from "../../assets/Home/Parle/Diwali 03/Img6.png";
+import D3Img7 from "../../assets/Home/Parle/Diwali 03/Img7.png";
+import D3Img8 from "../../assets/Home/Parle/Diwali 03/Img8.png";
+import D3Img9 from "../../assets/Home/Parle/Diwali 03/Img9.png";
+import D3Img10 from "../../assets/Home/Parle/Diwali 03/Img10.png";
+import D3Img11 from "../../assets/Home/Parle/Diwali 03/Img11.png";
+import D3Img12 from "../../assets/Home/Parle/Diwali 03/Img12.png";
+import D3Img13 from "../../assets/Home/Parle/Diwali 03/Img13.png";
+import D3Img14 from "../../assets/Home/Parle/Diwali 03/Img14.png";
+import D3Img15 from "../../assets/Home/Parle/Diwali 03/Img15.png";
+
+// Diwali 04 assets
+import D4Img1 from "../../assets/Home/Parle/Diwali 04/Img1.png";
+import D4Img2 from "../../assets/Home/Parle/Diwali 04/Img2.png";
+import D4Img3 from "../../assets/Home/Parle/Diwali 04/Img3.png";
+import D4Img4 from "../../assets/Home/Parle/Diwali 04/Img4.png";
+import D4Img5 from "../../assets/Home/Parle/Diwali 04/Img5.png";
+import D4Img6 from "../../assets/Home/Parle/Diwali 04/Img6.png";
+import D4Img7 from "../../assets/Home/Parle/Diwali 04/Img7.png";
+import D4Img8 from "../../assets/Home/Parle/Diwali 04/Img8.png";
+import D4Img9 from "../../assets/Home/Parle/Diwali 04/Img9.png";
+
+const getRandomInterval = () => Math.floor(Math.random() * 5000) + 8000;
+
+function CrossfadeImages({ imagesSubset, startDelay = 0 }) {
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [shuffledIndices, setShuffledIndices] = useState(() => {
+    return Array.from({ length: imagesSubset.length }, (_, i) => i);
+  });
+  const [indices, setIndices] = useState({
+    current: 0,
+    next: imagesSubset.length > 1 ? 1 : 0,
+  });
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    const arr = Array.from({ length: imagesSubset.length }, (_, i) => i);
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    const timer = setTimeout(() => {
+      setShuffledIndices(arr);
+      setIndices({ current: 0, next: arr.length > 1 ? 1 : 0 });
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [imagesSubset]);
+
+  useEffect(() => {
+    if (shuffledIndices.length <= 1) return;
+
+    const cycle = () => {
+      setIsTransitioning(true);
+      timeoutRef.current = setTimeout(() => {
+        setIndices((prev) => ({
+          current: prev.next,
+          next: (prev.next + 1) % shuffledIndices.length,
+        }));
+        setIsTransitioning(false);
+        timeoutRef.current = setTimeout(cycle, getRandomInterval());
+      }, 3000);
+    };
+
+    timeoutRef.current = setTimeout(cycle, startDelay);
+
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [shuffledIndices.length, startDelay]);
+
+  if (imagesSubset.length === 0) return null;
+
+  if (imagesSubset.length === 1) {
+    return (
+      <div className="crossfade-container">
+        <img src={imagesSubset[0]} alt="" className="crossfade-img current" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="crossfade-container">
+      <img
+        src={imagesSubset[shuffledIndices[indices.current]]}
+        alt=""
+        className={`crossfade-img current ${isTransitioning ? "fading" : ""}`}
+      />
+      <img
+        src={imagesSubset[shuffledIndices[indices.next]]}
+        alt=""
+        className={`crossfade-img next ${isTransitioning ? "visible" : ""}`}
+      />
+    </div>
+  );
+}
 
 function Parle() {
   const containerRef = useRef(null);
@@ -15,62 +261,174 @@ function Parle() {
 
   const campaigns = [
     {
-      prefix: "Glimpses of ",
+      prefix: "Parle ",
       highlight: (
         <>
-          Parle Diwali <br className="heading-br-desktop" />
-          Campaign
+          Father's Day <br className="heading-br-desktop" />
         </>
       ),
-      videos: [
-        HusbandAndWife,
-        Grandparents,
-        MotherAndDaughter,
-        Family,
-        Campaign11,
+      link: "https://youtube.com/shorts/Txqkm2Ycsxg?si=evp6iyjzw4X4FqLN",
+      elements: [
+        { type: "images", data: [FDImg1, FDImg2, FDImg3, FDImg4, FDImg5] },
+        { type: "youtube", data: "AXQ6-jh5VYE" },
+        { type: "images", data: [FDImg6, FDImg7, FDImg8, FDImg9, FDImg10] },
+        {
+          type: "images",
+          data: [FDImg11, FDImg12, FDImg13, FDImg14, FDImg15, FDImg16],
+        },
+        {
+          type: "images",
+          data: [FDImg17, FDImg18, FDImg19, FDImg20, FDImg21, FDImg22],
+        },
       ],
     },
     {
-      prefix: "Glimpses of ",
+      prefix: "Parle ",
       highlight: (
         <>
-          Parle Holi <br className="heading-br-desktop" />
-          Campaign
+          Holi <br className="heading-br-desktop" />
         </>
       ),
-      videos: [
-        ParleHoli,
-        HusbandAndWife,
-        Grandparents,
-        MotherAndDaughter,
-        Family,
+      link: "https://youtube.com/shorts/ETx79kHuM7c?si=amf4s4dlg44wIDLS",
+      elements: [
+        { type: "images", data: [HImg1, HImg2, HImg3, HImg4] },
+        { type: "youtube", data: "GjLc2w6TkfA" },
+        { type: "images", data: [HImg5, HImg6, HImg7, HImg8] },
+        { type: "images", data: [HImg9, HImg10, HImg11, HImg12] },
+        { type: "images", data: [HImg13, HImg14, HImg15] },
       ],
     },
     {
-      prefix: "Glimpses of ",
+      prefix: "Parle ",
       highlight: (
         <>
-          Parle Brand <br className="heading-br-desktop" />
-          Campaign
+          Diwali <br className="heading-br-desktop" />
         </>
       ),
-      videos: [
-        Campaign11,
-        Family,
-        MotherAndDaughter,
-        Grandparents,
-        HusbandAndWife,
+      link: "https://youtube.com/shorts/82cSfpGoh9c?si=uzDQjUizFls2I0Qt",
+      elements: [
+        { type: "images", data: [Img1, Img2, Img3, Img4, Img5] },
+        { type: "youtube", data: "yqZdK8_fR_k" },
+        { type: "images", data: [Img6, Img7, Img8, Img9, Img10] },
+        { type: "images", data: [Img11, Img12, Img13, Img14, Img15] },
+        { type: "images", data: [Img16, Img17, Img18, Img19] },
       ],
     },
     {
-      prefix: "Glimpses of ",
+      prefix: "Parle ",
       highlight: (
         <>
-          Parle G <br className="heading-br-desktop" />
-          Campaign
+          Diwali <br className="heading-br-desktop" />
         </>
       ),
-      videos: [Family, Campaign11, ParleHoli, HusbandAndWife, Grandparents],
+      link: "https://youtube.com/shorts/0bQHFoXyHjA?ssiSztrawIWjEDFHstW",
+      elements: [
+        { type: "images", data: [D2Img1, D2Img2, D2Img3, D2Img4, D2Img5] },
+        { type: "youtube", data: "rKWm1s4gnFg" },
+        { type: "images", data: [D2Img6, D2Img7, D2Img8, D2Img9, D2Img10] },
+        { type: "images", data: [D2Img11, D2Img12, D2Img13, D2Img14, D2Img15] },
+        { type: "images", data: [D2Img16, D2Img17] },
+      ],
+    },
+    {
+      prefix: "Parle ",
+      highlight: (
+        <>
+          Diwali <br className="heading-br-desktop" />
+        </>
+      ),
+      link: "https://youtube.com/shorts/FwJs7c4K0WI?si=l3AFOGo1vIk1lUL7",
+      elements: [
+        { type: "images", data: [D3Img1, D3Img2, D3Img3, D3Img4, D3Img5] },
+        { type: "youtube", data: "yY7_3HW50_g" },
+        { type: "images", data: [D3Img6, D3Img7, D3Img8, D3Img9, D3Img10] },
+        { type: "images", data: [D3Img11, D3Img12, D3Img13, D3Img14, D3Img15] },
+        { type: "images", data: [D3Img1, D3Img3, D3Img5] },
+      ],
+    },
+    {
+      prefix: "Parle ",
+      highlight: (
+        <>
+          Diwali <br className="heading-br-desktop" />
+        </>
+      ),
+      link: "https://youtube.com/shorts/3E-zedFPD3c?si=ivMYhazET39krC2c",
+      elements: [
+        { type: "images", data: [D4Img1, D4Img2, D4Img3] },
+        { type: "youtube", data: "Uz8RidY9S2s" },
+        { type: "images", data: [D4Img4, D4Img5, D4Img6] },
+        { type: "images", data: [D4Img7, D4Img8, D4Img9] },
+        { type: "images", data: [D4Img1, D4Img4, D4Img7] },
+      ],
+    },
+    {
+      prefix: "Ciena ",
+      highlight: (
+        <>
+          Event
+          <br className="heading-br-desktop" />
+        </>
+      ),
+      link: "https://youtu.be/i7lZxjti8Dk",
+      elements: [
+        { type: "images", data: [CImg1, CImg2, CImg3, CImg4] },
+        { type: "youtube", data: "i7lZxjti8Dk" },
+        { type: "images", data: [CImg5, CImg6, CImg7, CImg8] },
+        { type: "images", data: [CImg9, CImg10, CImg11, CImg12] },
+        { type: "images", data: [CImg13, CImg14, CImg15, CImg16] },
+      ],
+    },
+    {
+      prefix: "Lipton ",
+      highlight: (
+        <>
+          Product Shoot <br className="heading-br-desktop" />
+        </>
+      ),
+      elements: [
+        { type: "images", data: [LImg1, LImg2] },
+        { type: "image", data: LiptonMain },
+        { type: "images", data: [LImg3, LImg4] },
+        { type: "images", data: [LImg5, LImg6] },
+        { type: "images", data: [LImg7] },
+      ],
+    },
+    {
+      prefix: "Pukka ",
+      highlight: (
+        <>
+          Product Shoot <br className="heading-br-desktop" />
+        </>
+      ),
+      elements: [
+        { type: "images", data: [PImg1, PImg2, PImg3] },
+        { type: "image", data: PukkaMain },
+        { type: "images", data: [PImg4, PImg4_PNG, PImg5] },
+        { type: "images", data: [PImg6, PImg7, PImg10] },
+        { type: "images", data: [PImg11, PImg12, PImg13] },
+      ],
+    },
+    {
+      prefix: "Mahindra ",
+      highlight: (
+        <>
+          Mera Tractor Meri Kahani <br className="heading-br-desktop" />
+        </>
+      ),
+      elements: [
+        { type: "images", data: [MImg2, MImg3, MImg4, MImg5, MImg6, MImg7] },
+        { type: "image", data: MahindraMain },
+        {
+          type: "images",
+          data: [MImg8, MImg9, MImg10, MImg11, MImg12, MImg13],
+        },
+        {
+          type: "images",
+          data: [MImg14, MImg15, MImg16, MImg17, MImg18, MImg19],
+        },
+        { type: "images", data: [MImg20, MImg21, MImg22, MImg23, MImg24] },
+      ],
     },
   ];
 
@@ -125,11 +483,67 @@ function Parle() {
           >
             {campaigns.map((campaign, i) => (
               <div key={i} className="cinematography-work-grid other-work-grid">
-                {campaign.videos.map((vid, j) => (
-                  <article className="cinematography-work-set" key={j}>
-                    <video src={vid} autoPlay loop muted playsInline />
-                  </article>
-                ))}
+                {campaign.elements.map((el, j) => {
+                  const isCenter = j === 1;
+                  const hasLink = !!campaign.link;
+
+                  const handleClick = () => {
+                    if (isCenter && hasLink) {
+                      window.open(campaign.link, "_blank", "noopener,noreferrer");
+                    }
+                  };
+
+                  const elementStyle = isCenter && hasLink ? { cursor: "pointer" } : {};
+
+                  if (el.type === "video") {
+                    return (
+                      <article
+                        className="cinematography-work-set"
+                        key={j}
+                        onClick={handleClick}
+                        style={elementStyle}
+                      >
+                        <video src={el.data} autoPlay loop muted playsInline />
+                      </article>
+                    );
+                  } else if (el.type === "youtube") {
+                    return (
+                      <article
+                        className="cinematography-work-set"
+                        key={j}
+                        onClick={handleClick}
+                        style={elementStyle}
+                      >
+                        <iframe
+                          src={`https://www.youtube.com/embed/${el.data}?autoplay=1&mute=1&loop=1&playlist=${el.data}&controls=1&rel=0`}
+                          title="YouTube video player"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                        ></iframe>
+                      </article>
+                    );
+                  } else if (el.type === "image") {
+                    return (
+                      <article
+                        className="cinematography-work-set"
+                        key={j}
+                        onClick={handleClick}
+                        style={elementStyle}
+                      >
+                        <img src={el.data} alt="" />
+                      </article>
+                    );
+                  } else {
+                    return (
+                      <article className="cinematography-work-set" key={j}>
+                        <CrossfadeImages
+                          imagesSubset={el.data}
+                          startDelay={j * 2000}
+                        />
+                      </article>
+                    );
+                  }
+                })}
               </div>
             ))}
           </div>
