@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
-import CommercialsImage from "../../assets/Home/Services/Commercials/IMAGE.png";
+import CommercialsImage from "../../assets/Home/Services/Commercials/IMAGE.JPG";
 import CommercialsSVG from "../../assets/Home/Services/Commercials/megaphone-animated.svg";
 import NarrativesImage from "../../assets/Home/Services/Narratives/IMAGE.png";
 import ClapperboardSVG from "../../assets/Home/Services/Narratives/clapperboard-animated.svg";
-import VisualImage from "../../assets/Home/Services/Visual/IMAGE.png";
+import VisualImage from "../../assets/Home/Services/Visual/IMAGE.jpg";
 import CameraSVG from "../../assets/Home/Services/Visual/camera-animated.svg";
-import AIImage from "../../assets/Home/Services/AI/IMAGE.png";
+import AIImage from "../../assets/Home/Services/AI/IMAGE.jpg";
 import RobotSVG from "../../assets/Home/Services/AI/robot-animated.svg";
 import EventImage from "../../assets/Home/Services/Event/IMAGE.png";
 import EventCameraSVG from "../../assets/Home/Services/Event/camera-animated.svg";
@@ -14,8 +14,8 @@ const slides = [
   {
     image: CommercialsImage,
     svg: CommercialsSVG,
-    title: "Brand & Commercials",
-    desc: "Brand Films | Digital Advertisement | TVC's | Corporate Films | Product Films",
+    title: "Brand Films ",
+    desc: "Commercials| Digital Advertisement | TVC's | Corporate Films | Product Films",
     imgAlt: "Brand & Commercials Image",
     svgAlt: "Brand & Commercials SVG",
   },
@@ -46,8 +46,8 @@ const slides = [
   {
     image: EventImage,
     svg: EventCameraSVG,
-    title: "Event Management",
-    desc: "Corporate Events | Live Broadcasting | Stage Design & Technical Setup",
+    title: "Experiences",
+    desc: "Event Management | Corporate Events | Live Broadcasting | Stage Design & Technical Setup",
     imgAlt: "Event Management Image",
     svgAlt: "Event Management SVG",
   },
