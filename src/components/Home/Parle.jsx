@@ -258,7 +258,9 @@ function Parle() {
   const containerRef = useRef(null);
   const slideRef = useRef(null);
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  const [isSlideMoving, setIsSlideMoving] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
 
   const campaigns = [
@@ -450,27 +452,67 @@ function Parle() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // — Handle infinite snap wrapping after transition ends —
+  const handleTransitionEnd = () => {
+    if (currentSlide === campaigns.length + 1) {
+      setTransitionEnabled(false);
+      setCurrentSlide(1); // Snap back to first actual campaign
+    } else if (currentSlide === 0) {
+      setTransitionEnabled(false);
+      setCurrentSlide(campaigns.length); // Snap back to last actual campaign
+    } else {
+      setIsSlideMoving(false);
+    }
+  };
+
+  // — Re-enable transition in the next render cycle —
+  useEffect(() => {
+    if (!transitionEnabled) {
+      if (slideRef.current) {
+        // Trigger reflow
+        slideRef.current.offsetHeight;
+      }
+      const timer = setTimeout(() => {
+        setTransitionEnabled(true);
+        setIsSlideMoving(false);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [transitionEnabled]);
+
   // 👉 Move Next
   const handleNext = () => {
-    setCurrentSlide((prev) => Math.min(prev + 1, campaigns.length - 1));
+    if (!transitionEnabled || isSlideMoving) return;
+    setIsSlideMoving(true);
+    setCurrentSlide((prev) => prev + 1);
   };
 
   // 👉 Move Prev
   const handlePrev = () => {
-    setCurrentSlide((prev) => Math.max(prev - 1, 0));
+    if (!transitionEnabled || isSlideMoving) return;
+    setIsSlideMoving(true);
+    setCurrentSlide((prev) => prev - 1);
   };
-
-  const isFirst = currentSlide === 0;
-  const isLast = currentSlide === campaigns.length - 1;
   const translateX = -currentSlide * containerWidth;
+
+  // Safely get active campaign for header text without out-of-bounds errors
+  let displayIndex = currentSlide - 1;
+  if (displayIndex < 0) {
+    displayIndex = campaigns.length - 1;
+  } else if (displayIndex >= campaigns.length) {
+    displayIndex = 0;
+  }
+  const activeCampaign = campaigns[displayIndex];
+
+  const slidesToRender = [campaigns[campaigns.length - 1], ...campaigns, campaigns[0]];
 
   return (
     <section className="home-parle-wrapper">
       <div className="home-parle">
         <div className="template-heading">
           <h3 className="h3-semibold">
-            {campaigns[currentSlide].prefix}
-            <span>{campaigns[currentSlide].highlight}</span>
+            {activeCampaign.prefix}
+            <span>{activeCampaign.highlight}</span>
           </h3>
         </div>
 
@@ -478,13 +520,14 @@ function Parle() {
           <div
             className="home-parle-slide"
             ref={slideRef}
+            onTransitionEnd={handleTransitionEnd}
             style={{
               transform: `translateX(${translateX}px)`,
-              transition: "transform 0.4s ease",
+              transition: transitionEnabled ? "transform 0.4s ease" : "none",
               display: "flex",
             }}
           >
-            {campaigns.map((campaign, i) => (
+            {slidesToRender.map((campaign, i) => (
               <div key={i} className="cinematography-work-grid other-work-grid">
                 {campaign.elements.map((el, j) => {
                   const isCenter = j === 1;
@@ -518,7 +561,7 @@ function Parle() {
                         style={elementStyle}
                       >
                         <iframe
-                          src={`https://www.youtube.com/embed/${el.data}?controls=1&rel=0`}
+                          src={`https://www.youtube.com/embed/${el.data}?loop=1&playlist=${el.data}&cc_load_policy=0&controls=1&rel=0`}
                           title="YouTube video player"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowFullScreen
@@ -555,9 +598,7 @@ function Parle() {
               className="home-brands-button"
               onClick={handlePrev}
               style={{
-                opacity: isFirst ? 0.3 : 1,
-                cursor: isFirst ? "default" : "pointer",
-                pointerEvents: isFirst ? "none" : "auto",
+                cursor: "pointer",
               }}
             >
               <svg
@@ -596,9 +637,7 @@ function Parle() {
               className="home-brands-button"
               onClick={handleNext}
               style={{
-                opacity: isLast ? 0.3 : 1,
-                cursor: isLast ? "default" : "pointer",
-                pointerEvents: isLast ? "none" : "auto",
+                cursor: "pointer",
               }}
             >
               <svg

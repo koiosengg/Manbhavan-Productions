@@ -15,7 +15,7 @@ const slides = [
     image: CommercialsImage,
     svg: CommercialsSVG,
     title: "Brand Films ",
-    desc: "Commercials| Digital Advertisement | TVC's | Corporate Films | Product Films",
+    desc: "Commercials | Digital Advertisement | TVC's | Corporate Films | Product Films",
     imgAlt: "Brand & Commercials Image",
     svgAlt: "Brand & Commercials SVG",
   },
@@ -57,13 +57,11 @@ function Services() {
   const containerRef = useRef(null);
   const slideRef = useRef(null);
 
-  const [translateX, setTranslateX] = useState(0);
-  const [maxTranslate, setMaxTranslate] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  const [isSlideMoving, setIsSlideMoving] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [scrollState, setScrollState] = useState({
-    isFirst: true,
-    isLast: false,
-  });
+  const [containerWidth, setContainerWidth] = useState(0);
 
   // detect mobile
   useEffect(() => {
@@ -74,15 +72,15 @@ function Services() {
   }, []);
 
   useEffect(() => {
-    const update = () => {
-      if (!containerRef.current || !slideRef.current) return;
-      const containerWidth = containerRef.current.offsetWidth;
-      const scrollWidth = slideRef.current.scrollWidth;
-      setMaxTranslate(containerWidth - scrollWidth);
+    if (!containerRef.current) return;
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
+      }
     };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
   const getSlideWidth = () => {
@@ -90,17 +88,52 @@ function Services() {
     return firstSlide?.offsetWidth || containerRef.current?.offsetWidth || 0;
   };
 
+  // — Handle infinite snap wrapping after transition ends —
+  const handleTransitionEnd = () => {
+    if (isMobile) return;
+    if (currentSlide === slides.length + 1) {
+      setTransitionEnabled(false);
+      setCurrentSlide(1); // Snap back to first actual service
+    } else if (currentSlide === 0) {
+      setTransitionEnabled(false);
+      setCurrentSlide(slides.length); // Snap back to last actual service
+    } else {
+      setIsSlideMoving(false);
+    }
+  };
+
+  // — Re-enable transition in the next render cycle —
+  useEffect(() => {
+    if (isMobile) return;
+    if (!transitionEnabled) {
+      if (slideRef.current) {
+        // Trigger reflow
+        slideRef.current.offsetHeight;
+      }
+      const timer = setTimeout(() => {
+        setTransitionEnabled(true);
+        setIsSlideMoving(false);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [transitionEnabled, isMobile]);
+
   const handleNext = () => {
     if (isMobile) {
       const container = containerRef.current;
       if (!container) return;
-      container.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+      const isAtEnd =
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth - 10;
+      if (isAtEnd) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+      }
     } else {
-      const containerWidth = containerRef.current.offsetWidth;
-      setTranslateX((prev) => {
-        const next = prev - containerWidth;
-        return next < maxTranslate ? maxTranslate : next;
-      });
+      if (!transitionEnabled || isSlideMoving) return;
+      setIsSlideMoving(true);
+      setCurrentSlide((prev) => prev + 1);
     }
   };
 
@@ -108,43 +141,29 @@ function Services() {
     if (isMobile) {
       const container = containerRef.current;
       if (!container) return;
-      container.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+      if (container.scrollLeft <= 10) {
+        container.scrollTo({ left: container.scrollWidth, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+      }
     } else {
-      const containerWidth = containerRef.current.offsetWidth;
-      setTranslateX((prev) => {
-        const next = prev + containerWidth;
-        return next > 0 ? 0 : next;
-      });
+      if (!transitionEnabled || isSlideMoving) return;
+      setIsSlideMoving(true);
+      setCurrentSlide((prev) => prev - 1);
     }
   };
 
-  const isFirst = isMobile ? scrollState.isFirst : translateX === 0;
-  const isLast = isMobile ? scrollState.isLast : translateX <= maxTranslate + 1;
+  const translateX = -currentSlide * containerWidth;
 
-  // — Native scroll state for mobile —
-  useEffect(() => {
-    if (!isMobile) return;
-    const container = containerRef.current;
-    if (!container) return;
-
-    const onScroll = () => {
-      const isAtStart = container.scrollLeft <= 1;
-      const isAtEnd =
-        container.scrollLeft >=
-        container.scrollWidth - container.clientWidth - 1;
-      setScrollState({ isFirst: isAtStart, isLast: isAtEnd });
-    };
-
-    container.addEventListener("scroll", onScroll);
-    onScroll();
-    return () => container.removeEventListener("scroll", onScroll);
-  }, [isMobile]);
+  const slidesToRender = isMobile
+    ? slides
+    : [slides[slides.length - 1], ...slides, slides[0]];
 
   return (
     <section className="home-services" id="services">
       <div className="template-heading">
         <h3 className="h3-semibold">
-          What We{" "}
+          What We{"  "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="49"
@@ -178,15 +197,18 @@ function Services() {
           <div
             className="home-services-track"
             ref={slideRef}
+            onTransitionEnd={handleTransitionEnd}
             style={{
               transform: isMobile ? undefined : `translateX(${translateX}px)`,
               transition: isMobile
                 ? undefined
-                : "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)",
+                : transitionEnabled
+                  ? "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)"
+                  : "none",
               display: "flex",
             }}
           >
-            {slides.map((s, i) => (
+            {slidesToRender.map((s, i) => (
               <article className="home-services-set" key={i}>
                 <div className="home-services-set-img">
                   <img src={s.image} alt={s.imgAlt} />
@@ -209,9 +231,7 @@ function Services() {
             className="home-brands-button"
             onClick={handlePrev}
             style={{
-              opacity: isFirst ? 0.3 : 1,
-              cursor: isFirst ? "default" : "pointer",
-              pointerEvents: isFirst ? "none" : "auto",
+              cursor: "pointer",
             }}
           >
             <svg
@@ -251,9 +271,7 @@ function Services() {
             className="home-brands-button"
             onClick={handleNext}
             style={{
-              opacity: isLast ? 0.3 : 1,
-              cursor: isLast ? "default" : "pointer",
-              pointerEvents: isLast ? "none" : "auto",
+              cursor: "pointer",
             }}
           >
             <svg

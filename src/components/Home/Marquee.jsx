@@ -1,46 +1,43 @@
 import React from "react";
-import Limca from "../../assets/Home/Marquee/Limca.png";
 import Parle from "../../assets/Home/Marquee/Parle.png";
+import Limca from "../../assets/Home/Marquee/Limca.png";
 import MahindraTractors from "../../assets/Home/Marquee/MahindraT.png";
-import Lipton from "../../assets/Home/Marquee/Lipton.png";
-import Pukka from "../../assets/Home/Marquee/Pukka.png";
+import FamousStudios from "../../assets/Home/Marquee/Famous-studios.png";
 import Cinea from "../../assets/Home/Marquee/Cinea.jpeg";
-// import FamousStudios from "../../assets/Home/Marquee/Famous-studios.png";
-
-/* 
-  Missing Brand Assets to be added for Manbhavan Marquee:
-  - Famous Studios
-  - Colorblind
-  - River Engg.
-  - Arwachin Bharti Bhawan  
-*/
+import Pukka from "../../assets/Home/Marquee/Pukka.png";
+import Lipton from "../../assets/Home/Marquee/Lipton.png";
+import Sugarfit from "../../assets/Home/Marquee/Sugar fit.png";
+import Bgmi from "../../assets/Home/Marquee/BGMI.png";
+import Tata from "../../assets/Home/Marquee/Tata.png";
+import Dream11 from "../../assets/Home/Marquee/Dream11.png";
+import UPwarriorz from "../../assets/Home/Marquee/UP Warriorz.png";
 
 function Marquee() {
+  const logos = [
+    { src: Parle, alt: "Parle" },
+    { src: Limca, alt: "Limca" },
+    { src: MahindraTractors, alt: "Mahindra Tractors" },
+    { src: FamousStudios, alt: "Famous Studios", className: "famous-studios-logo" },
+    { src: Cinea, alt: "Cinea" },
+    { src: Pukka, alt: "Pukka" },
+    { src: Lipton, alt: "Lipton" },
+    { src: Sugarfit, alt: "Sugar fit" },
+    { src: Bgmi, alt: "BGMI" },
+    { src: Tata, alt: "Tata" },
+    { src: Dream11, alt: "Dream11" },
+    { src: UPwarriorz, alt: "UP Warriorz" },
+  ];
+
   return (
     <section className="home-marquee">
       <div className="home-marquee-wrapper">
         <div className="home-marquee-container">
-          <img src={Limca} alt="Limca" />
-          <img src={Parle} alt="Parle" />
-          <img src={MahindraTractors} alt="Mahindra Tractors" />
-          <img src={Lipton} alt="Lipton" />
-          <img src={Pukka} alt="Pukka" />
-          <img src={Cinea} alt="Cinea" />
-          {/* <img src={FamousStudios} alt="Famous Studios" className="famous-studios-logo" /> */}
-          <img src={Limca} alt="Limca" />
-          <img src={Parle} alt="Parle" />
-          <img src={MahindraTractors} alt="Mahindra Tractors" />
-          <img src={Lipton} alt="Lipton" />
-          <img src={Pukka} alt="Pukka" />
-          <img src={Cinea} alt="Cinea" />
-          {/* <img src={FamousStudios} alt="Famous Studios" className="famous-studios-logo" /> */}
-          <img src={Limca} alt="Limca" />
-          <img src={Parle} alt="Parle" />
-          <img src={MahindraTractors} alt="Mahindra Tractors" />
-          <img src={Lipton} alt="Lipton" />
-          <img src={Pukka} alt="Pukka" />
-          <img src={Cinea} alt="Cinea" />
-          {/* <img src={FamousStudios} alt="Famous Studios" className="famous-studios-logo" /> */}
+          {logos.map((logo, i) => (
+            <img key={`a-${i}`} src={logo.src} alt={logo.alt} className={logo.className || ""} />
+          ))}
+          {logos.map((logo, i) => (
+            <img key={`b-${i}`} src={logo.src} alt={logo.alt} className={logo.className || ""} />
+          ))}
         </div>
       </div>
       <div className="home-marquee-left"></div>

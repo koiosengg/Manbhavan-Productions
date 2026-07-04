@@ -9,7 +9,7 @@ const btsImages = Object.values(
 );
 
 const BASE_SET = btsImages;
-const DESKTOP_CLASSES = [3, 2, 1, 0, 1, 2, 3];
+const DESKTOP_CLASSES = [1, 0, 0, 1];
 const MOBILE_CLASSES = [1, 0, 1];
 
 const L = BASE_SET.length;

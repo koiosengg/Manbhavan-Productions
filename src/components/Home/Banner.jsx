@@ -6,7 +6,7 @@ const bannerImages = Object.values(
   import.meta.glob("../../assets/Home/Banner/Manbhavan Homepage/*.webp", {
     eager: true,
     import: "default",
-  })
+  }),
 );
 
 // Split images: 29 for top row, 30 for bottom row
@@ -19,13 +19,12 @@ function Banner() {
       <div className="home-banner-heading">
         <div className="home-banner-heading-text">
           <h1>
-            At Manbhavan Productions, <br />{" "}
-            <span>Every Frame Carries a Meaning.</span>{" "}
+            At Manbhavan Productions, <br />
+            <span>We create what stays.</span>
           </h1>
           <p>
-            We have partnered with India’s leading brands,
-            crafting impactful films that travel across screens and audiences
-            nationwide.
+            We have partnered with India’s leading brands, crafting impactful
+            films that travel across screens and audiences globally.
           </p>
         </div>
         <a href="#" className="navbar-button">
@@ -67,10 +66,18 @@ function Banner() {
         <div className="home-banner-background-wrapper">
           <div className="home-banner-background-marquee">
             {topMarqueeImages.map((src, index) => (
-              <img key={`marquee-top-${index}`} src={src} alt={`Banner Image ${index + 1}`} />
+              <img
+                key={`marquee-top-${index}`}
+                src={src}
+                alt={`Banner Image ${index + 1}`}
+              />
             ))}
             {topMarqueeImages.map((src, index) => (
-              <img key={`marquee-top-repeat-${index}`} src={src} alt={`Banner Image ${index + 1}`} />
+              <img
+                key={`marquee-top-repeat-${index}`}
+                src={src}
+                alt={`Banner Image ${index + 1}`}
+              />
             ))}
           </div>
         </div>
@@ -84,10 +91,18 @@ function Banner() {
         <div className="home-banner-background-wrapper">
           <div className="home-banner-background-marquee">
             {bottomMarqueeImages.map((src, index) => (
-              <img key={`marquee-bottom-${index}`} src={src} alt={`Banner Image ${index + 30}`} />
+              <img
+                key={`marquee-bottom-${index}`}
+                src={src}
+                alt={`Banner Image ${index + 30}`}
+              />
             ))}
             {bottomMarqueeImages.map((src, index) => (
-              <img key={`marquee-bottom-repeat-${index}`} src={src} alt={`Banner Image ${index + 30}`} />
+              <img
+                key={`marquee-bottom-repeat-${index}`}
+                src={src}
+                alt={`Banner Image ${index + 30}`}
+              />
             ))}
           </div>
         </div>

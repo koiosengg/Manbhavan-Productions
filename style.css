@@ -293,7 +293,7 @@ body {
   width: 100%;
   max-width: 767px;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
 }
 
@@ -357,12 +357,15 @@ body {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: marqueeScroll 30s linear infinite;
+  animation: marqueeScroll 60s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .home-banner-background-marquee img {
-  width: 240px;
   height: 172px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 8px;
   margin-left: 12px;
@@ -371,7 +374,10 @@ body {
 .home-banner-background
   .home-banner-background-wrapper:last-child
   .home-banner-background-marquee {
-  animation: marqueeScroll 30s linear infinite reverse;
+  animation: marqueeScroll 60s linear infinite reverse;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .home-banner-container {
@@ -445,10 +451,15 @@ body {
   animation: marqueeScroll 30s linear infinite reverse;
 }
 
+.home-marquee .home-marquee-wrapper:nth-child(2) .home-marquee-container {
+  animation: marqueeScroll 30s linear infinite;
+}
+
 .home-marquee-container img {
-  height: 120px;
-  object-fit: cover;
-  margin-left: 100px;
+  height: 80px;
+  width: 160px;
+  object-fit: contain;
+  margin-left: 60px;
 }
 
 .famous-studios-logo {
@@ -1140,6 +1151,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  align-self: center;
 }
 
 .home-holi-img img,
@@ -1517,7 +1529,7 @@ body {
   width: 30%;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
   gap: 20px;
   align-self: stretch;
@@ -1861,7 +1873,7 @@ body {
   content: "";
   position: absolute;
   width: 30%;
-  height: 60%;
+  height: 100%;
   top: 50%;
   z-index: 1;
   filter: blur(5px);
@@ -1889,11 +1901,13 @@ body {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  aspect-ratio: 1600 / 225;
+  height: 260px;
+  flex-shrink: 0;
 }
 
 .home-bts-set {
   width: 0;
+  height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1912,22 +1926,22 @@ body {
 
 .home-bts-set-3 {
   width: calc(5% - 16px);
-  aspect-ratio: 16/9;
+  height: 55%;
 }
 
 .home-bts-set-2 {
   width: calc(12.5% - 16px);
-  aspect-ratio: 16/9;
+  height: 68%;
 }
 
 .home-bts-set-1 {
-  width: calc(20% - 16px);
-  aspect-ratio: 16/9;
+  width: calc(22.5% - 16px);
+  height: 78%;
 }
 
 .home-bts-set-0 {
-  width: 25%;
-  aspect-ratio: 16/9;
+  width: 27.5%;
+  height: 100%;
 }
 
 .home-testimony {
@@ -2667,7 +2681,7 @@ footer {
   }
 
   .home-banner-container::before {
-    width: 188px;
+    width: 120px;
     height: 384px;
     background: #fff;
     filter: blur(40px);
