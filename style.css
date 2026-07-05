@@ -225,6 +225,7 @@ body {
   border: 1px solid #1b1b1b;
   text-decoration: none;
   transition: all 0.3s;
+  z-index: 3;
 }
 
 .navbar-button:hover {
@@ -1900,18 +1901,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  height: 260px;
+  gap: 2vw;
+  height: 24.75vw; /* Locked to center image height to prevent layout bounce */
   flex-shrink: 0;
 }
 
 .home-bts-set {
   width: 0;
   height: 0;
+  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   flex-shrink: 0;
@@ -1925,23 +1927,23 @@ body {
 }
 
 .home-bts-set-3 {
-  width: calc(5% - 16px);
-  height: 55%;
+  display: none;
 }
 
 .home-bts-set-2 {
-  width: calc(12.5% - 16px);
-  height: 68%;
+  display: none;
 }
 
 .home-bts-set-1 {
-  width: calc(22.5% - 16px);
-  height: 78%;
+  width: 24vw;
+  height: 13.5vw; /* 24vw * 9/16 */
+  opacity: 0.6;
 }
 
 .home-bts-set-0 {
-  width: 27.5%;
-  height: 100%;
+  width: 44vw;
+  height: 24.75vw; /* 44vw * 9/16 */
+  opacity: 1;
 }
 
 .home-testimony {
@@ -2010,8 +2012,9 @@ body {
 }
 
 .home-testimony-set img {
-  object-fit: cover;
+  object-fit: contain;
   margin-left: 0px;
+  width: auto;
 }
 
 .home-testimony-set-content {
@@ -2482,16 +2485,16 @@ footer {
     z-index: 2000;
   }
   .home-bts-slide {
-    /* Height locked to center image height: 55% wide × 9/16 = 30.94% of track width → ratio 100/30.94 ≈ 1600/495 */
-    aspect-ratio: 1600 / 495;
+    height: 30.94vw; /* 55vw * 9/16 */
+    gap: 1.5vw;
   }
   .home-bts-set-0 {
-    width: 55%;
-    aspect-ratio: 16/9;
+    width: 55vw;
+    height: 30.94vw;
   }
   .home-bts-set-1 {
-    width: calc(22% - 16px);
-    aspect-ratio: 16/9;
+    width: 22vw;
+    height: 12.38vw; /* 22vw * 9/16 */
   }
   .home-bts-set-2 {
     display: none;
@@ -3403,16 +3406,47 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-  /* BTS: single full-width image on mobile, no sides, locked height */
   .home-bts-slide {
-    aspect-ratio: 16 / 9;
+    height: 56.25vw; /* 100vw * 9/16 */
+    aspect-ratio: unset;
   }
   .home-bts-set-0 {
-    width: 100%;
-    aspect-ratio: 16/9;
+    width: 100vw;
+    height: 56.25vw;
   }
   .home-bts-set-1 {
     display: none;
+  }
+
+  /* Brands: show only 1 video card at a time under 768px */
+  .home-brands-set {
+    width: 100%;
+    align-items: center;
+  }
+  .home-brands-video-wrapper {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 9 / 16;
+  }
+  .home-brands-set p {
+    width: 100%;
+    max-width: 320px;
+    text-align: left;
+  }
+
+  /* Diwali: prevent numbers and text overlapping on mobile */
+  .home-diwali-numbers {
+    padding-top: 24px;
+    gap: 12px;
+  }
+  .home-diwali-numbers-set span {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+  .home-diwali-numbers-set p {
+    font-size: 13px;
+    text-align: center;
   }
 
   .home-testimony-container {

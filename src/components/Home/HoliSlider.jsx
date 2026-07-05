@@ -425,7 +425,8 @@ function CienaSlide({ cienaCounts }) {
           </div>
 
           <p className="l-regular">
-            Shoot + Live Switching + Broadcast + Lighting + Sound + Staging + Show Management
+            Shoot + Live Switching + Broadcast + Lighting + Sound + Staging +
+            Show Management
           </p>
         </div>
 
