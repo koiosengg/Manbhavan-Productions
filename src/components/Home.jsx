@@ -3,7 +3,7 @@ import Contact from "./Home/Contact";
 import Services from "./Home/Services";
 import Banner from "./Home/Banner";
 import Marquee from "./Home/Marquee";
-import Testimony from "./Home/Testimony";
+// import Testimony from "./Home/Testimony";
 import Brands from "./Home/Brands";
 import Reality from "./Home/Reality";
 import Parle from "./Home/Parle";
@@ -33,7 +33,7 @@ function Home() {
       </section>
       <Art />
       <BTS />
-      <Testimony />
+      {/* <Testimony /> */}
       <section id="contact">
         <Contact />
       </section>

@@ -18,8 +18,6 @@ function Reality() {
     return () => clearInterval(interval);
   }, []);
 
-
-
   return (
     <section className="home-reality-wrapper" ref={testimonyRef} id="reality">
       <div className="home-reality">
@@ -45,22 +43,19 @@ function Reality() {
         <div className="home-reality-container">
           <img src={RealityImage} />
           <p className="xl-regular">
-            Manbhavan Productions was born from a simple belief that most
-            powerful stories are the ones that feel deeply human. <br />
+            Manbhavan Productions was born from a simple belief that the most
+            powerful stories are the ones that feel deeply human.
+            <br /> <br />
+            We are a creative production house making films, commercials, music
+            videos, documentaries, and branded content that look beautiful and
+            leave a feeling behind. <br /> <br />
+            From concept development and creative direction to production, and
+            post-production, we offer end-to-end filmmaking services tailored to
+            each story's unique needs.
             <br />
-            We are a creative production house crafting films, advertisements,
-            music videos, and branded content that don’t just look beautiful,
-            but leave a feeling behind. <br />
-            <br />
-            Every frame we create is rooted in emotion, honesty, and thoughtful
-            storytelling. Whether it’s a brand trying to connect with people, an
-            artist expressing a vision, or a story waiting to be told, we
-            approach every project with heart, intention, and cinematic care.
-            <br />
-            <br />
-            At Manbhavan Productions, we create experiences that resonate,
-            stories that stay, and moments that feel real long after the screen
-            fades to black
+            <br /> At Manbhavan Productions, we create experiences that
+            resonate, stories that stay, and moments that feel real long after
+            the screen fades to black.
           </p>
         </div>
       </div>

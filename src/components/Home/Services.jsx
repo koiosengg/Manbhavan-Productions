@@ -182,12 +182,12 @@ function Services() {
           </svg>{" "}
           <span>
             & <br className="heading-br-desktop" />
-            Go Big On
+            Go Big On.
           </span>
         </h3>
         <p className="m-regular">
-          Have an idea? Don’t worry we have got you covered Umbrella of services
-          under one house
+          Have an idea? Don’t worry we have got you covered <br />
+          Umbrella of services under one house
         </p>
       </div>
 

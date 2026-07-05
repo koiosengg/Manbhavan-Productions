@@ -47,15 +47,13 @@ function Impact() {
 
   const testimonyRef = useRef(null);
 
-
-
   return (
     <section className="home-impact-wrapper" ref={testimonyRef}>
       <div className="home-impact">
         <div className="template-heading">
           <h3 className="h3-semibold">
-            How Ideas become <br className="heading-br-desktop" />
-            <span>Impact</span>
+            How ideas create <br className="heading-br-desktop" />
+            <span>impact.</span>
           </h3>
           <p className="m-regular">
             We handle every stage of a film, from the first brief to the final
@@ -101,8 +99,7 @@ function Impact() {
             <div className="home-impact-right-bottom"></div>
           </div>
           <h3 className="home-impact-text">
-            This is how <br />
-            <span>stories are crafted.</span>{" "}
+            <span> This is how stories are crafted.</span>{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="49"

@@ -5,7 +5,7 @@ const btsImages = Object.values(
   import.meta.glob("../../assets/Home/BTS/Phase 1/*.webp", {
     eager: true,
     import: "default",
-  })
+  }),
 );
 
 const BASE_SET = btsImages;
@@ -75,10 +75,11 @@ function BTS() {
         <div className="template-heading">
           <h3 className="h3-semibold">
             What We Have Got <br className="heading-br-desktop" />
-            <span>Behind the Scenes</span>
+            <span>Behind the Scenes.</span>
           </h3>
           <p className="m-regular">
-            A sneak peek into the creativity, collaboration, and high-energy production that goes into crafting every visual story.
+            A sneak peek into the creativity, collaboration, and high-energy
+            production that goes into crafting every visual story.
           </p>
         </div>
 
