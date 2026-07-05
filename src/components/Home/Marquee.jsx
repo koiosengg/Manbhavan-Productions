@@ -6,26 +6,19 @@ import FamousStudios from "../../assets/Home/Marquee/Famous-studios.png";
 import Cinea from "../../assets/Home/Marquee/Cinea.jpeg";
 import Pukka from "../../assets/Home/Marquee/Pukka.png";
 import Lipton from "../../assets/Home/Marquee/Lipton.png";
-import Sugarfit from "../../assets/Home/Marquee/Sugar fit.png";
-import Bgmi from "../../assets/Home/Marquee/BGMI.png";
-import Tata from "../../assets/Home/Marquee/Tata.png";
-import Dream11 from "../../assets/Home/Marquee/Dream11.png";
-import UPwarriorz from "../../assets/Home/Marquee/UP Warriorz.png";
 
 function Marquee() {
   const logos = [
+    { src: Lipton, alt: "Lipton" },
     { src: Parle, alt: "Parle" },
+    { src: Pukka, alt: "Pukka" },
     { src: Limca, alt: "Limca" },
     { src: MahindraTractors, alt: "Mahindra Tractors" },
+    // { type: "text", text: "Colorblind" },
+    // { type: "text", text: "River Engg." },
+    // { type: "text", text: "Arwachin Bharti Bhawan" },
+    { src: Cinea, alt: "Ciena" },
     { src: FamousStudios, alt: "Famous Studios", className: "famous-studios-logo" },
-    { src: Cinea, alt: "Cinea" },
-    { src: Pukka, alt: "Pukka" },
-    { src: Lipton, alt: "Lipton" },
-    { src: Sugarfit, alt: "Sugar fit" },
-    { src: Bgmi, alt: "BGMI" },
-    { src: Tata, alt: "Tata" },
-    { src: Dream11, alt: "Dream11" },
-    { src: UPwarriorz, alt: "UP Warriorz" },
   ];
 
   return (

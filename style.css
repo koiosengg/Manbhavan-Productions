@@ -3535,3 +3535,23 @@ footer {
     aspect-ratio: 1.35 !important;
   }
 }
+
+.marquee-text-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 160px;
+  margin-left: 60px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1b1b1b;
+  text-align: center;
+  border: 1.5px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 0 8px;
+  line-height: 1.3;
+}
