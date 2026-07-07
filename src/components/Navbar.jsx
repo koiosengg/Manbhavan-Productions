@@ -61,7 +61,7 @@ function Navbar() {
         <nav>
           <a href="#">Home</a>
           <a href="#reality">About Us</a>
-          <a href="#brands">Work</a>
+          <a href="#work">Work</a>
           <a href="#services">Service</a>
         </nav>
         <a href="#contact" className="navbar-button">
@@ -218,7 +218,7 @@ function Navbar() {
             <a href="#reality" onClick={handleLinkClick}>
               About
             </a>
-            <a href="#brands" onClick={handleLinkClick}>
+            <a href="#work" onClick={handleLinkClick}>
               Work
             </a>
             <a href="#services" onClick={handleLinkClick}>

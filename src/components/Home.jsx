@@ -23,9 +23,7 @@ function Home() {
         <Reality />
       </section>
       <Parle />
-      <section id="work">
-        <Brands />
-      </section>
+      <Brands />
       <HoliSlider />
       <Impact />
       <section id="services">

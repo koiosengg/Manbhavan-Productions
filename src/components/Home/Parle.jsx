@@ -520,7 +520,7 @@ function Parle() {
   const slidesToRender = [campaigns[campaigns.length - 1], ...campaigns, campaigns[0]];
 
   return (
-    <section className="home-parle-wrapper">
+    <section className="home-parle-wrapper" id="work">
       <div className="home-parle">
         <div className="template-heading">
           <h3 className="h3-semibold">
