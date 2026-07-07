@@ -1,13 +1,14 @@
 import React, { useRef } from "react";
-import MindImage from "../../assets/Home/Art/Mind Image.png";
+import MindImage from "../../assets/Home/Art/Mind Image.webp";
 
 function Art() {
   const testimonyRef = useRef(null);
 
-
-
   return (
-    <section className="home-brands-wrapper home-art-section-wrapper" ref={testimonyRef}>
+    <section
+      className="home-brands-wrapper home-art-section-wrapper"
+      ref={testimonyRef}
+    >
       <div className="home-art-wrapper">
         <section className="home-art">
           <img src={MindImage} alt="Mind Image" />
@@ -15,7 +16,12 @@ function Art() {
             <h2>
               THE MIND BEHIND <br /> THE PRODUCTIONS
             </h2>
-            <a href="https://www.bhrigavdua.com" target="_blank" rel="noopener noreferrer" className="primary-button">
+            <a
+              href="https://www.bhrigavdua.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="primary-button"
+            >
               <p className="m-bold">Meet the Founder</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/Home/Banner/Logo.png";
+import Logo from "../../assets/Home/Banner/Logo.webp";
 
 // Import all 59 homepage WebP images dynamically
 const bannerImages = Object.values(
@@ -84,7 +84,7 @@ function Banner() {
         <div className="home-banner-container">
           <img
             src={Logo}
-            alt="Logo.png Logo"
+            alt="Logo"
             className="home-banner-container-logo"
           />
         </div>

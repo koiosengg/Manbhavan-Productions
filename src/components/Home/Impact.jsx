@@ -2,30 +2,31 @@ import React, { useEffect, useRef, useState } from "react";
 import PostProduction from "../../assets/Home/Impact/Post Production.svg";
 import Development from "../../assets/Home/Impact/Development.svg";
 import PreProduction from "../../assets/Home/Impact/Pre Production.svg";
-import Timeline from "../../assets/Home/Impact/Timeline.png";
-import Line from "../../assets/Home/Impact/Timeline Line.png";
+import Timeline from "../../assets/Home/Impact/Timeline.webp";
+import Line from "../../assets/Home/Impact/Timeline Line.webp";
+
+const ITEMS = [
+  { img: PostProduction, text: "Post Production" },
+  { img: Development, text: "Development & Strategy" },
+  { img: PreProduction, text: "Pre Production" },
+];
+
+const TOTAL_ITEMS = ITEMS.length;
+const ITEM_HEIGHT = 60;
+const INTERVAL = 2500;
+const TRANSITION_TIME = 600;
 
 function Impact() {
-  const items = [
-    { img: PostProduction, text: "Post Production" },
-    { img: Development, text: "Development & Strategy" },
-    { img: PreProduction, text: "Pre Production" },
-  ];
-
-  const TOTAL_ITEMS = items.length;
-  const ITEM_HEIGHT = 60;
-  const INTERVAL = 2500;
-  const TRANSITION_TIME = 600;
-
   const [activeIndex, setActiveIndex] = useState(1);
   const [translateY, setTranslateY] = useState(0);
   const [animate, setAnimate] = useState(true);
 
-  const duplicatedItems = [...items, ...items];
+  const duplicatedItems = [...ITEMS, ...ITEMS];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % TOTAL_ITEMS);
+      setAnimate(true);
       setTranslateY((prev) => prev - ITEM_HEIGHT);
     }, INTERVAL);
 
@@ -36,12 +37,11 @@ function Impact() {
     const resetPoint = ITEM_HEIGHT * TOTAL_ITEMS;
 
     if (Math.abs(translateY) >= resetPoint) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setAnimate(false);
         setTranslateY(0);
       }, TRANSITION_TIME);
-    } else {
-      setAnimate(true);
+      return () => clearTimeout(timer);
     }
   }, [translateY]);
 

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import RealityImage from "../../assets/Home/Reality/Reality Image.png";
+import RealityImage from "../../assets/Home/Reality/Reality Image.webp";
 import Animation1 from "./Reality/Animation1";
 import Animation2 from "./Reality/Animation2";
 import Animation3 from "./Reality/Animation3";

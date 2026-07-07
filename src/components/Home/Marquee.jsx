@@ -1,11 +1,11 @@
 import React from "react";
-import Parle from "../../assets/Home/Marquee/Parle.png";
-import Limca from "../../assets/Home/Marquee/Limca.png";
-import MahindraTractors from "../../assets/Home/Marquee/MahindraT.png";
-import FamousStudios from "../../assets/Home/Marquee/Famous-studios.png";
-import Cinea from "../../assets/Home/Marquee/Cinea.jpeg";
-import Pukka from "../../assets/Home/Marquee/Pukka.png";
-import Lipton from "../../assets/Home/Marquee/Lipton.png";
+import Parle from "../../assets/Home/Marquee/Parle.webp";
+import Limca from "../../assets/Home/Marquee/Limca.webp";
+import MahindraTractors from "../../assets/Home/Marquee/MahindraT.webp";
+import FamousStudios from "../../assets/Home/Marquee/Famous-studios.webp";
+import Cinea from "../../assets/Home/Marquee/Cinea.webp";
+import Pukka from "../../assets/Home/Marquee/Pukka.webp";
+import Lipton from "../../assets/Home/Marquee/Lipton.webp";
 
 function Marquee() {
   const logos = [

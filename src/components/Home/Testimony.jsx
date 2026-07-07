@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Comma from "../../assets/Home/Testimony/Comma.png";
+import Comma from "../../assets/Home/Testimony/Comma.webp";
 
 function Testimony() {
   const testimonyRef = useRef(null);

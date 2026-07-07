@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/Home/Contact/Logo.png";
+import Logo from "../../assets/Home/Contact/Logo.webp";
 
 function Contact() {
   return (
@@ -89,8 +89,8 @@ function Contact() {
           <br className="desktop" /> Let's Talk.
         </h2>
         <p className="xl-regular">
-          Every project starts somewhere. <br className="desktop" /> Let yours
-          start at Manbhavan Productions.
+          Every project starts somewhere. Let yours start at Manbhavan
+          Productions.
         </p>
       </div>
       <form

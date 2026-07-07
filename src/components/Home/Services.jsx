@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
-import CommercialsImage from "../../assets/Home/Services/Commercials/IMAGE.JPG";
+import CommercialsImage from "../../assets/Home/Services/Commercials/IMAGE.webp";
 import CommercialsSVG from "../../assets/Home/Services/Commercials/megaphone-animated.svg";
-import NarrativesImage from "../../assets/Home/Services/Narratives/IMAGE.png";
+import NarrativesImage from "../../assets/Home/Services/Narratives/IMAGE.webp";
 import ClapperboardSVG from "../../assets/Home/Services/Narratives/clapperboard-animated.svg";
-import VisualImage from "../../assets/Home/Services/Visual/IMAGE.jpg";
+import VisualImage from "../../assets/Home/Services/Visual/IMAGE.webp";
 import CameraSVG from "../../assets/Home/Services/Visual/camera-animated.svg";
-import AIImage from "../../assets/Home/Services/AI/IMAGE.jpg";
+import AIImage from "../../assets/Home/Services/AI/IMAGE.webp";
 import RobotSVG from "../../assets/Home/Services/AI/robot-animated.svg";
-import EventImage from "../../assets/Home/Services/Event/IMAGE.png";
+import EventImage from "../../assets/Home/Services/Event/IMAGE.webp";
 import EventCameraSVG from "../../assets/Home/Services/Event/camera-animated.svg";
 
 const slides = [
