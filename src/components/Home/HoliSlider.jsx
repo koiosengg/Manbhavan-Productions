@@ -223,19 +223,19 @@ function HoliSlider() {
             }}
           >
             {/* Clone of Slide 3 (Diwali) at index 0 */}
-            <DiwaliSlide diwaliCounts={diwaliCounts} />
+            <DiwaliSlide diwaliCounts={diwaliCounts} isActive={isIntersecting && currentSlide === 0} />
 
             {/* Slide 1 (Father's Day) at index 1 */}
-            <FathersDaySlide fathersDayCount={fathersDayCount} />
+            <FathersDaySlide fathersDayCount={fathersDayCount} isActive={isIntersecting && currentSlide === 1} />
 
             {/* Slide 2 (Ciena Live Event) at index 2 */}
-            <CienaSlide cienaCounts={cienaCounts} />
+            <CienaSlide cienaCounts={cienaCounts} isActive={isIntersecting && currentSlide === 2} />
 
             {/* Slide 3 (Diwali) at index 3 */}
-            <DiwaliSlide diwaliCounts={diwaliCounts} />
+            <DiwaliSlide diwaliCounts={diwaliCounts} isActive={isIntersecting && currentSlide === 3} />
 
             {/* Clone of Slide 1 (Father's Day) at index 4 */}
-            <FathersDaySlide fathersDayCount={fathersDayCount} />
+            <FathersDaySlide fathersDayCount={fathersDayCount} isActive={isIntersecting && currentSlide === 4} />
           </div>
 
           <div className="home-brands-buttons">
@@ -326,22 +326,35 @@ function HoliSlider() {
 
 // ── Sub-components for slides to support clean cloning ──
 
-function FathersDaySlide({ fathersDayCount }) {
+function FathersDaySlide({ fathersDayCount, isActive }) {
   return (
     <div className="home-holi home-diwali home-holi-slide-item">
       <div className="home-holi-img">
-        <iframe
-          src="https://www.youtube.com/embed/AXQ6-jh5VYE?autoplay=1&mute=1&loop=1&playlist=AXQ6-jh5VYE&cc_load_policy=0&controls=1&rel=0"
-          title="Parle Father’s Day Campaign"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          style={{
-            width: "100%",
-            height: "100%",
-            border: "none",
-            borderRadius: "8px",
-          }}
-        />
+        {isActive ? (
+          <iframe
+            src="https://www.youtube.com/embed/AXQ6-jh5VYE?autoplay=1&mute=1&loop=1&playlist=AXQ6-jh5VYE&cc_load_policy=0&controls=1&rel=0"
+            title="Parle Father’s Day Campaign"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              borderRadius: "8px",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              borderRadius: "8px",
+              backgroundImage: "url(https://img.youtube.com/vi/AXQ6-jh5VYE/hqdefault.jpg)",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          />
+        )}
       </div>
       <div className="home-holi-text">
         <h2>PARLE FATHER’S DAY CAMPAIGN</h2>
@@ -378,22 +391,35 @@ function FathersDaySlide({ fathersDayCount }) {
   );
 }
 
-function DiwaliSlide({ diwaliCounts }) {
+function DiwaliSlide({ diwaliCounts, isActive }) {
   return (
     <div className="home-holi home-diwali home-holi-slide-item">
       <div className="home-holi-img">
-        <iframe
-          src="https://www.youtube.com/embed/yqZdK8_fR_k?autoplay=1&mute=1&loop=1&playlist=yqZdK8_fR_k&cc_load_policy=0&controls=1&rel=0"
-          title="Parle Diwali Campaign"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          style={{
-            width: "100%",
-            height: "100%",
-            border: "none",
-            borderRadius: "8px",
-          }}
-        />
+        {isActive ? (
+          <iframe
+            src="https://www.youtube.com/embed/yqZdK8_fR_k?autoplay=1&mute=1&loop=1&playlist=yqZdK8_fR_k&cc_load_policy=0&controls=1&rel=0"
+            title="Parle Diwali Campaign"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              borderRadius: "8px",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              borderRadius: "8px",
+              backgroundImage: "url(https://img.youtube.com/vi/yqZdK8_fR_k/hqdefault.jpg)",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          />
+        )}
       </div>
 
       <div className="home-holi-text">
@@ -434,22 +460,35 @@ function DiwaliSlide({ diwaliCounts }) {
   );
 }
 
-function CienaSlide({ cienaCounts }) {
+function CienaSlide({ cienaCounts, isActive }) {
   return (
     <div className="home-holi home-diwali home-holi-slide-item">
       <div className="home-holi-img">
-        <iframe
-          src="https://www.youtube.com/embed/i7lZxjti8Dk?autoplay=1&mute=1&loop=1&playlist=i7lZxjti8Dk&cc_load_policy=0&controls=1&rel=0"
-          title="Ciena Live Event"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          style={{
-            width: "100%",
-            height: "100%",
-            border: "none",
-            borderRadius: "8px",
-          }}
-        />
+        {isActive ? (
+          <iframe
+            src="https://www.youtube.com/embed/i7lZxjti8Dk?autoplay=1&mute=1&loop=1&playlist=i7lZxjti8Dk&cc_load_policy=0&controls=1&rel=0"
+            title="Ciena Live Event"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              borderRadius: "8px",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              borderRadius: "8px",
+              backgroundImage: "url(https://img.youtube.com/vi/i7lZxjti8Dk/hqdefault.jpg)",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          />
+        )}
       </div>
 
       <div className="home-holi-text">

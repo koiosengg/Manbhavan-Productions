@@ -262,6 +262,7 @@ function Parle() {
   const [transitionEnabled, setTransitionEnabled] = useState(true);
   const [isSlideMoving, setIsSlideMoving] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [isIntersecting, setIsIntersecting] = useState(false);
 
   const campaigns = [
     {
@@ -452,6 +453,18 @@ function Parle() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   // — Handle infinite snap wrapping after transition ends —
   const handleTransitionEnd = () => {
     if (currentSlide === campaigns.length + 1) {
@@ -542,6 +555,7 @@ function Parle() {
                   const elementStyle = isCenter && hasLink ? { cursor: "pointer" } : {};
 
                   if (el.type === "video") {
+                    const isActive = isIntersecting && i === currentSlide;
                     return (
                       <article
                         className="cinematography-work-set"
@@ -549,10 +563,15 @@ function Parle() {
                         onClick={handleClick}
                         style={elementStyle}
                       >
-                        <video src={el.data} autoPlay loop muted playsInline />
+                        {isActive ? (
+                          <video src={el.data} autoPlay loop muted playsInline />
+                        ) : (
+                          <div style={{ width: "100%", height: "100%", backgroundColor: "#000" }} />
+                        )}
                       </article>
                     );
                   } else if (el.type === "youtube") {
+                    const isActive = isIntersecting && i === currentSlide;
                     return (
                       <article
                         className="cinematography-work-set"
@@ -560,12 +579,24 @@ function Parle() {
                         onClick={handleClick}
                         style={elementStyle}
                       >
-                        <iframe
-                          src={`https://www.youtube.com/embed/${el.data}?loop=1&playlist=${el.data}&cc_load_policy=0&controls=1&rel=0`}
-                          title="YouTube video player"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen
-                        ></iframe>
+                        {isActive ? (
+                          <iframe
+                            src={`https://www.youtube.com/embed/${el.data}?loop=1&playlist=${el.data}&cc_load_policy=0&controls=1&rel=0`}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          ></iframe>
+                        ) : (
+                          <div
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              backgroundImage: `url(https://img.youtube.com/vi/${el.data}/hqdefault.jpg)`,
+                              backgroundPosition: "center",
+                              backgroundSize: "cover",
+                            }}
+                          />
+                        )}
                       </article>
                     );
                   } else if (el.type === "image") {
