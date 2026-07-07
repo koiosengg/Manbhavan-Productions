@@ -109,7 +109,7 @@ function BTS() {
           </div>
 
           <div className="home-brands-buttons">
-            <button className="home-brands-button" onClick={prev}>
+            <button className="home-brands-button" onClick={prev} aria-label="Previous Slide">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -143,7 +143,7 @@ function BTS() {
               </svg>
             </button>
 
-            <button className="home-brands-button" onClick={next}>
+            <button className="home-brands-button" onClick={next} aria-label="Next Slide">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

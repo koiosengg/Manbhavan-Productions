@@ -1,13 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Comma from "../../assets/Home/Testimony/Comma.webp";
 
 function Testimony() {
   const testimonyRef = useRef(null);
 
-
-
   return (
-    <section className="home-brands-wrapper home-testimony-section-wrapper" ref={testimonyRef}>
+    <section
+      className="home-brands-wrapper home-testimony-section-wrapper"
+      ref={testimonyRef}
+    >
       <div className="home-testimony">
         <div className="template-heading">
           <h3 className="h3-semibold">

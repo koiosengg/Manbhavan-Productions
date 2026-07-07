@@ -41,7 +41,7 @@ function Reality() {
         </div>
 
         <div className="home-reality-container">
-          <img src={RealityImage} />
+          <img src={RealityImage} alt="Behind the scenes on set" />
           <p className="xl-regular">
             Manbhavan Productions was born from a simple belief that the most
             powerful stories are the ones that feel deeply human.

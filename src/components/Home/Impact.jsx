@@ -88,7 +88,7 @@ function Impact() {
             </div>
           </div>
           <div className="home-impact-container-right">
-            <img src={Line} className="home-impact-line" />
+            <img src={Line} className="home-impact-line" alt="Timeline connector" />
 
             <div className="home-impact-right">
               <div className="home-impact-right-marquee">

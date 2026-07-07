@@ -230,6 +230,7 @@ function Services() {
           <button
             className="home-brands-button"
             onClick={handlePrev}
+            aria-label="Previous Slide"
             style={{
               cursor: "pointer",
             }}
@@ -270,6 +271,7 @@ function Services() {
           <button
             className="home-brands-button"
             onClick={handleNext}
+            aria-label="Next Slide"
             style={{
               cursor: "pointer",
             }}
