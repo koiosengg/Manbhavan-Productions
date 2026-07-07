@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import HusbandAndWife from "../../assets/Home/Parle/Campaign 1/Husband and Wife.mp4";
 import Grandparents from "../../assets/Home/Parle/Campaign 1/Grandparents.mp4";
 import MotherAndDaughter from "../../assets/Home/Parle/Campaign 1/Mother and Daughter.mp4";
@@ -92,24 +92,24 @@ function Brands() {
     }
   }, [transitionEnabled]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (!transitionEnabled || isTransitioning) return;
     setIsTransitioning(true);
     setCurrentSlide((prev) => prev + 1);
-  };
+  }, [transitionEnabled, isTransitioning]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     if (!transitionEnabled || isTransitioning) return;
     setIsTransitioning(true);
     setCurrentSlide((prev) => prev - 1);
-  };
+  }, [transitionEnabled, isTransitioning]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext();
     }, 3000);
     return () => clearInterval(timer);
-  }, [currentSlide, isTransitioning, transitionEnabled]);
+  }, [handleNext]);
 
   const moveAmount = cardWidth + 20;
   const translateX = -currentSlide * moveAmount;

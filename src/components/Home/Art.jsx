@@ -1,5 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useRef } from "react";
 import MindImage from "../../assets/Home/Art/Mind Image.png";
 
 function Art() {
@@ -16,7 +15,7 @@ function Art() {
             <h2>
               THE MIND BEHIND <br /> THE PRODUCTIONS
             </h2>
-            <Link to="/contact" className="primary-button">
+            <a href="https://www.bhrigavdua.com" target="_blank" rel="noopener noreferrer" className="primary-button">
               <p className="m-bold">Meet the Founder</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +47,7 @@ function Art() {
                   />
                 </g>
               </svg>
-            </Link>
+            </a>
           </div>
         </section>
       </div>

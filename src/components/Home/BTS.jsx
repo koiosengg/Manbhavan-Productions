@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-// Dynamically import all 35 WebP images from Phase 1
-const btsImages = Object.values(
-  import.meta.glob("../../assets/Home/BTS/Phase 1/*.webp", {
-    eager: true,
-    import: "default",
-  }),
-);
+// Dynamically import all WebP images from Phase 1 and sort them numerically by filename
+const btsImagesGlob = import.meta.glob("../../assets/Home/BTS/Phase 1/*.webp", {
+  eager: true,
+  import: "default",
+});
+
+const btsImages = Object.keys(btsImagesGlob)
+  .sort((a, b) => {
+    const numA = parseInt(a.match(/Img(\d+)\.webp$/)?.[1] || "0", 10);
+    const numB = parseInt(b.match(/Img(\d+)\.webp$/)?.[1] || "0", 10);
+    return numA - numB;
+  })
+  .map((key) => btsImagesGlob[key]);
 
 const BASE_SET = btsImages;
 const DESKTOP_CLASSES = [1, 0, 1];

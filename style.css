@@ -1853,9 +1853,9 @@ body {
   padding: 0px 160px;
 }
 
-.home-bts .template-heading p {
+/* .home-bts .template-heading p {
   width: 400px;
-}
+} */
 
 .home-bts-container {
   width: 100%;
@@ -2056,7 +2056,6 @@ body {
 }
 
 .home-contact-heading {
-  width: 620px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2628,6 +2627,8 @@ footer {
     padding: 12px 16px;
     align-items: center;
     justify-content: center;
+    max-width: 600px;
+    align-self: center;
   }
 
   /* Home */
@@ -2910,7 +2911,7 @@ footer {
   }
 
   .home-brands-video-wrapper {
-    height: 450px;
+    height: 530px;
     aspect-ratio: 9 / 16;
     overflow: hidden;
     border-radius: 8px;
@@ -3405,13 +3406,18 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+  .navbar .navbar-button {
+    max-width: none;
+  }
   .home-bts-slide {
-    height: 56.25vw; /* 100vw * 9/16 */
-    aspect-ratio: unset;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
   .home-bts-set-0 {
-    width: 100vw;
-    height: 56.25vw;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
   .home-bts-set-1 {
     display: none;
@@ -3424,14 +3430,16 @@ footer {
   }
   .home-brands-video-wrapper {
     width: 100%;
-    max-width: 320px;
     height: auto;
     aspect-ratio: 9 / 16;
   }
+  .home-brands .template-heading p {
+    width: 100%;
+  }
   .home-brands-set p {
     width: 100%;
-    max-width: 320px;
     text-align: left;
+    max-width: none;
   }
 
   /* Diwali: prevent numbers and text overlapping on mobile */
@@ -3480,6 +3488,9 @@ footer {
     height: 56px;
     margin: 0px;
   }
+  .home-banner {
+    margin-top: 64px;
+  }
 
   .home-testimony .template-heading svg {
     height: 30px;
@@ -3503,35 +3514,35 @@ footer {
     grid-row: span 1 !important;
     grid-column: span 1 !important;
     order: 1;
-    aspect-ratio: 1.35 !important;
+    aspect-ratio: 16 / 9 !important;
   }
 
   .other-work-grid .cinematography-work-set:nth-child(3) {
     grid-row: span 1 !important;
     grid-column: span 1 !important;
     order: 2;
-    aspect-ratio: 1.35 !important;
+    aspect-ratio: 16 / 9 !important;
   }
 
   .other-work-grid .cinematography-work-set:nth-child(2) {
     grid-row: span 1 !important;
     grid-column: span 2 !important;
     order: 3;
-    aspect-ratio: 1.1 !important; /* Slightly landscape/square-ish video */
+    aspect-ratio: 16 / 9 !important;
   }
 
   .other-work-grid .cinematography-work-set:nth-child(4) {
     grid-row: span 1 !important;
     grid-column: span 1 !important;
     order: 4;
-    aspect-ratio: 1.35 !important;
+    aspect-ratio: 16 / 9 !important;
   }
 
   .other-work-grid .cinematography-work-set:nth-child(5) {
     grid-row: span 1 !important;
     grid-column: span 1 !important;
     order: 5;
-    aspect-ratio: 1.35 !important;
+    aspect-ratio: 16 / 9 !important;
   }
 }
 

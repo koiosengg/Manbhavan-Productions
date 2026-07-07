@@ -27,7 +27,7 @@ function Banner() {
             films that travel across screens and audiences globally.
           </p>
         </div>
-        <a href="#" className="navbar-button">
+        <a href="https://www.bhrigavdua.com" target="_blank" rel="noopener noreferrer" className="navbar-button">
           <p>Know the Founder</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
