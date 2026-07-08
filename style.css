@@ -2457,7 +2457,25 @@ footer {
   opacity: 1;
   transform: scale(1);
 }
-
+.marquee-text-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 160px;
+  margin-left: 60px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1b1b1b;
+  text-align: center;
+  border: 1.5px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 0 8px;
+  line-height: 1.3;
+}
 @media screen and (max-width: 1200px) {
   .mobile {
     display: flex;
@@ -2642,7 +2660,7 @@ footer {
   }
   .home-banner::before,
   .home-banner::after {
-    width: 20%;
+    width: 15%;
   }
   .home-banner-heading {
     padding: 0px;
@@ -2700,6 +2718,16 @@ footer {
   .home-banner-background-marquee img {
     width: 144px;
     height: 100px;
+  }
+
+  .home-banner-background-marquee {
+    animation-duration: 100s;
+  }
+
+  .home-banner-background
+    .home-banner-background-wrapper:last-child
+    .home-banner-background-marquee {
+    animation-duration: 100s;
   }
 
   .home-marquee {
@@ -3491,6 +3519,14 @@ footer {
   .home-banner {
     margin-top: 64px;
   }
+  .home-banner-container-logo {
+    width: 130px;
+    height: 220px;
+  }
+  .home-banner-container::before {
+    width: 90px;
+    height: 280px;
+  }
 
   .home-testimony .template-heading svg {
     height: 30px;
@@ -3544,24 +3580,4 @@ footer {
     order: 5;
     aspect-ratio: 16 / 9 !important;
   }
-}
-
-.marquee-text-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80px;
-  width: 160px;
-  margin-left: 60px;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #1b1b1b;
-  text-align: center;
-  border: 1.5px dashed rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.03);
-  padding: 0 8px;
-  line-height: 1.3;
 }
