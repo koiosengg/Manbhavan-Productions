@@ -1,0 +1,7 @@
+# Manbhavan Productions
+
+> Portfolio and presentation website for Manbhavan Productions, a media and entertainment production company.
+
+## Primary Navigation
+
+- [Home](/) - Main landing page showcasing stories, services, and works by Manbhavan Productions.
