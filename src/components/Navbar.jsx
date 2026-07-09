@@ -78,7 +78,7 @@ function Navbar() {
         </a>
         <div className="navbar-mobile-socials">
           <a
-            href="#"
+            href="https://www.instagram.com/manbhavanproductions"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -114,7 +114,7 @@ function Navbar() {
             </svg>
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/company/manbhavanproductions/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -155,7 +155,7 @@ function Navbar() {
             </svg>
           </a>
           <a
-            href="#"
+            href="mailto:info@manbhavanproductions.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Mail"
