@@ -2716,8 +2716,9 @@ footer {
   }
 
   .home-banner-background-marquee img {
-    width: 144px;
     height: 100px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 
   .home-banner-background-marquee {
