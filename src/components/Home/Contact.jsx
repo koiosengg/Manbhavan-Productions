@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/Home/Contact/Logo.webp";
+import Logo from "../../assets/Home/Contact/Logo.png";
 
 function Contact() {
   return (
