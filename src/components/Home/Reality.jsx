@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
-import RealityImage from "../../assets/Home/Reality/Reality Image.webp";
+import { getCloudinaryImageUrl } from "../../utils/cloudinary";
+
+const RealityImage = getCloudinaryImageUrl("v1784112289/Reality_Image_jfpnqt");
 import Animation1 from "./Reality/Animation1";
 import Animation2 from "./Reality/Animation2";
 import Animation3 from "./Reality/Animation3";

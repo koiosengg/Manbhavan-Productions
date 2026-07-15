@@ -1,14 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
-import CommercialsImage from "../../assets/Home/Services/Commercials/IMAGE.webp";
+import { getCloudinaryImageUrl } from "../../utils/cloudinary";
+
 import CommercialsSVG from "../../assets/Home/Services/Commercials/megaphone-animated.svg";
-import NarrativesImage from "../../assets/Home/Services/Narratives/IMAGE.webp";
 import ClapperboardSVG from "../../assets/Home/Services/Narratives/clapperboard-animated.svg";
-import VisualImage from "../../assets/Home/Services/Visual/IMAGE.webp";
 import CameraSVG from "../../assets/Home/Services/Visual/camera-animated.svg";
-import AIImage from "../../assets/Home/Services/AI/IMAGE.webp";
 import RobotSVG from "../../assets/Home/Services/AI/robot-animated.svg";
-import EventImage from "../../assets/Home/Services/Event/IMAGE.webp";
 import EventCameraSVG from "../../assets/Home/Services/Event/camera-animated.svg";
+
+const CommercialsImage = getCloudinaryImageUrl("v1784112247/IMAGE_n4fa2g");
+const NarrativesImage = getCloudinaryImageUrl("v1784112192/IMAGE_nocnyi");
+const VisualImage = getCloudinaryImageUrl("v1784112215/IMAGE_vjqgvi");
+const AIImage = getCloudinaryImageUrl("v1784112265/IMAGE_sjuz3q");
+const EventImage = getCloudinaryImageUrl("v1784112232/IMAGE_oquu52");
 
 const slides = [
   {
