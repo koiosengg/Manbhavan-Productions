@@ -62,7 +62,7 @@ function Navbar() {
           <a href="#">Home</a>
           <a href="#reality">About Us</a>
           <a href="#work">Work</a>
-          <a href="#services">Service</a>
+          <a href="#services">Services</a>
         </nav>
         <a href="#contact" className="navbar-button">
           <p>Let's Talk</p>
@@ -188,7 +188,12 @@ function Navbar() {
             </svg>
           </a>
         </div>
-        <div className="mobile-navbar-button mobile" onClick={toggleMobileNav} role="button" aria-label="Toggle Navigation Menu">
+        <div
+          className="mobile-navbar-button mobile"
+          onClick={toggleMobileNav}
+          role="button"
+          aria-label="Toggle Navigation Menu"
+        >
           <img
             src={Menu}
             alt="Mobile navbar open"
@@ -214,7 +219,9 @@ function Navbar() {
           }`}
         >
           <nav className="nav-links">
-            <a href="#" onClick={handleLinkClick}>Home</a>
+            <a href="#" onClick={handleLinkClick}>
+              Home
+            </a>
             <a href="#reality" onClick={handleLinkClick}>
               About
             </a>

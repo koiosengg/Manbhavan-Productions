@@ -22,12 +22,13 @@ function Banner() {
             At Manbhavan Productions, <br />
             <span>We create what stays.</span>
           </h1>
-          <p>
-            We have partnered with India’s leading brands, crafting impactful
-            films that travel across screens and audiences globally.
-          </p>
         </div>
-        <a href="https://www.bhrigavdua.com" target="_blank" rel="noopener noreferrer" className="navbar-button">
+        <a
+          href="https://www.bhrigavdua.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="navbar-button"
+        >
           <p>Know the Founder</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,11 +83,7 @@ function Banner() {
           </div>
         </div>
         <div className="home-banner-container">
-          <img
-            src={Logo}
-            alt="Logo"
-            className="home-banner-container-logo"
-          />
+          <img src={Logo} alt="Logo" className="home-banner-container-logo" />
         </div>
         <div className="home-banner-background-wrapper">
           <div className="home-banner-background-marquee">
