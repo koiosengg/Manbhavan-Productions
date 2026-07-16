@@ -83,7 +83,7 @@ function Banner() {
           </div>
         </div>
         <div className="home-banner-container">
-          <img src={Logo} alt="Logo" className="home-banner-container-logo" />
+          <img src={Logo} alt="Manbhavan Productions Logo" className="home-banner-container-logo" />
         </div>
         <div className="home-banner-background-wrapper">
           <div className="home-banner-background-marquee">

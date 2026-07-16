@@ -14,7 +14,7 @@ function Footer() {
     <footer>
       <div className="footer-top">
         <div className="footer-top-heading">
-          <img src={Logo} alt="Logo" />
+          <img src={Logo} alt="Manbhavan Productions Logo" />
           <p className="xl-regular">Stories don't stop. Neither do we.</p>
         </div>
         <nav className="footer-top-links">

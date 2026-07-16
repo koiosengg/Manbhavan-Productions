@@ -1,5 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import Banner from "./Home/Banner";
+import SEO from "./SEO";
+import { HomePageStructuredData } from "../structured-data/index.jsx";
+
 
 const Contact = lazy(() => import("./Home/Contact"));
 const Services = lazy(() => import("./Home/Services"));
@@ -15,6 +18,11 @@ const Art = lazy(() => import("./Home/Art"));
 function Home() {
   return (
     <>
+      <SEO
+        title="Manbhavan Productions"
+        description="Manbhavan Productions crafts brand films, digital campaigns, and creative content for leading brands across India."
+      />
+      <HomePageStructuredData />
       <section id="home">
         <Banner />
       </section>

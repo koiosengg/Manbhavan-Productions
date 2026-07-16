@@ -2,16 +2,69 @@
 <html lang="en">
 
 <head>
+  <!-- STEP 1: Charset -->
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/favicon.svg" />
+
+  <!-- STEP 2: Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- STEP 3: Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.svg" />
+
+  <!-- STEP 4: Canonical (static fallback for home page) -->
+  <link rel="canonical" href="https://www.manbhavanproductions.com/" />
+
+  <!-- STEP 5: Title — under 60 characters -->
   <title>Manbhavan Productions</title>
+
+  <!-- STEP 6: Meta description — under 160 characters -->
+  <meta name="description" content="Manbhavan Productions crafts brand films, digital campaigns, and creative content for leading brands across India." />
+
+  <!-- STEP 7: Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.manbhavanproductions.com/" />
+  <meta property="og:title" content="Manbhavan Productions" />
+  <meta property="og:description" content="Manbhavan Productions crafts brand films, digital campaigns, and creative content for leading brands across India." />
+  <meta property="og:image" content="https://www.manbhavanproductions.com/Navbar%20Logo.png" />
+
+  <!-- STEP 8: Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Manbhavan Productions" />
+  <meta name="twitter:description" content="Brand films, digital campaigns, and creative content for leading brands." />
+  <meta name="twitter:image" content="https://www.manbhavanproductions.com/Navbar%20Logo.png" />
+
+  <!-- STEP 9: Font preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- STEP 10: Stylesheet last in head -->
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <div id="root"></div>
+  <!-- Crawler fallback — React replaces this on mount -->
+  <div id="root">
+    <header style="padding:20px;text-align:center;font-family:sans-serif;">
+      <h1 style="color:#1a1a1a;">Manbhavan Productions — Brand Films & Digital Campaigns</h1>
+      <p>Creative production house crafting brand films, digital campaigns, and content for leading Indian brands.</p>
+    </header>
+    <main style="padding:20px;max-width:800px;margin:0 auto;font-family:sans-serif;">
+      <section>
+        <h2>Our Services</h2>
+        <ul>
+          <li><strong>Brand Films:</strong> High-impact video storytelling for brands.</li>
+          <li><strong>Digital Campaigns:</strong> Social-first content for Reels, YouTube, and more.</li>
+          <li><strong>Creative Content:</strong> Product shoots, event coverage, and editorial.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> info@manbhavanproductions.com</p>
+      </section>
+    </main>
+  </div>
+
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
-</html>
+</html>
