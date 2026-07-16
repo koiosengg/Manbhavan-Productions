@@ -548,7 +548,7 @@ function Parle() {
 
                   const handleClick = () => {
                     if (isCenter && hasLink) {
-                      window.open(campaign.link, "_blank", "noopener,noreferrer");
+                      window.location.href = campaign.link;
                     }
                   };
 
@@ -581,7 +581,7 @@ function Parle() {
                       >
                         {isActive ? (
                           <iframe
-                            src={`https://www.youtube.com/embed/${el.data}?loop=1&playlist=${el.data}&cc_load_policy=0&controls=1&rel=0`}
+                            src={`https://www.youtube.com/embed/${el.data}?loop=1&playlist=${el.data}&cc_load_policy=3&controls=1&rel=0&mute=1`}
                             title="YouTube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen

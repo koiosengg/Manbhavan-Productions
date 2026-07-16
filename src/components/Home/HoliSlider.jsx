@@ -334,7 +334,7 @@ function FathersDaySlide({ fathersDayCount, isActive }) {
       <div className="home-holi-img">
         {isActive ? (
           <iframe
-            src="https://www.youtube.com/embed/AXQ6-jh5VYE?autoplay=1&mute=1&loop=1&playlist=AXQ6-jh5VYE&cc_load_policy=0&controls=1&rel=0"
+            src="https://www.youtube.com/embed/AXQ6-jh5VYE?autoplay=1&mute=1&loop=1&playlist=AXQ6-jh5VYE&cc_load_policy=3&controls=1&rel=0"
             title="Parle Father’s Day Campaign"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
@@ -399,7 +399,7 @@ function DiwaliSlide({ diwaliCounts, isActive }) {
       <div className="home-holi-img">
         {isActive ? (
           <iframe
-            src="https://www.youtube.com/embed/yqZdK8_fR_k?autoplay=1&mute=1&loop=1&playlist=yqZdK8_fR_k&cc_load_policy=0&controls=1&rel=0"
+            src="https://www.youtube.com/embed/yqZdK8_fR_k?autoplay=1&mute=1&loop=1&playlist=yqZdK8_fR_k&cc_load_policy=3&controls=1&rel=0"
             title="Parle Diwali Campaign"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
@@ -468,7 +468,7 @@ function CienaSlide({ cienaCounts, isActive }) {
       <div className="home-holi-img">
         {isActive ? (
           <iframe
-            src="https://www.youtube.com/embed/i7lZxjti8Dk?autoplay=1&mute=1&loop=1&playlist=i7lZxjti8Dk&cc_load_policy=0&controls=1&rel=0"
+            src="https://www.youtube.com/embed/i7lZxjti8Dk?autoplay=1&mute=1&loop=1&playlist=i7lZxjti8Dk&cc_load_policy=3&controls=1&rel=0"
             title="Ciena Live Event"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
