@@ -229,7 +229,7 @@ function Navbar() {
               Work
             </a>
             <a href="#services" onClick={handleLinkClick}>
-              Service
+              Services
             </a>
           </nav>
           <a

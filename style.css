@@ -251,7 +251,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 64px;
+  gap: 80px;
   position: relative;
   overflow: hidden;
 }
@@ -345,7 +345,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
   position: relative;
 }
 
@@ -2654,7 +2654,7 @@ footer {
   .home-banner {
     margin-top: 48px;
     padding: 0px 20px 64px 20px;
-    min-height: 85svh;
+    min-height: 90svh;
     justify-content: center;
     gap: 80px;
   }
@@ -2683,7 +2683,7 @@ footer {
   }
   .home-banner-heading-text h1 {
     color: var(--color-black-Primary, #1b1b1b);
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 400;
     letter-spacing: -1.28px;
   }
@@ -2742,11 +2742,13 @@ footer {
 
   .home-marquee-container img {
     height: 64px;
+    width: 100px;
     margin: 0px;
   }
 
   .home-marquee-container {
     gap: 32px;
+    animation-duration: 20s;
   }
 
   .template-heading h3 {
