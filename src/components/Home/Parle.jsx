@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import YoutubePlayer from "../YoutubePlayer";
 
 // Google Play assets (removed for Manbhavan-Productions)
 
@@ -571,7 +572,6 @@ function Parle() {
                       </article>
                     );
                   } else if (el.type === "youtube") {
-                    const isActive = isIntersecting && i === currentSlide;
                     return (
                       <article
                         className="cinematography-work-set"
@@ -579,24 +579,12 @@ function Parle() {
                         onClick={handleClick}
                         style={elementStyle}
                       >
-                        {isActive ? (
-                          <iframe
-                            src={`https://www.youtube.com/embed/${el.data}?loop=1&playlist=${el.data}&cc_load_policy=3&controls=1&rel=0&mute=1`}
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                          ></iframe>
-                        ) : (
-                          <div
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              backgroundImage: `url(https://img.youtube.com/vi/${el.data}/hqdefault.jpg)`,
-                              backgroundPosition: "center",
-                              backgroundSize: "cover",
-                            }}
-                          />
-                        )}
+                        <YoutubePlayer
+                          url={el.data}
+                          title="YouTube video player"
+                          autoplay={false}
+                          mute={true}
+                        />
                       </article>
                     );
                   } else if (el.type === "image") {

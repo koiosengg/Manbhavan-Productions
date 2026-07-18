@@ -507,10 +507,25 @@ body {
 .home-brands,
 .home-art-wrapper,
 .home-bts {
-  opacity: 0;
-  animation: realitySectionAnim linear forwards;
-  animation-timeline: view();
-  animation-range: entry 20% exit 80%;
+  /* Default: fully visible (fallback for iOS Safari < 17.2) */
+  opacity: 1;
+}
+
+/* Scroll-driven animation only when supported (iOS Safari 17.2+, Chrome 115+) */
+@supports (animation-timeline: view()) {
+  .home-reality,
+  .home-parle,
+  .home-holi-slider,
+  .home-holi,
+  .home-impact,
+  .home-brands,
+  .home-art-wrapper,
+  .home-bts {
+    opacity: 0;
+    animation: realitySectionAnim linear forwards;
+    animation-timeline: view();
+    animation-range: entry 20% exit 80%;
+  }
 }
 
 .home-reality {
@@ -1955,10 +1970,18 @@ body {
   padding: 80px 0px;
   position: sticky;
   top: 0;
-  opacity: 0;
-  animation: realitySectionAnim linear forwards;
+  /* Default: fully visible (fallback for iOS Safari < 17.2) */
+  opacity: 1;
   background-color: #f4f0e9;
-  animation-timeline: view();
+}
+
+/* Scroll-driven animation only when supported (iOS Safari 17.2+, Chrome 115+) */
+@supports (animation-timeline: view()) {
+  .home-testimony {
+    opacity: 0;
+    animation: realitySectionAnim linear forwards;
+    animation-timeline: view();
+  }
 }
 
 .home-testimony .template-heading {
@@ -2136,6 +2159,7 @@ body {
   outline: none;
   border-radius: 8px;
   background: rgba(27, 27, 27, 0.4);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   color: var(--color-black-200, #929292);
   font-family: "Plus Jakarta Sans";
