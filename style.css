@@ -2765,7 +2765,7 @@ footer {
   }
 
   .home-marquee-container img {
-    height: 64px;
+    height: 56px;
     width: 100px;
     margin: 0px;
   }
@@ -3540,10 +3540,6 @@ footer {
     display: none;
   }
 
-  .home-marquee-container img {
-    height: 56px;
-    margin: 0px;
-  }
   .home-banner {
     margin-top: 64px;
   }
