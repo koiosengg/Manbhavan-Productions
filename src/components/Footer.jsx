@@ -4,9 +4,20 @@ import Logo from "../assets/Footer/Logo.png";
 function Footer() {
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (!targetId || targetId === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    if (window.history.replaceState) {
+      window.history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search
+      );
     }
   };
 
@@ -26,9 +37,9 @@ function Footer() {
             Home
           </a>
           <a
-            href="#about"
+            href="#reality"
             className="m-semibold"
-            onClick={(e) => handleNavClick(e, "about")}
+            onClick={(e) => handleNavClick(e, "reality")}
           >
             About Us
           </a>

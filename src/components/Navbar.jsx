@@ -44,9 +44,25 @@ function Navbar() {
     };
   }, [isMobileNavOpen]);
 
-  const handleLinkClick = () => {
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
     if (isMobileNavOpen) {
       setIsMobileNavOpen(false);
+    }
+    if (!targetId || targetId === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    if (window.history.replaceState) {
+      window.history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search
+      );
     }
   };
 
@@ -55,21 +71,21 @@ function Navbar() {
       <header
         className={showHeader ? "header desktop show" : "header desktop hide"}
       >
-        <a href="#">
+        <a href="/" onClick={(e) => handleNavClick(e, "home")}>
           <img src={Logo} alt="Manbhavan Productions Logo" />
         </a>
         <nav>
-          <a href="#">Home</a>
-          <a href="#reality">About Us</a>
-          <a href="#work">Work</a>
-          <a href="#services">Services</a>
+          <a href="#home" onClick={(e) => handleNavClick(e, "home")}>Home</a>
+          <a href="#reality" onClick={(e) => handleNavClick(e, "reality")}>About Us</a>
+          <a href="#work" onClick={(e) => handleNavClick(e, "work")}>Work</a>
+          <a href="#services" onClick={(e) => handleNavClick(e, "services")}>Services</a>
         </nav>
-        <a href="#contact" className="navbar-button">
+        <a href="#contact" className="navbar-button" onClick={(e) => handleNavClick(e, "contact")}>
           <p>Let's Talk</p>
         </a>
       </header>
       <header className="navbar mobile">
-        <a href="#">
+        <a href="/" onClick={(e) => handleNavClick(e, "home")}>
           <img
             src={Logo}
             alt="Manbhavan Productions Logo"
@@ -219,23 +235,23 @@ function Navbar() {
           }`}
         >
           <nav className="nav-links">
-            <a href="#" onClick={handleLinkClick}>
+            <a href="#home" onClick={(e) => handleNavClick(e, "home")}>
               Home
             </a>
-            <a href="#reality" onClick={handleLinkClick}>
+            <a href="#reality" onClick={(e) => handleNavClick(e, "reality")}>
               About
             </a>
-            <a href="#work" onClick={handleLinkClick}>
+            <a href="#work" onClick={(e) => handleNavClick(e, "work")}>
               Work
             </a>
-            <a href="#services" onClick={handleLinkClick}>
+            <a href="#services" onClick={(e) => handleNavClick(e, "services")}>
               Services
             </a>
           </nav>
           <a
             href="#contact"
             className="navbar-button"
-            onClick={handleLinkClick}
+            onClick={(e) => handleNavClick(e, "contact")}
           >
             <p>Let's Talk</p>
           </a>
