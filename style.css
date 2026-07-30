@@ -2677,7 +2677,7 @@ footer {
 
   .home-banner {
     margin-top: 48px;
-    padding: 0px 20px 64px 20px;
+    padding: 0px 0px 64px 0px;
     min-height: 90svh;
     justify-content: center;
     gap: 80px;
@@ -2687,7 +2687,7 @@ footer {
     width: 15%;
   }
   .home-banner-heading {
-    padding: 0px;
+    padding: 0px 20px;
   }
 
   .home-banner-heading-text {
