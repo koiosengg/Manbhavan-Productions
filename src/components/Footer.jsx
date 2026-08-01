@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/Footer/Logo.png";
+import Logo from "../assets/Footer/Logo1.png";
 
 function Footer() {
   const handleNavClick = (e, targetId) => {
@@ -25,7 +25,7 @@ function Footer() {
     <footer>
       <div className="footer-top">
         <div className="footer-top-heading">
-          <img src={Logo} alt="Manbhavan Productions Logo" />
+          <img src={Logo} alt="Manbhavan Productions Logo" width="330" height="104" />
           <p className="xl-regular">Stories don't stop. Neither do we.</p>
         </div>
         <nav className="footer-top-links">

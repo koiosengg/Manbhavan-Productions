@@ -1,9 +1,9 @@
 import React from "react";
 
-const HusbandAndWife = "https://res.cloudinary.com/hozb8ehy/video/upload/q_auto/v1784111515/Husband_and_Wife_vjlew0.mp4";
-const Grandparents = "https://res.cloudinary.com/hozb8ehy/video/upload/q_auto/v1784111508/Grandparents_w1sjqk.mp4";
-const MotherAndDaughter = "https://res.cloudinary.com/hozb8ehy/video/upload/q_auto/v1784111514/Mother_and_Daughter_ujvzts.mp4";
-const Family = "https://res.cloudinary.com/hozb8ehy/video/upload/q_auto/v1784111501/Family_rx0gwl.mp4";
+const HusbandAndWife = "https://github.com/koiosengg/Manbhavan-Productions/releases/download/v1.0.0-media/Husband_and_Wife_vjlew0.mp4";
+const Grandparents = "https://github.com/koiosengg/Manbhavan-Productions/releases/download/v1.0.0-media/Grandparents_w1sjqk.mp4";
+const MotherAndDaughter = "https://github.com/koiosengg/Manbhavan-Productions/releases/download/v1.0.0-media/Mother_and_Daughter_ujvzts.mp4";
+const Family = "https://github.com/koiosengg/Manbhavan-Productions/releases/download/v1.0.0-media/Family_rx0gwl.mp4";
 
 function Campaign1() {
   return (
@@ -15,6 +15,7 @@ function Campaign1() {
         autoPlay
         loop
         playsInline
+        preload="metadata"
         className="home-parle-set-video-1"
       />
       <video
@@ -24,6 +25,7 @@ function Campaign1() {
         autoPlay
         loop
         playsInline
+        preload="metadata"
         className="home-parle-set-video-2"
       />
       <p className="l-regular">
@@ -39,6 +41,7 @@ function Campaign1() {
         autoPlay
         loop
         playsInline
+        preload="metadata"
         className="home-parle-set-video-3"
       />
       <video
@@ -48,6 +51,7 @@ function Campaign1() {
         autoPlay
         loop
         playsInline
+        preload="metadata"
         className="home-parle-set-video-4"
       />
     </article>
