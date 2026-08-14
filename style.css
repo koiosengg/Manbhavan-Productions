@@ -260,7 +260,7 @@ body {
 .home-banner::after {
   content: "";
   position: absolute;
-  width: 30%;
+  width: 5%;
   height: 100%;
   top: 50%;
   z-index: 1;
@@ -2684,7 +2684,7 @@ footer {
   }
   .home-banner::before,
   .home-banner::after {
-    width: 15%;
+    width: 5%;
   }
   .home-banner-heading {
     padding: 0px 20px;
