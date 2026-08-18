@@ -45,8 +45,9 @@ function Reality() {
         <div className="home-reality-container">
           <img src={RealityImage} alt="Behind the scenes on set" />
           <p className="xl-regular">
-            <strong>Manbhavan Productions Pvt Ltd.</strong> was born from a simple belief that
-            the most powerful stories are the ones that feel deeply human.
+            <strong>Manbhavan Productions Private Limited</strong> was born from
+            a simple belief that the most powerful stories are the ones that
+            feel deeply human.
             <br /> <br />
             We are a creative production house making films, commercials, music
             videos, documentaries, and branded content that look beautiful and
